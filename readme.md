@@ -1,0 +1,5 @@
+# REMANR (React Express Mongo Axios React)
+
+## Overview
+
+This will be a full stack boiler template for React, Express, Mongo, Axios, and React. There will be other packages included. 
