@@ -11,7 +11,6 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Main} />
         </Switch>
-        REMANR Boiler Template
       </div>
     </Router>
   )
