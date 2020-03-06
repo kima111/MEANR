@@ -15,4 +15,6 @@ This will be a full stack boiler template for Redux, Express, Mongo, Axios, and 
 * React-Router-DOM
 * Nodemon
 * Concurrently
+* Passport
+* BcryptJS
 
