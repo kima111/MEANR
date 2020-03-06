@@ -43,17 +43,19 @@ export default function index() {
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <input class="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" />
+                        <br />
+                        <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" />
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-primary">Register</button>
                     </div>
                 </div>
             </div>
