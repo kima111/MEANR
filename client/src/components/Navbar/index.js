@@ -1,7 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 
-export default function index() {
+function handleLogin(username, password){
+    console.log(username + password);
+}
+
+export default function Navbar() {
+    
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    
     return (
         <div>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -49,12 +57,16 @@ export default function index() {
                         </button>
                     </div>
                     <div className="modal-body">
-                        <input className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" />
+                        <input className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)}/>
                         <br />
-                        <input className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" />
+                        <input className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)}/>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-primary">Login</button>
+                        <button type="button" onClick = {(event) => {
+                            event.preventDefault();
+                            handleLogin({username}, {password})
+                            }
+                        } className="btn btn-primary">Login</button>
                         <button type="button" className="btn btn-primary">Register</button>
                     </div>
                 </div>
