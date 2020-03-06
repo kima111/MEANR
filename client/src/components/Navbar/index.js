@@ -29,33 +29,33 @@ export default function index() {
                     </div>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</Link>
+                        <Link className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</Link>
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                         Login
                     </button>
                 </form>
             </div>
         </nav>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLongTitle">Login</h5>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <input class="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" />
+                    <div className="modal-body">
+                        <input className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" />
                         <br />
-                        <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" />
+                        <input className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" />
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Login</button>
-                        <button type="button" class="btn btn-primary">Register</button>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-primary">Login</button>
+                        <button type="button" className="btn btn-primary">Register</button>
                     </div>
                 </div>
             </div>
