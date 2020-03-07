@@ -1,9 +1,6 @@
 import React, {useState} from 'react'
+import API from '../../utils/API'
 import { Link } from 'react-router-dom';
-
-function handleLogin(username, password){
-    console.log(username + password);
-}
 
 export default function Navbar() {
     
@@ -64,7 +61,8 @@ export default function Navbar() {
                     <div className="modal-footer">
                         <button type="button" onClick = {(event) => {
                             event.preventDefault();
-                            handleLogin({username}, {password})
+                            // API.authenticateUser(username, password)
+                            API.authenticateUser();
                             }
                         } className="btn btn-primary">Login</button>
                         <button type="button" className="btn btn-primary">Register</button>
