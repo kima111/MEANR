@@ -1,11 +1,9 @@
-import React, {useState} from 'react'
-import API from '../../utils/API'
+import React from 'react'
 import { Link } from 'react-router-dom';
+import Register from '../Register';
+import Login from '../Login';
 
 export default function Navbar() {
-    
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
     
     return (
         <div>
@@ -38,37 +36,22 @@ export default function Navbar() {
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <button type="button" className="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
                         Login
+                    </button>
+                    &nbsp;&nbsp;
+                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
+                        Register
                     </button>
                 </form>
             </div>
         </nav>
         <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered" role="document">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLongTitle">Login</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div className="modal-body">
-                        <input className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)}/>
-                        <br />
-                        <input className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)}/>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" onClick = {(event) => {
-                            event.preventDefault();
-                                API.authenticateUser(username, password)
-                            }
-                        } className="btn btn-primary">Login</button>
-                        <button type="button" className="btn btn-primary">Register</button>
-                    </div>
-                </div>
-            </div>
-        </div>        
+            <Login />
+        </div> 
+        <div className="modal fade" id="exampleModalCenter2" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <Register />
+        </div>          
     </div>
     )
 }

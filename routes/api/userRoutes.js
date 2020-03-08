@@ -3,7 +3,7 @@ const router = require("express").Router();
 const userController = require("../../controllers/userController")
 
 router.use("/", function(req, res){
-console.log(req)
+console.log(req.body)
 res.send('hello from the other side')
 })
 

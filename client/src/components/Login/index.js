@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import API from '../../utils/API'
 
-export default function Register() {
+export default function Login() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -11,7 +11,7 @@ export default function Register() {
             <div className="modal-dialog modal-dialog-centered" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLongTitle">Register</h5>
+                        <h5 className="modal-title" id="exampleModalLongTitle">Login</h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -26,7 +26,7 @@ export default function Register() {
                             event.preventDefault();
                                 API.authenticateUser(username, password)
                             }
-                        } className="btn btn-primary">Register</button>
+                        } className="btn btn-primary">Login</button>
                     </div>
                 </div>
             </div>
