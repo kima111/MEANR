@@ -61,8 +61,7 @@ export default function Navbar() {
                     <div className="modal-footer">
                         <button type="button" onClick = {(event) => {
                             event.preventDefault();
-                            // API.authenticateUser(username, password)
-                            API.authenticateUser();
+                                API.authenticateUser(username, password)
                             }
                         } className="btn btn-primary">Login</button>
                         <button type="button" className="btn btn-primary">Register</button>
