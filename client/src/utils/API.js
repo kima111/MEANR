@@ -2,12 +2,13 @@ import axios from "axios";
 
 export default {
   authenticateUser: function(username, password) {
-   axios.post("/", {
+      console.log("HERE")
+   axios.post("/api/user", {
        username, 
        password
    })
    .then(response=>{
-       console.log(response)
+       console.log(response.data)
        if(response.data){
            console.log('successful signup')
        }
@@ -16,8 +17,7 @@ export default {
        }
    })
    .catch(error=>{
-       console.log('Sign in server error: ');
-       console.log(error)
+       console.log('Sign in server error: ' + error);
    })
   }
 };
