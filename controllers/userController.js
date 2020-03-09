@@ -8,5 +8,13 @@ module.exports = {
         .then(dbModel => res.json(dbModel))
         .catch(error => res.status(422).json(error));
 
-  }
+  },
+//   findUser: function(req, res){
+//     console.log(req + "OVERHERE")
+//     db.users
+//         .findOne(req.body.username)
+//         .then(dbModel => res.json(dbModel))
+//         .catch(error => res.status(422).json(error));
+
+//   }
 }
