@@ -29,14 +29,6 @@ var userSchema = new Schema({
     required: true,
     default: "Player"
   },
-  inventory: [
-    {
-      // Store ObjectIds in the array
-      type: schema.Types.ObjectId,
-      // The ObjectIds will refer to the ids in the Note model
-      ref: "Inventory"
-    }
-  ],
 });
 
 userSchema.methods = {

@@ -33,7 +33,7 @@ export default function Register() {
                     <div className="modal-footer">
                         <button type="button" onClick = {(event) => {
                             event.preventDefault();
-                                API.authenticateUser(username, password)
+                                API.registerUser(firstName, lastName, username, password, email)
                             }
                         } className="btn btn-primary">Register</button>
                     </div>
