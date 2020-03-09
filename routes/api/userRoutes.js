@@ -7,9 +7,12 @@ console.log(req.body)
 res.send('hello from the other side')
 })
 
-router.use("/register", function(req, res){
-    console.log(req.body)
-    res.send('hello from the other side register')
-})
+// router.use("/register", function(req, res){
+//     console.log(req.body)
+//     res.send('hello from the other side register')
+// })
+
+router.route("/register")
+    .post(userController.createUser);
 
 module.exports = router;
