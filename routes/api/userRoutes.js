@@ -12,8 +12,8 @@ const userController = require("../../controllers/userController")
 //     res.send('hello from the other side register')
 // })
 
-// router.route("/login")
-//     .get(userController.findUser)
+router.route("/login")
+    .post(userController.findUser)
 
 router.route("/register")
     .post(userController.createUser);

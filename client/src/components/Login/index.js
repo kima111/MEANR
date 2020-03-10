@@ -24,7 +24,7 @@ export default function Login() {
                     <div className="modal-footer">
                         <button type="button" onClick = {(event) => {
                             event.preventDefault();
-                                API.authenticateUser(username, password)
+                                API.authenticateUser({username: username, password: password})
                             }
                         } className="btn btn-primary">Login</button>
                     </div>
