@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-
-// Save a reference to the Schema constructor
 const Schema = mongoose.Schema;
 
-// Using the Schema constructor, create a new UserSchema object
-// This is similar to a Sequelize model
 const userSchema = new Schema({
 
     firstName: {

@@ -3,8 +3,13 @@ import axios from "axios";
 export default {
 //authenticate user route
     authenticateUser: function(userData) {
-        console.log(userData)
         axios.post("/api/user/login", userData)
+        .then(response => {
+            console.log(response.data)
+        })
+        .catch(error => {
+            console.log(error)
+        })
 //    .then(response=>{
 //         // console.log(response.data)
 //         if(response.data){
@@ -20,7 +25,6 @@ export default {
     },
 //register user route
     registerUser: function(firstName, lastName, username, password, email) {
-        console.log("HERE")
         axios.post("/api/user/register", {
             firstName,
             lastName,
@@ -29,7 +33,6 @@ export default {
             email
         })
         .then(response=>{
-            console.log(response.data)
             if(response.data){
                 console.log('successful signup')
             }
