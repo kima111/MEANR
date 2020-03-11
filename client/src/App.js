@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../src/components/Navbar'
+import Layout from '../src/components/Layout'
 import Main from '../src/components/Main'
 import About from '../src/components/About'
 import Register from '../src/components/Register'
@@ -9,7 +9,8 @@ export default function App() {
   return (
     <Router>
       <div>
-        <Navbar />
+        <Layout>
+        </Layout>
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/Register" component={Register} />
