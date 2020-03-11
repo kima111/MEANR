@@ -37,25 +37,25 @@ const userSchema = new Schema({
     },
 });
 
-// userSchema.methods = {
-//   checkPassword: function(inputPassword) {
-//     return bcrypt.compareSync(inputPassword, this.password);
-//   },
-//   hashPassword: plainTextPassword => {
-//     return bcrypt.hashSync(plainTextPassword, 10);
-//   }
-// };
+userSchema.methods = {
+  checkPassword: function(inputPassword) {
+    return bcrypt.compareSync(inputPassword, this.password);
+  },
+  hashPassword: plainTextPassword => {
+    return bcrypt.hashSync(plainTextPassword, 10);
+  }
+};
 
-// userSchema.pre("save", function(next) {
-//   if (!this.password) {
-//     console.log("models/User.js ======= NO PASSWORD PROVIDED =======");
-//     next();
-//   } else {
-//     console.log("models/User.js hashPassword in pre save.");
-//     this.password = this.hashPassword(this.password);
-//     next();
-//   }
-// });
+userSchema.pre("save", function(next) {
+  if (!this.password) {
+    console.log("No Password Provided");
+    next();
+  } else {
+    console.log("Saved User with hashed Password");
+    this.password = this.hashPassword(this.password);
+    next();
+  }
+});
 
 // // This creates our model from the above schema, using mongoose's model method
 const users = mongoose.model("User", userSchema);

@@ -1,4 +1,5 @@
 const db = require("../models");
+const localStrategy = require("passport-local").Strategy;
 
 // Defining methods for the userController
 module.exports = {
@@ -20,6 +21,9 @@ module.exports = {
             }
             if(!user){
                 console.log("Incorrect username")
+            }
+            if(!user.checkPassword(password)){
+                console.log("Oi")
             }
             return console.log("YO")
         })
