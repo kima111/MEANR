@@ -16,9 +16,12 @@ module.exports = {
     db.users
         .findOne({username: req.body.username}, (error, user) => {
             if(error){
-                return done(error)
+                console.log("ERROR")
             }
-            return done(null, user)
+            if(!user){
+                console.log("Incorrect username")
+            }
+            return console.log("YO")
         })
         // .then(dbModel => res.json(dbModel))
         // .catch(error => res.status(422).json(error));
