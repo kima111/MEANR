@@ -5,6 +5,7 @@ export default {
     authenticateUser: function(userData) {
         axios.post("/api/user/login", userData)
         .then(response => {
+            console.log("I GOT HERE")
             console.log(response.data)
         })
         .catch(error => {

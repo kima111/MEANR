@@ -17,25 +17,23 @@ module.exports = {
   findUser: function(req, res){
 
     const password = req.body.password;
-    const status = true;
     db.users
         .findOne({username: req.body.username}, (error, user) => {
             if(error){
-                status = false;
                 return (error);
             }
-            else if(!user){
-                status  = false;
+            if(!user){
                 console.log("Incorrect username")
+                res.json(null)
                 return (null, false);
                 
             }
             else if(!user.checkPassword(password)){
-                status = false;
                 console.log("Incorrect password")
+                res.json(null)
                 return (null, false);
             }
-            return (user)
+            return (user + console.log("user authenticated"))
         })
         .then(dbModel => res.json(dbModel))
         .catch(error => res.status(422).json(error))
