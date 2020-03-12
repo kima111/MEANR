@@ -1,4 +1,4 @@
-# REMANR (Redux Express Mongo Axios React)
+# REMANR (Redux Express Mongo Axios Node React)
 
 ## Overview
 
