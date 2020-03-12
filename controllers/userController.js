@@ -33,28 +33,13 @@ module.exports = {
                 res.json(null)
                 return (null, false);
             }
-            return (user + console.log("user authenticated"))
+            return (user)
         })
-        .then(dbModel => res.json(dbModel))
+        .then(dbModel => res.json({
+            role: dbModel.role,
+            username: dbModel.username
+        }))
         .catch(error => res.status(422).json(error))
 
     }
-//  authenticateUser: function(req, res){
-
-   
-//  passport.use(new LocalStrategy(
-//     function(username, password, done) {
-//       User.findOne({ username: username }, function(err, user) {
-//         if (err) { return done(err); }
-//         if (!user) {
-//           return done(null, false, { message: 'Incorrect username.' });
-//         }
-//         if (!user.checkPassword(password)) {
-//           return done(null, false, { message: 'Incorrect password.' });
-//         }
-//         return done(null, user);
-//       });
-//     }
-//   ));
-//  }
 }
