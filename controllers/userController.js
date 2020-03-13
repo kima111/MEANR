@@ -24,20 +24,21 @@ module.exports = {
             }
             if(!user){
                 console.log("Incorrect username")
-                res.json(null)
+                res.json({loggedIn: false})
                 return (null, false);
                 
             }
             else if(!user.checkPassword(password)){
                 console.log("Incorrect password")
-                res.json(null)
+                res.json({loggedIn: false})
                 return (null, false);
             }
             return (user)
         })
         .then(dbModel => res.json({
             role: dbModel.role,
-            username: dbModel.username
+            username: dbModel.username,
+            loggedIn: true
         }))
         .catch(error => res.status(422).json(error))
 

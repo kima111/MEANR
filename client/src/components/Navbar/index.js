@@ -19,7 +19,20 @@ export default function Navbar() {
         API.authenticateUser({
             username: username, 
             password: password
-        })
+        }).then(
+            function(response){
+                console.log(response.data.loggedIn)
+                if(response.data.loggedIn === true){
+                    setShow(false);
+                }
+                else if(response === null){
+                    setShow(true);
+                }
+                else{
+                    setShow(true);
+                }
+            }
+        )
 
     }
     return (
@@ -81,13 +94,6 @@ export default function Navbar() {
             </Button>
             <Button variant="primary" onClick={
                 login
-            //     (event) => {
-            //     event.preventDefault();
-            //     API.authenticateUser({
-            //         username: username, 
-            //         password: password
-            //     })
-               
 
             //     setShow(false)
             // }

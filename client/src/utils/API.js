@@ -5,21 +5,17 @@ export default {
 //authenticate user route
 
     authenticateUser: function(userData) {
-        const isLoggedIn = false;
-        axios.post("/api/user/login", userData)
-        .then(response => {
-            if(response.data.loggedIn===true){
-                console.log("Logged in")
-                isLoggedIn = true;
-            }
-            else{
-                isLoggedIn = false;
-            }
-            console.log(response.data)
+        return new Promise((resolve, reject) =>{
+            axios.post("/api/user/login", userData)
+            .then(response => {
+                resolve(response)
+            })
+            .catch(error => {
+                console.log(error)
+                reject(Error("failed to login"))
+            })
         })
-        .catch(error => {
-            console.log(error)
-        })
+    
     },
 //register user route
     registerUser: function(firstName, lastName, username, password, email) {
