@@ -1,16 +1,17 @@
 import React, {useState} from 'react'
 import { Link, useHistory} from 'react-router-dom';
-import Register from '../Register';
 import API from '../../utils/API'
 import { Modal, Button } from 'react-bootstrap';
 
 export default function Navbar() {
     
-//Login
+//Used for both Login and Registration
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    
+
+//Login
+
     const [showLogin, setShowLogin] = useState(false);
     const history = useHistory();
     const handleCloseLogin = () => setShowLogin(false);
@@ -43,8 +44,6 @@ export default function Navbar() {
 //Registration
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    // const [usernameReg, setRegUsername] = useState('');
-    // const [passwordReg, setRegPassword] = useState('');
     const [email, setEmail] = useState('');
 
     const [showRegister, setShowRegister] = useState(false);
@@ -156,10 +155,7 @@ export default function Navbar() {
                 Register
             </Button>
             </Modal.Footer>
-        </Modal>
-        <div className="modal fade" id="exampleModalCenter2" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <Register />
-        </div>          
+        </Modal>         
     </div>
     )
 }
