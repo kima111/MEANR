@@ -1,16 +1,14 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import Register from '../Register';
-import Login from '../Login';
 import API from '../../utils/API'
-import { Modal, Button, Popover} from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 
 export default function Navbar() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [isLoggedIn, setLoggedIn] = useState(false);
     const [show, setShow] = useState(false);
-
+    const history = useHistory();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -23,7 +21,9 @@ export default function Navbar() {
             function(response){
                 console.log(response.data.loggedIn)
                 if(response.data.loggedIn === true){
-                    setShow(false);
+                    history.push('/About')
+                    setShow(false)
+                    
                 }
                 else if(response === null){
                     setShow(true);
@@ -89,15 +89,7 @@ export default function Navbar() {
                 <input className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)}/>
             </Modal.Body>
             <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-                Close
-            </Button>
-            <Button variant="primary" onClick={
-                login
-
-            //     setShow(false)
-            // }
-            }>
+            <Button variant="primary" onClick={login}>
                 Login
             </Button>
             </Modal.Footer>
