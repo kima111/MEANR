@@ -9,7 +9,11 @@ module.exports = {
   createUser: function(req, res) {
     db.users
         .create(req.body)
-        .then(dbModel => res.json(dbModel))
+        .then(dbModel => res.json({
+            role: dbModel.role,
+            username: dbModel.username,
+            registered: true
+        }))
         .catch(error => res.status(422).json(error));
 
   },

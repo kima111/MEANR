@@ -5,12 +5,16 @@ import API from '../../utils/API'
 import { Modal, Button } from 'react-bootstrap';
 
 export default function Navbar() {
+    
+//Login
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [show, setShow] = useState(false);
+    
+    const [showLogin, setShowLogin] = useState(false);
     const history = useHistory();
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleCloseLogin = () => setShowLogin(false);
+    const handleShowLogin = () => setShowLogin(true);
 
     const login = event => {
         event.preventDefault();
@@ -22,19 +26,57 @@ export default function Navbar() {
                 console.log(response.data.loggedIn)
                 if(response.data.loggedIn === true){
                     history.push('/About')
-                    setShow(false)
+                    setShowLogin(false)
                     
                 }
                 else if(response === null){
-                    setShow(true);
+                    setShowLogin(true);
                 }
                 else{
-                    setShow(true);
+                    setShowLogin(true);
                 }
             }
         )
 
     }
+
+//Registration
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    // const [usernameReg, setRegUsername] = useState('');
+    // const [passwordReg, setRegPassword] = useState('');
+    const [email, setEmail] = useState('');
+
+    const [showRegister, setShowRegister] = useState(false);
+    const handleCloseRegister = () => setShowRegister(false);
+    const handleShowRegister = () => setShowRegister(true);
+
+    const register = event => {
+        event.preventDefault();
+        API.registerUser({
+            firstName, 
+            lastName, 
+            username, 
+            password, 
+            email
+        }).then(
+            function(response){
+                if(response.data.registered === true){
+                    history.push('/About')
+                    setShowRegister(false)
+                    
+                }
+                else if(response === null){
+                    setShowRegister(true);
+                }
+                else{
+                    setShowRegister(true);
+                }
+            }
+        )
+
+    }
+
     return (
 
         <div>
@@ -67,19 +109,19 @@ export default function Navbar() {
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
-                <Button variant="primary" onClick={handleShow}>
+                <Button variant="primary" onClick={handleShowLogin}>
                     Login
                 </Button>
                     &nbsp;&nbsp;
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">
-                        Register
-                    </button>
+                <Button variant="primary" onClick={handleShowRegister}>
+                    Register
+                </Button>
                 </form>
             </div>
         </nav>
      
 
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={showLogin} onHide={handleCloseLogin}>
             <Modal.Header closeButton>
             <Modal.Title>Login</Modal.Title>
             </Modal.Header>
@@ -91,6 +133,27 @@ export default function Navbar() {
             <Modal.Footer>
             <Button variant="primary" onClick={login}>
                 Login
+            </Button>
+            </Modal.Footer>
+        </Modal>
+        <Modal show={showRegister} onHide={handleCloseRegister}>
+            <Modal.Header closeButton>
+            <Modal.Title>Register</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>    
+                <input className="form-control mr-sm-2" type="firstname" placeholder="First Name" aria-label="First Name" value={firstName} onChange={event => setFirstName(event.target.value)}/>
+                <br />
+                <input className="form-control mr-sm-2" type="lastname" placeholder="Last Name" aria-label="Last Name" value={lastName} onChange={event => setLastName(event.target.value)}/>
+                <br />
+                <input className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)}/>
+                <br />
+                <input className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)}/>
+                <br />
+                <input className="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" value={email} onChange={event => setEmail(event.target.value)}/>
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="primary" onClick={register}>
+                Register
             </Button>
             </Modal.Footer>
         </Modal>

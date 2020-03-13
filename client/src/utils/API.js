@@ -18,17 +18,13 @@ export default {
     
     },
 //register user route
-    registerUser: function(firstName, lastName, username, password, email) {
-        axios.post("/api/user/register", {
-            firstName,
-            lastName,
-            username, 
-            password,
-            email
-        })
+    registerUser: function(regData) {
+        return new Promise((resolve, reject) => {
+        axios.post("/api/user/register", regData)
         .then(response=>{
             if(response.data){
                 console.log('successful signup')
+                resolve(response)
             }
             else{
                 console.log('logon error')
@@ -36,7 +32,9 @@ export default {
         })
         .catch(error=>{
             console.log('Sign in server error: ' + error);
+            reject(Error("failed to register"))
         })
+    })
     },
 
 
