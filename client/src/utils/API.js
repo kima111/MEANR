@@ -3,12 +3,17 @@ import { Redirect } from "react-router-dom";
 
 export default {
 //authenticate user route
+
     authenticateUser: function(userData) {
+        const isLoggedIn = false;
         axios.post("/api/user/login", userData)
         .then(response => {
             if(response.data.loggedIn===true){
                 console.log("Logged in")
-                return true;
+                isLoggedIn = true;
+            }
+            else{
+                isLoggedIn = false;
             }
             console.log(response.data)
         })

@@ -14,6 +14,14 @@ export default function Navbar() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const login = event => {
+        event.preventDefault();
+        API.authenticateUser({
+            username: username, 
+            password: password
+        })
+
+    }
     return (
 
         <div>
@@ -72,12 +80,17 @@ export default function Navbar() {
                 Close
             </Button>
             <Button variant="primary" onClick={
-                (event) => {
-                event.preventDefault();
-                API.authenticateUser({username: username, password: password})
-                setShow(false)
-                // handleClose
-            }
+                login
+            //     (event) => {
+            //     event.preventDefault();
+            //     API.authenticateUser({
+            //         username: username, 
+            //         password: password
+            //     })
+               
+
+            //     setShow(false)
+            // }
             }>
                 Login
             </Button>
