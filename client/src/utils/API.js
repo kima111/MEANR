@@ -10,8 +10,7 @@ export default {
                 resolve(response)
             })
             .catch(error => {
-                console.log(error)
-                reject(Error("failed to login"))
+                reject(Error("failed to login error: " + error))
             })
         })
     
@@ -22,7 +21,6 @@ export default {
         axios.post("/api/user/register", regData)
         .then(response=>{
             if(response.data){
-                console.log('successful signup')
                 resolve(response)
             }
             else{
@@ -30,8 +28,7 @@ export default {
             }
         })
         .catch(error=>{
-            console.log('Sign in server error: ' + error);
-            reject(Error("failed to register"))
+            reject(Error("failed to register error: " + error))
         })
     })
     },
