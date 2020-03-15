@@ -1,12 +1,12 @@
-# REMANR (Redux Express Mongo Axios Node React)
+# MEANR (Mongo Express Axios Node React)
 
 ## Overview
 
-This will be a full stack boiler template for Redux, Express, Mongo, Axios, Node, and React. There will be other packages included. 
+This will be a full stack boiler template for Mongo, Express, Axios, Node, and React. There will be other packages included. 
 
 ## Dependencies
 
-* Redux
+* ~~Redux~~
 * Express
 * Mongo
 * Mongoose
