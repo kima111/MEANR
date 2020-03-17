@@ -1,12 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { Link, useHistory} from 'react-router-dom';
 import API from '../../utils/API'
 import { Modal, Button } from 'react-bootstrap';
+import { UserContext } from '../../UserContext';
 
 export default function Navbar() {
     
 //Used for both Login and Registration
-
+    const {isLoggedIn, setLoggedIn} = useContext(UserContext)
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -26,6 +27,7 @@ export default function Navbar() {
             function(response){
                 console.log(response.data.loggedIn)
                 if(response.data.loggedIn === true){
+                    setLoggedIn(true)
                     history.push('/About')
                     setShowLogin(false)
                     
