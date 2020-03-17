@@ -129,10 +129,13 @@ export default function Navbar() {
                 </Button>
                 : ''
                 }
-                    &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                {isLoggedIn ? 
+                '':
                 <Button variant="primary" onClick={handleShowRegister}>
                     Register
                 </Button>
+                }
                 </form>
             </div>
         </nav>
