@@ -6,7 +6,7 @@ This will be a full stack boiler template for Mongo, Express, Axios, Node, and R
 
 ## Dependencies
 
-* ~~Redux~~
+* ~~Redux~~ (Removed in favor of using Context Providers and useContext)
 * Express
 * Mongo
 * Mongoose
