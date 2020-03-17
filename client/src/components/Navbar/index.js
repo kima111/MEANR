@@ -43,6 +43,12 @@ export default function Navbar() {
 
     }
 
+//Logout
+    const logout = event => {
+        event.preventDefault();
+        setLoggedIn(false);
+    }
+
 //Registration
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -110,9 +116,19 @@ export default function Navbar() {
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
+                {isLoggedIn ? 
+                '' :
                 <Button variant="primary" onClick={handleShowLogin}>
                     Login
                 </Button>
+                }
+                &nbsp;&nbsp;
+                {isLoggedIn ? 
+                <Button variant="primary" onClick={logout}>
+                    Logout
+                </Button>
+                : ''
+                }
                     &nbsp;&nbsp;
                 <Button variant="primary" onClick={handleShowRegister}>
                     Register
