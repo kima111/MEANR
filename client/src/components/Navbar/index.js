@@ -97,9 +97,12 @@ export default function Navbar() {
                     <li className="nav-item active">
                         <Link to = "/" className="nav-link">Home <span className="sr-only">(current)</span></Link>
                     </li>
+                    {isLoggedIn ? 
                     <li className="nav-item">
                         <Link to ="/About" className="nav-link">About</Link>
                     </li>
+                    : ''
+                    }
                     <li className="nav-item dropdown">
                         <Link to ="/About" className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropdown
