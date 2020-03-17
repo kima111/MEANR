@@ -1,8 +1,10 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
 
 export default function index() {
     return (
         <div>
+            <Container>
             <h2>REMANR (Redux Express Mongo Axios Node React)</h2>
             <h3>Overview</h3>
             <p>This will be a full stack boiler template for Redux, Express, Mongo, Axios, Node, and React. There will be other packages included.</p>
@@ -21,6 +23,7 @@ export default function index() {
                 <li>Passport</li>
                 <li>BcryptJS</li>
             </ul>
+            </Container>
         </div>
     )
 }

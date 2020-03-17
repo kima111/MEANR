@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { UserContext } from '../../UserContext';
 import {
   BrowserRouter as Router,  
   Route,
@@ -8,13 +9,13 @@ import {
 
 export default function ProtectedRoute({component: Component,loggedIn: LoggedIn, ...rest }) {
 
-  // const loggedInState = useSelector(state => state.isLogged)
+  const {isLoggedIn, setLoggedIn} = useContext(UserContext)
  
   return (
     <div>
     <Router>
     <Route {...rest} render={(props) => (
-        loggedInState === true
+        isLoggedIn === true
         ? <Component {...props} />
         : <Redirect to='/login' />
     )} />
