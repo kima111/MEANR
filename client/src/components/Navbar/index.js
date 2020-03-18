@@ -106,20 +106,6 @@ export default function Navbar() {
                     <li className="nav-item">
                         <Link to ="/About" className="nav-link">About</Link>
                     </li>
-                    <li className="nav-item dropdown">
-                        <Link to ="/About" className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </Link>
-                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <Link to ="/About" className="dropdown-item" href="#">Action</Link>
-                        <Link to ="/About" className="dropdown-item" href="#">Another action</Link>
-                    <div className="dropdown-divider"></div>
-                        <Link to ="/About" className="dropdown-item" href="#">Something else here</Link>
-                    </div>
-                    </li>
-                    <li className="nav-item">
-                        <Link to ="/About" className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</Link>
-                    </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
                 {isLoggedIn ? 
