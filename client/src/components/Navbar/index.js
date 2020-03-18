@@ -28,7 +28,7 @@ export default function Navbar() {
                 console.log(response.data.loggedIn)
                 if(response.data.loggedIn === true){
                     setLoggedIn(true)
-                    history.push('/About')
+                    history.push('/Welcome')
                     setShowLogin(false)
                     
                 }
@@ -69,7 +69,7 @@ export default function Navbar() {
         }).then(
             function(response){
                 if(response.data.registered === true){
-                    history.push('/About')
+                    history.push('/Welcome')
                     setShowRegister(false)
                     
                 }
@@ -99,10 +99,13 @@ export default function Navbar() {
                     </li>
                     {isLoggedIn ? 
                     <li className="nav-item">
-                        <Link to ="/About" className="nav-link">About</Link>
+                        <Link to ="/Welcome" className="nav-link">Welcome</Link>
                     </li>
                     : ''
                     }
+                    <li className="nav-item">
+                        <Link to ="/About" className="nav-link">About</Link>
+                    </li>
                     <li className="nav-item dropdown">
                         <Link to ="/About" className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropdown
