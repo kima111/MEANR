@@ -9,7 +9,7 @@ import {
 
 export default function ProtectedRoute({component: Component,loggedIn: LoggedIn, ...rest }) {
 
-  const {isLoggedIn, setLoggedIn} = useContext(UserContext)
+  const {isLoggedIn} = useContext(UserContext)
  
   return (
     <div>

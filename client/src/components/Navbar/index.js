@@ -8,7 +8,7 @@ export default function Navbar() {
     
 //Used for both Login and Registration
     const {isLoggedIn, setLoggedIn} = useContext(UserContext)
-    const {userInfo, setUserInfo} = useContext(UserContext)
+    const {setUserInfo} = useContext(UserContext)
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -70,7 +70,10 @@ export default function Navbar() {
             email
         }).then(
             function(response){
+                console.log(response)
                 if(response.data.registered === true){
+                    setLoggedIn(true)
+                    setUserInfo(response.data)
                     history.push('/Welcome')
                     setShowRegister(false)
                     
