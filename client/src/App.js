@@ -8,10 +8,10 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import UserProtectedRoute from '../src/components/UserProtectedRoutes'
 
 export default function App() {
-  const [value, setValue] = useState('hello from Context');
   const [isLoggedIn, setLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
   return (
-    <UserContext.Provider value={{isLoggedIn, setLoggedIn}}>
+    <UserContext.Provider value={{isLoggedIn, setLoggedIn, userInfo, setUserInfo}}>
           
     <Router>
 
