@@ -28,46 +28,8 @@ module.exports = {
                     .catch(error => res.status(422).json(error));
                 }
             })
-  
-           
-    
-        
     },
-//   createUser: function(req, res) {
-//     db.users
-//         .findOne({username: req.body.username}, (error, user) => {
-//             if(error){
-//                 return (error);
-//             }
-//             if(!user){
-//                 console.log("Incorrect username")
-//                 res.json({loggedIn: true})
-//                 db.users
-//                 .create(req.body)
-//                 .then(dbModel => res.json({
-//                     role: dbModel.role,
-//                     username: dbModel.username,
-//                     registered: true,
-                    
-//                 }))
-//                 .catch(error => res.status(422).json(error));
-//                 return (null, false);
-                
-//             }
-//             else if(user){
-//                 console.log("user already there")
-//             }
-//             return (user)
-//         })
-//         .then(dbModel => res.json({
-//             role: dbModel.role,
-//             username: dbModel.username,
-//             registered: true
-//         }))
-//         .catch(error => res.status(422).json(error))
-       
 
-//   },
 
   findUser: function(req, res){
 
