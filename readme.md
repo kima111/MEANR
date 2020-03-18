@@ -7,6 +7,7 @@ This will be a full stack boiler template for Mongo, Express, Axios, Node, and R
 ## Features
 
 * Supports local authentication and registration
+* User protected routes
 
 ## Dependencies
 
