@@ -115,7 +115,7 @@ export default function Navbar() {
                 <form className="form-inline my-2 my-lg-0">
                 {isLoggedIn ? 
                 '' :
-                <Button variant="primary" onClick={handleShowLogin}>
+                <Button type ="button" variant="primary" onClick={handleShowLogin}>
                     Login
                 </Button>
                 }
@@ -148,7 +148,7 @@ export default function Navbar() {
                 <input className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)}/>
             </Modal.Body>
             <Modal.Footer>
-            <Button variant="primary" onClick={login}>
+            <Button type="button" variant="primary" onClick={login}>
                 Login
             </Button>
             </Modal.Footer>
@@ -169,7 +169,7 @@ export default function Navbar() {
                 <input className="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" value={email} onChange={event => setEmail(event.target.value)}/>
             </Modal.Body>
             <Modal.Footer>
-            <Button variant="primary" onClick={register}>
+            <Button type="button" variant="primary" onClick={register}>
                 Register
             </Button>
             </Modal.Footer>
