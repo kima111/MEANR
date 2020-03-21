@@ -168,7 +168,7 @@ export default function Navbar() {
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                     <Form>
-                        <Form.Group controlId="formBasicEmail">
+                        <Form.Group controlId="formBasicUsername">
                             <Form.Label>Username</Form.Label>
                             <Form.Control className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)}  />
                             <Form.Text className="text-muted">
@@ -194,25 +194,39 @@ export default function Navbar() {
            
             </Modal>
             <Modal show={showRegister} onHide={handleCloseRegister}>
+                
+                <Modal.Body>
                 <Modal.Header closeButton>
                     <Modal.Title>Register</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    <input className="form-control mr-sm-2" type="firstname" placeholder="First Name" aria-label="First Name" value={firstName} onChange={event => setFirstName(event.target.value)} />
-                    <br />
-                    <input className="form-control mr-sm-2" type="lastname" placeholder="Last Name" aria-label="Last Name" value={lastName} onChange={event => setLastName(event.target.value)} />
-                    <br />
-                    <input className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)} />
-                    <br />
-                    <input className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
-                    <br />
-                    <input className="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" value={email} onChange={event => setEmail(event.target.value)} />
-                </Modal.Body>
+                <Form>
+                <Form.Group controlId="firstName">
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control className="form-control mr-sm-2" type="firstname" placeholder="First Name" aria-label="First Name" value={firstName} onChange={event => setFirstName(event.target.value)} />
+                </Form.Group>
+                <Form.Group controlId="lastName">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control className="form-control mr-sm-2" type="lastname" placeholder="Last Name" aria-label="Last Name" value={lastName} onChange={event => setLastName(event.target.value)} />
+                </Form.Group>
+                <Form.Group controlId="userName">
+                    <Form.Label>User Name</Form.Label>
+                    <Form.Control className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)} />
+                </Form.Group>
+                <Form.Group controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control className="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" value={email} onChange={event => setEmail(event.target.value)}  />
+                </Form.Group>
+                <Form.Group controlId="password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
+                </Form.Group>
                 <Modal.Footer>
-                    <Button type="button" variant="primary" onClick={register}>
-                        Register
-            </Button>
+                <Button variant="primary" type="submit" onClick={register}>
+                Register
+                </Button>
                 </Modal.Footer>
+                </Form>
+                </Modal.Body>
             </Modal>
         </div>
     )
