@@ -162,12 +162,11 @@ export default function Navbar() {
             <Modal show={showLogin} onHide={handleCloseLogin}>
                 
 
-
-                <Modal.Body>
+            <Form>
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
-                    <Form>
+                <Modal.Body>
                         <Form.Group controlId="formBasicUsername">
                             <Form.Label>Username</Form.Label>
                             <Form.Control className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)}  />
@@ -183,23 +182,21 @@ export default function Navbar() {
                                 {errorMessage}
                             </Form.Text>
                         </Form.Group>
-                        
-                        <Modal.Footer>
-                            <Button variant="primary" type="submit" onClick={login}>
-                                Submit
-                            </Button>
-                    </Modal.Footer>
-                    </Form>
                 </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" type="submit" onClick={login}>
+                        Submit
+                    </Button>
+                </Modal.Footer>
+                </Form>
            
             </Modal>
             <Modal show={showRegister} onHide={handleCloseRegister}>
-                
-                <Modal.Body>
+            <Form>
                 <Modal.Header closeButton>
                     <Modal.Title>Register</Modal.Title>
                 </Modal.Header>
-                <Form>
+                <Modal.Body>
                 <Form.Group controlId="firstName">
                     <Form.Label>First Name</Form.Label>
                     <Form.Control className="form-control mr-sm-2" type="firstname" placeholder="First Name" aria-label="First Name" value={firstName} onChange={event => setFirstName(event.target.value)} />
@@ -220,14 +217,15 @@ export default function Navbar() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
                 </Form.Group>
+                </Modal.Body>
                 <Modal.Footer>
-                <Button variant="primary" type="submit" onClick={register}>
-                Register
-                </Button>
+                    <Button variant="primary" type="submit" onClick={register}>
+                        Register
+                    </Button>
                 </Modal.Footer>
                 </Form>
-                </Modal.Body>
             </Modal>
+            
         </div>
     )
 }
