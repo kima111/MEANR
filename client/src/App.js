@@ -3,6 +3,7 @@ import Layout from '../src/components/Layout'
 import Main from '../src/components/Main'
 import About from '../src/components/About'
 import Welcome from '../src/components/Welcome'
+import SignOut from '../src/components/SignOut'
 import {UserContext} from './UserContext'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import UserProtectedRoute from '../src/components/UserProtectedRoutes'
@@ -19,6 +20,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/About" component={About} />
+          <Route exact path="/SignOut" component={SignOut} />
           <UserProtectedRoute exact path="/Welcome" component={Welcome} />
         </Switch>
     

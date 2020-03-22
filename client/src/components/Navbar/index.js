@@ -69,6 +69,7 @@ export default function Navbar() {
     //Logout
     const logout = event => {
         event.preventDefault();
+        history.push('/SignOut')
         setLoggedIn(false);
     }
 
