@@ -30,15 +30,16 @@ export default function Navbar() {
         }).then(
             function (response) {
                 console.log(response.data.loggedIn)
-                if (response.data.loggedIn === true) {
+                if (response.data.role === "user") {
                     setLoggedIn(true)
                     setUserInfo(response.data)
                     history.push('/Welcome')
                     setShowLogin(false)
 
                 }
-                if (response.data.role === "administrator"){
+                else if (response.data.role === "administrator"){
                     setIsAdmin(true)
+                    setLoggedIn(true)
                     setUserInfo(response.data)
                     history.push('/Welcome')
                     setShowLogin(false)
