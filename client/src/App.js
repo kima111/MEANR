@@ -5,15 +5,19 @@ import About from '../src/components/About'
 import Welcome from '../src/components/Welcome'
 import SignOut from '../src/components/SignOut'
 import Forum from '../src/components/Forum'
+import SubmitForum from '../src/components/SubmitForum'
 import {UserContext} from './UserContext'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import UserProtectedRoute from '../src/components/UserProtectedRoutes'
+import AdminProtectedRoute from '../src/components/AdminProtectedRoutes'
 
 export default function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [userInfo, setUserInfo] = useState({});
+
   return (
-    <UserContext.Provider value={{isLoggedIn, setLoggedIn, userInfo, setUserInfo}}>
+    <UserContext.Provider value={{isLoggedIn, setLoggedIn, isAdmin, setIsAdmin, userInfo, setUserInfo}}>
           
     <Router>
 
@@ -24,6 +28,7 @@ export default function App() {
           <Route exact path="/SignOut" component={SignOut} />
           <UserProtectedRoute exact path="/Welcome" component={Welcome} />
           <UserProtectedRoute exact path="/Forum" component={Forum} />
+          <AdminProtectedRoute exact path="/SubmitForum" component={SubmitForum} />
         </Switch>
     
     

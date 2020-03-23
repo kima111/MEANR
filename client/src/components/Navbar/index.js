@@ -7,7 +7,8 @@ import { UserContext } from '../../UserContext';
 export default function Navbar() {
 
     //Used for both Login and Registration
-    const { isLoggedIn, setLoggedIn } = useContext(UserContext)
+    const { isLoggedIn, setLoggedIn } = useContext(UserContext);
+    const { isAdmin, setIsAdmin } = useContext(UserContext);
     const { setUserInfo } = useContext(UserContext)
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -35,6 +36,12 @@ export default function Navbar() {
                     history.push('/Welcome')
                     setShowLogin(false)
 
+                }
+                if (response.data.role === "administrator"){
+                    setIsAdmin(true)
+                    setUserInfo(response.data)
+                    history.push('/Welcome')
+                    setShowLogin(false)
                 }
                 else if (response === null) {
                     setErrorMessage('username or password incorrect')
@@ -71,6 +78,7 @@ export default function Navbar() {
         event.preventDefault();
         history.push('/SignOut')
         setLoggedIn(false);
+        setIsAdmin(false);
     }
 
     //Registration
@@ -127,6 +135,12 @@ export default function Navbar() {
                         {isLoggedIn ?
                             <li className="nav-item">
                                 <Link to="/Forum" className="nav-link">Forum</Link>
+                            </li>
+                            : ''
+                        }
+                         {isAdmin ?
+                            <li className="nav-item">
+                                <Link to="/SubmitForum" className="nav-link">Submit Forum</Link>
                             </li>
                             : ''
                         }
