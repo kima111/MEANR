@@ -1,9 +1,14 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export default function index() {
     return (
-        <div>
+        <Container>
             <p>You have successfully signed out</p>
-        </div>
+            <Link to="/">Home</Link>
+        </Container>
+            
+       
     )
 }

@@ -126,7 +126,7 @@ export default function Navbar() {
                         </li>
                         {isLoggedIn ?
                             <li className="nav-item">
-                                <Link to="/Welcome" className="nav-link">Welcome</Link>
+                                <Link to="/Forum" className="nav-link">Forum</Link>
                             </li>
                             : ''
                         }
