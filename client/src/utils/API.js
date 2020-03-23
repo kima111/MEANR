@@ -43,7 +43,19 @@ export default {
             reject(Error(error))
         })
         })
-    }
+    },
+//get forum
+    getForums: function(){
+    return new Promise((resolve, reject) => {
+        axios.get("/api/forum/getForums")
+    .then(response=>{
+        resolve(response)
+    })
+    .catch(error=>{
+        reject(Error(error))
+    })
+    })
+}
 
 
 };
