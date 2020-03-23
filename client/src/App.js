@@ -6,7 +6,7 @@ import Welcome from '../src/components/Welcome'
 import SignOut from '../src/components/SignOut'
 import Forum from '../src/components/Forum'
 import SubmitForum from '../src/components/SubmitForum'
-import {UserContext} from './UserContext'
+import { UserContext } from './UserContext'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import UserProtectedRoute from '../src/components/UserProtectedRoutes'
 import AdminProtectedRoute from '../src/components/AdminProtectedRoutes'
@@ -17,8 +17,7 @@ export default function App() {
   const [userInfo, setUserInfo] = useState({});
 
   return (
-    <UserContext.Provider value={{isLoggedIn, setLoggedIn, isAdmin, setIsAdmin, userInfo, setUserInfo}}>
-          
+    <UserContext.Provider value={{isLoggedIn, setLoggedIn, isAdmin, setIsAdmin, userInfo, setUserInfo}}>      
     <Router>
 
      <Layout></Layout>
