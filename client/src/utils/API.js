@@ -32,6 +32,18 @@ export default {
         })
     })
     },
+//submit forum
+    submitForum: function(forumData){
+        return new Promise((resolve, reject) => {
+            axios.post("/api/forum/createForum", forumData)
+        .then(response=>{
+            resolve(response)
+        })
+        .catch(error=>{
+            reject(Error(error))
+        })
+        })
+    }
 
 
 };
