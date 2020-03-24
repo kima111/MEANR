@@ -1,11 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useCallback } from 'react'
 import API from '../../utils/API'
-import { Container } from 'react-bootstrap'
+import { Container, Button } from 'react-bootstrap'
+import { UserContext } from '../../UserContext';
+import { Link, useHistory } from 'react-router-dom';
+import { response } from 'express';
 
 export default function () {
-
+    const { isAdmin, setIsAdmin } = useContext(UserContext);
     const [forumInfo, setForumInfo] = useState([])
-
+    // const deleteForum = id => {
+    //     API.deleteForum(id)
+    //     .then(response => {console.log(response)})
+    //     .catch(error => {console.log(error)})
+    // }
     useEffect(() => {
        console.log("loaded")
        API.getForums().then(
@@ -13,14 +20,25 @@ export default function () {
             setForumInfo(response.data)  
         }
         )
+        return () => {
+            
+        }
     }, [])
 
     return (
     <div>
        <Container>
            <h1>Forum</h1>
+           <br />
+           <hr />
            {forumInfo.map(item => (
-               <div>
+               <div key = {item._id}>
+                     {isAdmin ?
+                        
+                                <Button>Delete Forum</Button>
+                            
+                            : ''
+                        }
                 <h2>{item.title}</h2>
                 <hr/>
                 <p>{item.forumText}</p>
