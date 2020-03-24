@@ -3,8 +3,8 @@ import API from '../../utils/API'
 import { Container } from 'react-bootstrap'
 
 export default function () {
-    const [forumTitle, setForumTitle] = useState("")
-    const [forumText, setForumText] = useState("")
+    const [forumInfo, setForumInfo] = useState([])
+    // const [forumText, setForumText] = useState([])
     // const loadForum = event => {
     //     event.preventDefault();
     //     API.getForums().then(
@@ -20,8 +20,8 @@ export default function () {
        console.log("loaded")
        API.getForums().then(
         function (response) {
-            setForumTitle(response.data[0].title)
-            setForumText(response.data[0].forumText)
+            setForumInfo(response.data)
+   
             console.log(response)
         }
     )
@@ -31,8 +31,15 @@ export default function () {
     <div>
        <Container>
            <h1>Forum</h1>
-           <h2>title: {forumTitle}</h2>
-           <p>text: {forumText}</p>
+           {forumInfo.map(item => (
+               <div>
+                <h2>{item.title}</h2>
+                <p>{item.forumText}</p>
+                </div>
+                )
+                )
+            }
+        
        </Container>
     </div>
     )
