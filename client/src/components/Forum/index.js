@@ -23,7 +23,7 @@ export default function () {
         return () => {
             
         }
-    }, [])
+    }, [forumInfo])
 
     return (
     <div>
