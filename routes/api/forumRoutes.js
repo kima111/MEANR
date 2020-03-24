@@ -6,10 +6,10 @@ router.route("/createForum")
 
 router.route("/getForums")
     .get(forumController.getForums)
-    
-// router.route("/deleteForum/:id")
-//     .get(forumController.findById)
-//     .put(forumController.update)
-//     .delete(forumController.remove)
+
+router.route("/deleteForum/:id")
+    .get(forumController.findById)
+    .put(forumController.update)
+    .delete(forumController.remove);
 
 module.exports = router;

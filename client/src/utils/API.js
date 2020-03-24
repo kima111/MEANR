@@ -55,19 +55,20 @@ export default {
         reject(Error(error))
     })
     })
+    },
+//delete forum
+    deleteForum: function(id){
+        return new Promise((resolve, reject) => {
+            axios.delete("/api/forum/deleteForum/" + id)
+        
+        .then(response=>{
+            resolve(response)
+        })
+        .catch(error=>{
+            reject(Error(error))
+        })
+    })
     }
-    // //get forum
-    // deleteForum: function(id){
-    //     return new Promise((resolve, reject) => {
-    //         axios.delete("/api/forum/deleteForum/" + id)
-    //     .then(response=>{
-    //         resolve(response)
-    //     })
-    //     .catch(error=>{
-    //         reject(Error(error))
-    //     })
-    //     })
-    //     },
 
 
 };
