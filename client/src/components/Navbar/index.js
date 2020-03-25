@@ -56,22 +56,22 @@ export default function Navbar() {
         )
 
     }
-    const enterFunction = useCallback((event) => {
-        if (event.keyCode === 13) {
+    // const enterFunction = useCallback((event) => {
+    //     if (event.keyCode === 13) {
 
-        }
-    }, []);
+    //     }
+    // }, []);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        document.addEventListener("keydown", enterFunction, false);
+    //     document.addEventListener("keydown", enterFunction, false);
 
-        return () => {
+    //     return () => {
 
-            document.removeEventListener("keydown", enterFunction, false);
+    //         document.removeEventListener("keydown", enterFunction, false);
 
-        };
-    }, [showLogin]);
+    //     };
+    // }, [showLogin]);
 
 
     //Logout

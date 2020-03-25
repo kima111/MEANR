@@ -17,8 +17,9 @@ export default function App() {
   const [userInfo, setUserInfo] = useState({});
 
   return (
-    <UserContext.Provider value={{isLoggedIn, setLoggedIn, isAdmin, setIsAdmin, userInfo, setUserInfo}}>      
     <Router>
+    <UserContext.Provider value={{isLoggedIn, setLoggedIn, isAdmin, setIsAdmin, userInfo, setUserInfo}}>      
+    
 
      <Layout></Layout>
         <Switch>
@@ -26,12 +27,14 @@ export default function App() {
           <Route exact path="/About" component={About} />
           <Route exact path="/SignOut" component={SignOut} />
           <UserProtectedRoute exact path="/Welcome" component={Welcome} />
-          <UserProtectedRoute exact path="/Forum" component={Forum} />
           <AdminProtectedRoute exact path="/SubmitForum" component={SubmitForum} />
+          <UserProtectedRoute exact path="/Forum" component={Forum} />
+          
         </Switch>
     
     
-    </Router>  
+      
     </UserContext.Provider>
+    </Router>
   )
 }

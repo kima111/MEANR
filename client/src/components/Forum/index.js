@@ -2,24 +2,30 @@ import React, { useState, useContext, useEffect, useCallback } from 'react'
 import API from '../../utils/API'
 import { Container, Button } from 'react-bootstrap'
 import { UserContext } from '../../UserContext';
+import SubmitForm from '../../components/SubmitForum'
 import { Link, useHistory } from 'react-router-dom';
 
 
 export default function () {
     const { isAdmin, setIsAdmin } = useContext(UserContext);
     const [forumInfo, setForumInfo] = useState([])
+    var loaded = false;
     const deleteForum = (id) => {
         API.deleteForum(id)
         .then(response => console.log(response))
         .catch(error => console.log(error))
+     
     }
+  
     useEffect(() => {
-       console.log("loaded")
+      
        API.getForums().then(
         function (response) {
             setForumInfo(response.data)  
         }
         )
+     
+        
         return () => {
             
         }
@@ -33,11 +39,12 @@ export default function () {
            <hr />
            {forumInfo.map(item => (
                <div key = {item._id} id={item._id}>
-                     {isAdmin ?
-                                <Button id={item._id} onClick={()=> deleteForum(item._id)}>Delete Forum</Button>
-                            : ''
-                        }
-                <h2>{item.title}</h2>
+                    
+                <h2>{item.title} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {isAdmin ?
+                    <Button id={item._id} onClick={()=> deleteForum(item._id)} variant="danger">delete</Button>
+                    : ''
+                }</h2>
                 <hr/>
                 <p>{item.forumText}</p>
                 </div>
