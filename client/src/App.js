@@ -6,6 +6,7 @@ import Welcome from '../src/components/Welcome'
 import SignOut from '../src/components/SignOut'
 import Forum from '../src/components/Forum'
 import SubmitForum from '../src/components/SubmitForum'
+import SubmitTextMessage from '../src/components/SubmitTextMessage'
 import { UserContext } from './UserContext'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import UserProtectedRoute from '../src/components/UserProtectedRoutes'
@@ -28,6 +29,7 @@ export default function App() {
           <Route exact path="/SignOut" component={SignOut} />
           <UserProtectedRoute exact path="/Welcome" component={Welcome} />
           <AdminProtectedRoute exact path="/SubmitForum" component={SubmitForum} />
+          <AdminProtectedRoute exact path="/SubmitTextMessage" component={SubmitTextMessage} />
           <UserProtectedRoute exact path="/Forum" component={Forum} />
           
         </Switch>
