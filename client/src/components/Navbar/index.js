@@ -151,6 +151,12 @@ export default function Navbar() {
                             </li>
                             : ''
                         }
+                         {isAdmin ?
+                            <li className="nav-item">
+                                <Link to="/SubmitEmail" className="nav-link">Submit Email</Link>
+                            </li>
+                            : ''
+                        }
                         <li className="nav-item">
                             <Link to="/About" className="nav-link">About</Link>
                         </li>
