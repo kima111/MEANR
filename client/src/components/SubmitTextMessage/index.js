@@ -24,7 +24,7 @@ export default function SubmitTextMessage() {
         <div>
               
             <Container>
-                <h1>Submit Forum</h1>
+                <h1>Submit Text Message</h1>
         
                 <Form>
                     <Form.Group controlId="forumTitle">
