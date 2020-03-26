@@ -29,7 +29,7 @@ export default function SubmitTextMessage() {
                 <Form>
                     <Form.Group controlId="forumTitle">
                         <Form.Label>Recipient</Form.Label>
-                        <Form.Control placeholder="2062251767" value={recipient} onChange={event => setRecipient(event.target.value)}/>
+                        <Form.Control placeholder="Phone Number" value={recipient} onChange={event => setRecipient(event.target.value)}/>
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Example textarea</Form.Label>
