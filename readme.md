@@ -28,3 +28,4 @@ This will be a full stack boiler template for Mongo, Express, Axios, Node, and R
 * Twilio
 * Cors
 * Dotenv
+* Nodemailer
