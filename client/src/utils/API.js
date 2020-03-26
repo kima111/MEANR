@@ -69,9 +69,8 @@ export default {
         })
     })
     },
-// //send text message
+//send text message
     sendTextMessage: function(textData){
-        console.log(textData)
         return new Promise((resolve, reject) => {
             axios.post("/api/text/sendTextMessage/", textData)
         
@@ -80,6 +79,22 @@ export default {
         })
         .catch(error=>{
             reject(Error(error))
+        })
+    })
+    },
+//send email
+    sendEmail: function(emailData){
+        return new Promise((resolve, reject) => {
+            console.log(emailData)
+            axios.post("/api/email/sendEmail/", emailData)
+        
+        .then(response=>{
+            console.log(response)
+            // resolve(response)
+        })
+        .catch(error=>{
+            console.log(error)
+            // reject(Error(error))
         })
     })
     }

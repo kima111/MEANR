@@ -12,7 +12,6 @@ router.use(cors());
 
 router.post('/sendTextMessage', function(req, res){
     console.log(req.body.text) 
-    // console.log(process.env.ACCOUNT_SID)
     client.messages.create({
         body: req.body.text,
         to: req.body.recipient,

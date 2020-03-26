@@ -10,6 +10,7 @@ This will be a full stack boiler template for Mongo, Express, Axios, Node, and R
 * User and Administrator protected routes
 * Forum
 * Text Messaging
+* Emailing
 
 ## Dependencies
 
@@ -29,3 +30,4 @@ This will be a full stack boiler template for Mongo, Express, Axios, Node, and R
 * Cors
 * Dotenv
 * Nodemailer
+* Body-parser
