@@ -68,6 +68,20 @@ export default {
             reject(Error(error))
         })
     })
+    },
+// //send text message
+    sendTextMessage: function(textData){
+        console.log(textData)
+        return new Promise((resolve, reject) => {
+            axios.post("/api/text/sendTextMessage/", textData)
+        
+        .then(response=>{
+            resolve(response)
+        })
+        .catch(error=>{
+            reject(Error(error))
+        })
+    })
     }
 
 
