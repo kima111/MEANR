@@ -13,6 +13,7 @@ import { UserContext } from './UserContext'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import UserProtectedRoute from '../src/components/UserProtectedRoutes'
 import AdminProtectedRoute from '../src/components/AdminProtectedRoutes'
+const REACT_APP_KEY = process.env.REACT_APP_KEY;
 
 export default function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);

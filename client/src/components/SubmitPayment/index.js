@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import API from "../../utils/API"
+import StripeCheckout from 'react-stripe-checkout'
 import { Container, Form, Col, Button } from 'react-bootstrap'
-
-
 
 export default function SubmitPayment() {
     const [title, setTitle] = useState('');
@@ -25,31 +24,21 @@ export default function SubmitPayment() {
         )
 
     }
-    
+    function handleToken(token, addresses){
+        console.log({token, addresses})
+    }
     return (
         <div>
             <Container>
                 <h1>Submit Payment</h1>
         
-                <Form>
-                <Form.Group controlId="email">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control placeholder="Title" value={email} onChange={event => setEmail(event.target.value)} />
-                    </Form.Group>
-                    <Form.Group controlId="forumTitle">
-                        <Form.Label>Title</Form.Label>
-                        <Form.Control placeholder="Title" value={title} onChange={event => setTitle(event.target.value)} />
-                    </Form.Group>
-                    
-                    <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Example textarea</Form.Label>
-                        <Form.Control as="textarea" placeholder="Description of forum." rows="3" value={emailText} onChange={event => setEmailText(event.target.value)}/>
-                    </Form.Group>
-
-                    <Button to="/Forum" variant="primary" type="submit" onClick={submitPayment}>
-                        Submit
-                    </Button>
-                </Form>
+                    <StripeCheckout
+                    stripeKey = {process.env.REACT_APP_STRIPE_KEY}
+                    token={handleToken}>
+                        <Button>Submit Payment</Button>
+                    </StripeCheckout>
+                   
+              
             </Container>
         </div>
     )
