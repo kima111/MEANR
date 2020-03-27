@@ -139,6 +139,12 @@ export default function Navbar() {
                             </li>
                             : ''
                         }
+                        {isLoggedIn ?
+                            <li className="nav-item">
+                                <Link to="/SubmitPayment" className="nav-link">Submit Payment</Link>
+                            </li>
+                            : ''
+                        }
                          {isAdmin ?
                             <li className="nav-item">
                                 <Link to="/SubmitForum" className="nav-link">Submit Forum</Link>

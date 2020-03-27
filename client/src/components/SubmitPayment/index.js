@@ -4,14 +4,14 @@ import { Container, Form, Col, Button } from 'react-bootstrap'
 
 
 
-export default function SubmitEmail() {
+export default function SubmitPayment() {
     const [title, setTitle] = useState('');
     const [emailText, setEmailText] = useState('');
     const [email, setEmail] = useState('');
 
-    const submitEmail = event => {
+    const submitPayment = event => {
         event.preventDefault();
-        API.sendEmail({
+        API.sendPayment({
             email: email,
             title: title,
             emailText: emailText
@@ -29,7 +29,7 @@ export default function SubmitEmail() {
     return (
         <div>
             <Container>
-                <h1>Submit Email</h1>
+                <h1>Submit Payment</h1>
         
                 <Form>
                 <Form.Group controlId="email">
@@ -46,7 +46,7 @@ export default function SubmitEmail() {
                         <Form.Control as="textarea" placeholder="Description of forum." rows="3" value={emailText} onChange={event => setEmailText(event.target.value)}/>
                     </Form.Group>
 
-                    <Button to="/Forum" variant="primary" type="submit" onClick={submitEmail}>
+                    <Button to="/Forum" variant="primary" type="submit" onClick={submitPayment}>
                         Submit
                     </Button>
                 </Form>

@@ -8,6 +8,7 @@ import Forum from '../src/components/Forum'
 import SubmitForum from '../src/components/SubmitForum'
 import SubmitTextMessage from '../src/components/SubmitTextMessage'
 import SubmitEmail from '../src/components/SubmitEmail'
+import SubmitPayment from '../src/components/SubmitPayment'
 import { UserContext } from './UserContext'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import UserProtectedRoute from '../src/components/UserProtectedRoutes'
@@ -33,6 +34,7 @@ export default function App() {
           <AdminProtectedRoute exact path="/SubmitTextMessage" component={SubmitTextMessage} />
           <AdminProtectedRoute exact path="/SubmitEmail" component={SubmitEmail} />
           <UserProtectedRoute exact path="/Forum" component={Forum} />
+          <UserProtectedRoute exact path="/SubmitPayment" component={SubmitPayment} />
           
         </Switch>
     

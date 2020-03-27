@@ -97,6 +97,22 @@ export default {
             // reject(Error(error))
         })
     })
+    },
+//send payment
+    sendPayment: function(paymentData){
+        return new Promise((resolve, reject) => {
+
+        axios.post("/api/payment/sendPayment/", paymentData)
+        
+        .then(response=>{
+            console.log(response)
+            resolve(response)
+        })
+        .catch(error=>{
+            console.log(error)
+            reject(Error(error))
+        })
+    })
     }
 
 

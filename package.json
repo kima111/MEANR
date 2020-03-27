@@ -36,6 +36,8 @@
     "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "twilio": "^3.41.1"
+    "stripe": "^8.37.0",
+    "twilio": "^3.41.1",
+    "uuid": "^7.0.2"
   }
 }
