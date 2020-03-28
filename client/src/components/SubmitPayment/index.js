@@ -4,22 +4,25 @@ import StripeCheckout from 'react-stripe-checkout'
 import { Container, Form, Col, Button } from 'react-bootstrap'
 
 export default function SubmitPayment() {
-    const [title, setTitle] = useState('');
-    const [emailText, setEmailText] = useState('');
-    const [email, setEmail] = useState('');
+    const [product, setProduct] = useState({
+        name: "membership",
+        price: 10,
+    });
 
-    const submitPayment = event => {
-        event.preventDefault();
+    const submitPayment = token => {
+       
+
+        const body = {
+            token,
+            product
+        }
+
+        
         API.sendPayment({
-            email: email,
-            title: title,
-            emailText: emailText
-        }).then(
-         
-            setTitle(''),
-            setEmailText(''),
-            setEmail('')
-        ).catch(
+            body
+        }).then(response => {
+            console.log(response)
+        }).catch(
             console.log("error")
         )
 
@@ -34,7 +37,10 @@ export default function SubmitPayment() {
         
                     <StripeCheckout
                     stripeKey = {process.env.REACT_APP_STRIPE_KEY}
-                    token={handleToken}>
+                    token={submitPayment}
+                    name="Submit Payment"
+                    >
+                    
                         <Button>Submit Payment</Button>
                     </StripeCheckout>
                    
