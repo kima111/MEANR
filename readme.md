@@ -4,6 +4,24 @@
 
 This will be a full stack boiler template for Mongo, Express, Axios, Node, and React. There will be other packages included. 
 
+## Enviornment Variables Needed
+
+You will need to create a .env file for the Server side as well as the Client side. Some of these features will need accounts setup such as STRIPE (Payments), or TWILIO (Text Messaging). 
+
+<u>Server Side</u>
+
+* ACCOUNT_SID
+* AUTH_TOK
+* PNUMBER
+* EMAIL_ACCOUNT
+* EMAIL_PASS
+* STRIPE
+* DB_NAME
+
+<u>Client Side</u>
+
+* REACT_APP_STRIPE_KEY
+
 ## Features
 
 * Supports local authentication and registration
