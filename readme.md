@@ -11,25 +11,27 @@ This will be a full stack boiler template for Mongo, Express, Axios, Node, and R
 * Forum
 * Text Messaging
 * Emailing
+* Payments
 
 ## Dependencies
 
 * ~~Redux~~ (Removed in favor of using Context Providers and useContext)
-* Express
-* Mongo
-* Mongoose
-* Axios
-* React
-* React-Router-DOM
-* Nodemon
-* Concurrently
-* Passport
-* BcryptJS
-* Helmet
-* Twilio
-* Cors
-* Dotenv
-* Nodemailer
-* Body-parser
-* Stripe
-* UUID
+* Express (Server)
+* Mongo (Server)
+* Mongoose (Server)
+* Axios (Client)
+* React (Client)
+* React-Router-DOM (Client)
+* Nodemon (Server)
+* Concurrently (Server)
+* Passport (Server)
+* BcryptJS (Server)
+* Helmet (Server)
+* Twilio (Server)
+* Cors (Server)
+* Dotenv (Server)
+* Nodemailer (Server)
+* Body-parser (Server)
+* Stripe (Server)
+* React Stripe Checkout (Client)
+* UUID (Server)
