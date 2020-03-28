@@ -8,7 +8,7 @@ This will be a full stack boiler template for Mongo, Express, Axios, Node, and R
 
 You will need to create a .env file for the Server side as well as the Client side. Some of these features will need accounts setup such as STRIPE (Payments), or TWILIO (Text Messaging). 
 
-<u>Server Side</u>
+<b>Server Side</b>
 
 * ACCOUNT_SID
 * AUTH_TOK
@@ -18,7 +18,7 @@ You will need to create a .env file for the Server side as well as the Client si
 * STRIPE
 * DB_NAME
 
-<u>Client Side</u>
+<b>Client Side</b>
 
 * REACT_APP_STRIPE_KEY
 
