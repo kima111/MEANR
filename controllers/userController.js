@@ -59,5 +59,12 @@ module.exports = {
         }))
         .catch(error => res.status(422).json(error))
 
+    },
+
+    findAllUsers: function(req, res){
+        db.users
+        .find(req.query)
+        .then(dbModel => res.json(dbModel))
+        .catch(error => res.status(422).json(error))
     }
 }

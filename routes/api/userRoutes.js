@@ -8,4 +8,7 @@ router.route("/login")
 router.route("/register")
     .post(userController.createUser);
 
+router.route("/findAll")
+    .post(userController.findAllUsers);
+
 module.exports = router;

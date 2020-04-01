@@ -32,7 +32,17 @@ export default function SubmitEmail() {
                 <h1>Submit Email</h1>
         
                 <Form>
-                <Form.Group controlId="email">
+                <Form.Group controlId="exampleForm.ControlSelect1">
+                    <Form.Label>Example select</Form.Label>
+                    <Form.Control as="select">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    </Form.Control>
+                </Form.Group>
+                    <Form.Group controlId="email">
                         <Form.Label>Email</Form.Label>
                         <Form.Control placeholder="Title" value={email} onChange={event => setEmail(event.target.value)} />
                     </Form.Group>
