@@ -34,6 +34,15 @@ export default function SubmitEmail() {
         )
 
     }
+        useEffect(() => {
+
+        API.getUsers()
+
+        return () => {
+
+
+        };
+    }, []);
     
     return (
         <div>
