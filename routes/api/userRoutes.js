@@ -9,6 +9,6 @@ router.route("/register")
     .post(userController.createUser);
 
 router.route("/findAll")
-    .post(userController.findAllUsers);
+    .get(userController.findAllUsers);
 
 module.exports = router;

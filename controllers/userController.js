@@ -64,7 +64,20 @@ module.exports = {
     findAllUsers: function(req, res){
         db.users
         .find(req.query)
-        .then(dbModel => res.json(dbModel))
+        .then(dbModel => { 
+            const arr = []
+            var obj = {}
+            for(i=0;i<dbModel.length;i++){
+                if(dbModel[i].role === "user"){
+                    obj["firstName"] = dbModel[i].firstName
+                    obj["lastName"] = dbModel[i].lastName 
+                    obj["email"] = dbModel[i].email 
+                    arr.push(obj)
+                }
+            }
+           
+            res.json(arr)
+        })
         .catch(error => res.status(422).json(error))
     }
 }

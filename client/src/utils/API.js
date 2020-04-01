@@ -32,6 +32,19 @@ export default {
         })
     })
     },
+//register user route
+getUsers: function() {
+    return new Promise((resolve, reject) => {
+    axios.get("/api/user/findAll")
+    .then(response=>{
+        console.log(response)
+        resolve(response)
+    })
+    .catch(error=>{
+        reject(Error("error: " + error))
+    })
+})
+},
 //submit forum
     submitForum: function(forumData){
         return new Promise((resolve, reject) => {

@@ -25,6 +25,15 @@ export default function SubmitEmail() {
         )
 
     }
+    const getUsers = event => {
+        event.preventDefault();
+        API.getUsers().then(
+      
+        ).catch(
+            console.log("error")
+        )
+
+    }
     
     return (
         <div>
@@ -55,7 +64,9 @@ export default function SubmitEmail() {
                         <Form.Label>Example textarea</Form.Label>
                         <Form.Control as="textarea" placeholder="Description of forum." rows="3" value={emailText} onChange={event => setEmailText(event.target.value)}/>
                     </Form.Group>
-
+                    <Button to="/Forum" variant="primary" type="submit" onClick={getUsers}>
+                        Get Users
+                    </Button>
                     <Button to="/Forum" variant="primary" type="submit" onClick={submitEmail}>
                         Submit
                     </Button>
