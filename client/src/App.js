@@ -35,7 +35,7 @@ export default function App() {
           <AdminProtectedRoute exact path="/SubmitForum" component={SubmitForum} />
           <AdminProtectedRoute exact path="/SubmitTextMessage" component={SubmitTextMessage} />
           <AdminProtectedRoute exact path="/SubmitEmail" component={SubmitEmail} />
-          <AdminProtectedRoute exact path="/UserDirectory" componen={UserDirectory} />
+          <AdminProtectedRoute exact path="/UserDirectory" component={UserDirectory} />
           <UserProtectedRoute exact path="/Forum" component={Forum} />
           <UserProtectedRoute exact path="/SubmitPayment" component={SubmitPayment} />
           

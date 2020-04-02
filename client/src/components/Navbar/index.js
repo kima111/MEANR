@@ -135,6 +135,7 @@ export default function MainNavbar() {
                     {isAdmin? <Nav.Link as={Link} to="/SubmitForum">Submit Forum</Nav.Link> : ''}
                     {isAdmin? <Nav.Link as={Link} to="/SubmitTextMessage">Submit Text Message</Nav.Link> : ''}
                     {isAdmin? <Nav.Link as={Link} to="/SubmitEmail">Submit Email</Nav.Link> : ''}
+                    {isAdmin? <Nav.Link as={Link} to="/UserDirectory">User Directory</Nav.Link> : ''}
                 </Nav>
                 <br/>
                 <Form inline>
