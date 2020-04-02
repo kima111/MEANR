@@ -9,8 +9,8 @@ export default function SubmitEmail() {
     const [title, setTitle] = useState('');
     const [emailText, setEmailText] = useState('');
     const [email, setEmail] = useState('');
-    const [users, setUsers] = useState({});
-
+    const [users, setUsers] = useState([]);
+    var nUsers
     const submitEmail = event => {
         event.preventDefault();
         API.sendEmail({
@@ -38,31 +38,31 @@ export default function SubmitEmail() {
         )
 
     }
-        useEffect(() => {
+    
 
+
+    useEffect(() => {
         API.getUsers().then(
             function(response){
-                console.log(JSON.stringify(response.data))
+                console.log(response.data[0].email)
                 setUsers(response.data)
             }
         )
 
-        return () => {
-
-
-        };
+        return () => {};
     }, []);
     
     return (
         <div>
             <Container>
                 <h1>Submit Email</h1>
-                <h1></h1>
+            
+             
                 <Form>
                 <Form.Group controlId="exampleForm.ControlSelect1">
                     <Form.Label>Example select</Form.Label>
                     <Form.Control as="select">
-                    {/* {users.map(item => {console.log(item)})} */}
+                    {users.map(item => <option>{item.email}</option>)}
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>

@@ -77,7 +77,7 @@ module.exports = {
                 }
             }
            
-            res.json(arr)
+            res.send(arr)
         })
         .catch(error => res.status(422).json(error))
     }

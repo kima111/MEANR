@@ -37,7 +37,6 @@ getUsers: function() {
     return new Promise((resolve, reject) => {
     axios.get("/api/user/findAll")
     .then(response=>{
-        console.log(response)
         resolve(response)
     })
     .catch(error=>{
