@@ -10,7 +10,7 @@ export default function SubmitEmail() {
     const [emailText, setEmailText] = useState('');
     const [email, setEmail] = useState('');
     const [users, setUsers] = useState([]);
-    var nUsers
+
     const submitEmail = event => {
         event.preventDefault();
         API.sendEmail({
@@ -38,9 +38,6 @@ export default function SubmitEmail() {
         )
 
     }
-    
-
-
     useEffect(() => {
         API.getUsers().then(
             function(response){
