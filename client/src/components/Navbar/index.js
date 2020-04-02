@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import API from '../../utils/API'
-import { Modal, Button, Form, Navbar, Nav } from 'react-bootstrap';
+import { Modal, Button, Form, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { UserContext } from '../../UserContext';
 
 export default function MainNavbar() {
@@ -130,12 +130,16 @@ export default function MainNavbar() {
                 <Nav className="mr-auto">
                     <Nav.Link as={Link} to="/">Home</Nav.Link>
                     <Nav.Link as={Link} to="/About">About</Nav.Link>
-                    {isLoggedIn ? <Nav.Link as={Link} to="/Forum">Forum</Nav.Link> : ''}
-                    {isLoggedIn ? <Nav.Link as={Link} to="/SubmitPayment">Submit Payment</Nav.Link> : ''}
-                    {isAdmin? <Nav.Link as={Link} to="/SubmitForum">Submit Forum</Nav.Link> : ''}
-                    {isAdmin? <Nav.Link as={Link} to="/SubmitTextMessage">Submit Text Message</Nav.Link> : ''}
-                    {isAdmin? <Nav.Link as={Link} to="/SubmitEmail">Submit Email</Nav.Link> : ''}
-                    {isAdmin? <Nav.Link as={Link} to="/UserDirectory">User Directory</Nav.Link> : ''}
+                    {isLoggedIn ? <NavDropdown bg="dark" title="Tools" id="collapsible-nav-dropdown">
+                        {isLoggedIn ? <NavDropdown.Item style={{ color: "#000000" }} as={Link} to="/Forum">Forum</NavDropdown.Item> : ''}
+                        {isLoggedIn ? <NavDropdown.Item style={{ color: "#000000" }} as={Link} to="/SubmitPayment">Submit Payment</NavDropdown.Item> : ''}
+                        {isAdmin? <NavDropdown.Item style={{ color: "#000000" }} as={Link} to="/SubmitForum">Submit Forum</NavDropdown.Item> : ''}
+                        {isAdmin? <NavDropdown.Item style={{ color: "#000000" }} as={Link} to="/SubmitTextMessage">Submit Text Message</NavDropdown.Item> : ''}
+                        {isAdmin? <NavDropdown.Item style={{ color: "#000000" }} as={Link} to="/SubmitEmail">Submit Email</NavDropdown.Item> : ''}
+                        {isAdmin? <NavDropdown.Item style={{ color: "#000000" }} as={Link} to="/UserDirectory">User Directory</NavDropdown.Item> : ''}
+                    </NavDropdown>: ""}
+                  
+                 
                 </Nav>
                 <br/>
                 <Form inline>
