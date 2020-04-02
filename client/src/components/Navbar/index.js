@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import API from '../../utils/API'
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Navbar, Nav } from 'react-bootstrap';
 import { UserContext } from '../../UserContext';
 
-export default function Navbar() {
+export default function MainNavbar() {
 
     //Used for both Login and Registration
     const { isLoggedIn, setLoggedIn } = useContext(UserContext);
@@ -123,74 +123,29 @@ export default function Navbar() {
     return (
 
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link to="/" className="navbar-brand">MEANR</Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
-                            <Link to="/" className="nav-link">Home <span className="sr-only">(current)</span></Link>
-                        </li>
-                        {isLoggedIn ?
-                            <li className="nav-item">
-                                <Link to="/Forum" className="nav-link">Forum</Link>
-                            </li>
-                            : ''
-                        }
-                        {isLoggedIn ?
-                            <li className="nav-item">
-                                <Link to="/SubmitPayment" className="nav-link">Submit Payment</Link>
-                            </li>
-                            : ''
-                        }
-                         {isAdmin ?
-                            <li className="nav-item">
-                                <Link to="/SubmitForum" className="nav-link">Submit Forum</Link>
-                            </li>
-                            : ''
-                        }
-                         {isAdmin ?
-                            <li className="nav-item">
-                                <Link to="/SubmitTextMessage" className="nav-link">Submit Text Message</Link>
-                            </li>
-                            : ''
-                        }
-                         {isAdmin ?
-                            <li className="nav-item">
-                                <Link to="/SubmitEmail" className="nav-link">Submit Email</Link>
-                            </li>
-                            : ''
-                        }
-                        <li className="nav-item">
-                            <Link to="/About" className="nav-link">About</Link>
-                        </li>
-                    </ul>
-                    <form className="form-inline my-2 my-lg-0">
-                        {isLoggedIn ?
-                            '' :
-                            <Button type="button" variant="primary" onClick={handleShowLogin}>
-                                Login
-                </Button>
-                        }
-                &nbsp;&nbsp;
-                {isLoggedIn ?
-                            <Button variant="primary" onClick={logout}>
-                                Logout
-                </Button>
-                            : ''
-                        }
-                &nbsp;&nbsp;
-                {isLoggedIn ?
-                            '' :
-                            <Button variant="primary" onClick={handleShowRegister}>
-                                Register
-                </Button>
-                        }
-                    </form>
-                </div>
-            </nav>
+            <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg">
+                <Navbar.Brand href="#home">MEANR</Navbar.Brand>
+                <Navbar.Toggle />
+                <Navbar.Collapse>
+                <Nav className="mr-auto">
+                    <Nav.Link as={Link} to="/">Home</Nav.Link>
+                    <Nav.Link as={Link} to="/About">About</Nav.Link>
+                    {isLoggedIn ? <Nav.Link as={Link} to="/Forum">Forum</Nav.Link> : ''}
+                    {isLoggedIn ? <Nav.Link as={Link} to="/SubmitPayment">Submit Payment</Nav.Link> : ''}
+                    {isAdmin? <Nav.Link as={Link} to="/SubmitForum">Submit Forum</Nav.Link> : ''}
+                    {isAdmin? <Nav.Link as={Link} to="/SubmitTextMessage">Submit Text Message</Nav.Link> : ''}
+                    {isAdmin? <Nav.Link as={Link} to="/SubmitEmail">Submit Email</Nav.Link> : ''}
+                </Nav>
+                <br/>
+                <Form inline>
+                    {isLoggedIn ? '' : <Button type="button" variant="outline-primary" onClick={handleShowLogin}>Login</Button>}
+                    &nbsp;&nbsp;
+                    {isLoggedIn ? <Button variant="outline-primary" onClick={logout}>Logout</Button>: ''}
+                    &nbsp;&nbsp;
+                    {isLoggedIn ? '' : <Button variant="outline-primary" onClick={handleShowRegister}>Register</Button>}
+                </Form>
+                </Navbar.Collapse>
+            </Navbar>
 
 
             <Modal show={showLogin} onHide={handleCloseLogin}>
