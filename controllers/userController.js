@@ -66,9 +66,10 @@ module.exports = {
         .find(req.query)
         .then(dbModel => { 
             const arr = []
-            var obj = {}
+            
             for(i=0;i<dbModel.length;i++){
                 if(dbModel[i].role === "user"){
+                    var obj = {}
                     obj["firstName"] = dbModel[i].firstName
                     obj["lastName"] = dbModel[i].lastName 
                     obj["email"] = dbModel[i].email 

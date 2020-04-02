@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import API from "../../utils/API"
 import { Container, Form, Col, Button } from 'react-bootstrap'
+// import { response } from "express";
 
 
 
@@ -8,6 +9,7 @@ export default function SubmitEmail() {
     const [title, setTitle] = useState('');
     const [emailText, setEmailText] = useState('');
     const [email, setEmail] = useState('');
+    const [users, setUsers] = useState({});
 
     const submitEmail = event => {
         event.preventDefault();
@@ -28,7 +30,9 @@ export default function SubmitEmail() {
     const getUsers = event => {
         event.preventDefault();
         API.getUsers().then(
-      
+           function(response){
+               console.log(response)
+           }
         ).catch(
             console.log("error")
         )
@@ -36,7 +40,12 @@ export default function SubmitEmail() {
     }
         useEffect(() => {
 
-        API.getUsers()
+        API.getUsers().then(
+            function(response){
+                console.log(JSON.stringify(response.data))
+                setUsers(response.data)
+            }
+        )
 
         return () => {
 
@@ -48,11 +57,12 @@ export default function SubmitEmail() {
         <div>
             <Container>
                 <h1>Submit Email</h1>
-        
+                <h1></h1>
                 <Form>
                 <Form.Group controlId="exampleForm.ControlSelect1">
                     <Form.Label>Example select</Form.Label>
                     <Form.Control as="select">
+                    {/* {users.map(item => {console.log(item)})} */}
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
