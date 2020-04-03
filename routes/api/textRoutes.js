@@ -2,9 +2,9 @@ const twilio = require('twilio')
 const router = require("express").Router();
 const cors = require('cors')
 
-const accountSid = process.env.ACCOUNT_SID
-const authToken = process.env.AUTH_TOK
-const pNumber = process.env.PNUMBER
+const accountSid = process.env.TWILIO_ACCOUNT_SID
+const authToken = process.env.TWILIO_AUTH_TOKEN
+const pNumber = process.env.TWILIO_PHONE_NUMBER
 
 const client  = new twilio(accountSid, authToken);
 

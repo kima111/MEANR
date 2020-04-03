@@ -1,9 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import API from "../../utils/API"
 import { Container, Form, Col, Button } from 'react-bootstrap'
-// import { response } from "express";
-
-
 
 export default function SubmitEmail() {
     const [title, setTitle] = useState('');
@@ -59,12 +56,7 @@ export default function SubmitEmail() {
                 <Form.Group controlId="exampleForm.ControlSelect1">
                     <Form.Label>Example select</Form.Label>
                     <Form.Control as="select">
-                    {users.map(item => <option>{item.email}</option>)}
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    {users.map(item => <option>First Name:  {item.firstName}  Last Name: {item.lastName} Email: {item.email}</option>)}
                     </Form.Control>
                 </Form.Group>
                     <Form.Group controlId="email">
@@ -80,9 +72,6 @@ export default function SubmitEmail() {
                         <Form.Label>Example textarea</Form.Label>
                         <Form.Control as="textarea" placeholder="Description of forum." rows="3" value={emailText} onChange={event => setEmailText(event.target.value)}/>
                     </Form.Group>
-                    <Button to="/Forum" variant="primary" type="submit" onClick={getUsers}>
-                        Get Users
-                    </Button>
                     <Button to="/Forum" variant="primary" type="submit" onClick={submitEmail}>
                         Submit
                     </Button>

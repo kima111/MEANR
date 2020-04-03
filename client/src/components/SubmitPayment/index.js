@@ -36,7 +36,7 @@ export default function SubmitPayment() {
                 <h1>Submit Payment</h1>
         
                     <StripeCheckout
-                    stripeKey = {process.env.REACT_APP_STRIPE_KEY}
+                    stripeKey = {process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
                     token={submitPayment}
                     name="Submit Payment"
                     >

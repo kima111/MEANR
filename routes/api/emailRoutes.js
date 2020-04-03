@@ -2,8 +2,8 @@ const express = require("express");
 const router = require("express").Router();
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser')
-const emailer = process.env.EMAIL_ACCOUNT;
-const emailPass = process.env.EMAIL_PASS;
+const emailer = process.env.NODEMAILER_SENDER_EMAIL_ACCOUNT;
+const emailPass = process.env.NODEMAILER_SENDER_EMAIL_PASS;
 // const pNumber = process.env.PNUMBER
 const cors = require('cors')
 

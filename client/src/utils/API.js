@@ -114,6 +114,7 @@ getUsers: function() {
     sendPayment: function(paymentData){
         return new Promise((resolve, reject) => {
 
+        console.log(paymentData)    
         axios.post("/api/payment/sendPayment/", paymentData)
         
         .then(response=>{
