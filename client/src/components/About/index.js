@@ -41,14 +41,14 @@ export default function index() {
                         <li> REACT_APP_STRIPE_PUBLISHABLE_KEY</li>
                     </ul>
                     <h2>Features</h2>
-
-                    <li>Supports local authentication and registration</li>
-                    <li>User and Administrator protected routes</li>
-                    <li>Forum</li>
-                    <li>Text Messaging</li>
-                    <li>Emailing</li>
-                    <li>Payments</li>
-
+                    <ul>
+                        <li>Supports local authentication and registration</li>
+                        <li>User and Administrator protected routes</li>
+                        <li>Forum</li>
+                        <li>Text Messaging</li>
+                        <li>Emailing</li>
+                        <li>Payments</li>
+                    </ul>
                     <h2>Dependencies</h2>
                     <ul>
                         <li>  <strike>Redux</strike> (Removed in favor of using Context Providers and useContext) </li>
