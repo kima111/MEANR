@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Jumbotron } from 'react-bootstrap'
 import { UserContext } from '../../UserContext';
 
 export default function Welcome() {
@@ -7,9 +7,11 @@ export default function Welcome() {
     const {userInfo} = useContext(UserContext);
 
     return (
+    <Jumbotron fluid>
     <Container>
         <h1>Welcome to MEANR</h1>
-        <p>You have successfully logged in as {userInfo.username}</p>
+        <p>You have successfully logged in as <b>{userInfo.username}</b></p>
     </Container>
+    </Jumbotron>
     )
 }
