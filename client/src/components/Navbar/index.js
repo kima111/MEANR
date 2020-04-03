@@ -124,7 +124,7 @@ export default function MainNavbar() {
 
         <div>
             <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg">
-                <Navbar.Brand href="#home">MEANR</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">MEANR</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse>
                 <Nav className="mr-auto">
