@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import API from "../../utils/API"
-import { Container, Form, Col, Button } from 'react-bootstrap'
+import { Container, Form, Jumbotron, Button } from 'react-bootstrap'
 
 export default function SubmitEmail() {
     const [title, setTitle] = useState('');
@@ -48,6 +48,7 @@ export default function SubmitEmail() {
     
     return (
         <div>
+            <Jumbotron fluid>
             <Container>
                 <h1>Submit Email</h1>
             
@@ -77,6 +78,7 @@ export default function SubmitEmail() {
                     </Button>
                 </Form>
             </Container>
+            </Jumbotron>
         </div>
     )
 }

@@ -1,23 +1,21 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import API from "../../utils/API"
 import StripeCheckout from 'react-stripe-checkout'
-import { Container, Form, Col, Button } from 'react-bootstrap'
+import { Container, Jumbotron, Button } from 'react-bootstrap'
 
 export default function SubmitPayment() {
-    const [product, setProduct] = useState({
+    const [product] = useState({
         name: "membership",
         price: 10,
     });
 
     const submitPayment = token => {
        
-
         const body = {
             token,
             product
         }
 
-        
         API.sendPayment({
             body
         }).then(response => {
@@ -27,25 +25,20 @@ export default function SubmitPayment() {
         )
 
     }
-    function handleToken(token, addresses){
-        console.log({token, addresses})
-    }
     return (
         <div>
+            <Jumbotron fluid>
             <Container>
                 <h1>Submit Payment</h1>
-        
                     <StripeCheckout
                     stripeKey = {process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
                     token={submitPayment}
                     name="Submit Payment"
                     >
-                    
-                        <Button>Submit Payment</Button>
+                    <Button>Submit Payment</Button>
                     </StripeCheckout>
-                   
-              
             </Container>
+            </Jumbotron>
         </div>
     )
 }

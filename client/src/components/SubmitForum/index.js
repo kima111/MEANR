@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import API from "../../utils/API"
-import { Container, Form, Col, Button } from 'react-bootstrap'
+import { Container, Form, Button, Jumbotron } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom';
 
 
@@ -23,7 +23,9 @@ export default function SubmitForm() {
     
     return (
         <div>
+            <Jumbotron fluid>
             <Container>
+                
                 <h1>Submit Forum</h1>
         
                 <Form>
@@ -41,6 +43,7 @@ export default function SubmitForm() {
                     </Button>
                 </Form>
             </Container>
+            </Jumbotron>
         </div>
     )
 }

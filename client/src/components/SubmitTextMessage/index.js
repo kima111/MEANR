@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Container, Button } from 'react-bootstrap'
+import { Form, Container, Button, Jumbotron } from 'react-bootstrap'
 import API from '../../utils/API'
 
 export default function SubmitTextMessage() {
@@ -22,7 +22,7 @@ export default function SubmitTextMessage() {
 
     return (
         <div>
-              
+            <Jumbotron fluid>
             <Container>
                 <h1>Submit Text Message</h1>
         
@@ -41,6 +41,7 @@ export default function SubmitTextMessage() {
                     </Button>
                 </Form>
             </Container>
+            </Jumbotron>
         
         </div>
     )

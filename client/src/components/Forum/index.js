@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react'
 import API from '../../utils/API'
-import { Container, Button } from 'react-bootstrap'
+import { Container, Button, Jumbotron } from 'react-bootstrap'
 import { UserContext } from '../../UserContext';
 import SubmitForm from '../../components/SubmitForum'
 import { Link, useHistory } from 'react-router-dom';
@@ -33,6 +33,7 @@ export default function () {
 
     return (
     <div>
+    <Jumbotron fluid>
        <Container>
            <h1>Forum</h1>
            <br />
@@ -42,7 +43,7 @@ export default function () {
                     
                 <h2>{item.title} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {isAdmin ?
-                    <Button id={item._id} onClick={()=> deleteForum(item._id)} variant="danger">delete</Button>
+                    <Button id={item._id} onClick={()=> deleteForum(item._id)} variant="outline-danger">delete forum</Button>
                     : ''
                 }</h2>
                 <hr/>
@@ -53,6 +54,7 @@ export default function () {
             }
         
        </Container>
+    </Jumbotron>
     </div>
     )
 }

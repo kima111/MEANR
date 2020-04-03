@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Table, Container } from 'react-bootstrap'
+import { Table, Container, Jumbotron } from 'react-bootstrap'
 import API from '../../utils/API'
 export default function UserDirectory() {
 
@@ -16,6 +16,7 @@ export default function UserDirectory() {
     }, []);
     return (
         <div>
+            <Jumbotron fluid style={{ backgroundColor: "#FFFFFF" }}>
             <Container>
             <h1>User Directory</h1>
             <Table striped bordered hover>
@@ -38,6 +39,7 @@ export default function UserDirectory() {
                 </tbody>
             </Table>
             </Container>
+            </Jumbotron>
         </div>
     )
 }
