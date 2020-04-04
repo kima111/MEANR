@@ -8,11 +8,18 @@ export default function SubmitForm() {
     const [title, setTitle] = useState('');
     const [forumText, setForumText] = useState('');
     const history = useHistory();
+    
+
     const submitForum = event => {
         event.preventDefault();
+  
+
+        const currentDate = Date(Date.now()).toString()
+
         API.submitForum({
             title: title,
-            forumText: forumText
+            forumText: forumText,
+            date: currentDate
         }).then(
             history.push('/Forum'),
             setTitle(''),

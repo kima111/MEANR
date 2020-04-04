@@ -46,8 +46,12 @@ export default function () {
                     <Button id={item._id} onClick={()=> deleteForum(item._id)} variant="outline-danger">delete forum</Button>
                     : ''
                 }</h2>
+                <p style={{fontSize: "0.85em", color: "#aaaaaa"}}>posted: {item.date}</p> 
                 <hr/>
                 <p>{item.forumText}</p>
+                <hr/>
+                <br/>
+                <br/>
                 </div>
                 )
                 )
