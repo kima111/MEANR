@@ -101,7 +101,7 @@ export default function MainNavbar() {
             email
         }).then(
             function (response) {
-                console.log(response)
+                console.log(response.data.error)
                 if (response.data.registered === true) {
                     setLoggedIn(true)
                     setUserInfo(response.data)
@@ -113,6 +113,7 @@ export default function MainNavbar() {
                     setShowRegister(true);
                 }
                 else {
+                    setErrorMessage(response.data.error)
                     setShowRegister(true);
                 }
             }
@@ -211,6 +212,7 @@ export default function MainNavbar() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
                 </Form.Group>
+                <p style={{fontSize: "0.85", color: "#FA8072"}}>{errorMessage}</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" type="submit" onClick={register}>

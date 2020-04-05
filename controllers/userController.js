@@ -14,7 +14,10 @@ module.exports = {
                 }
                 else if(user){
                     console.log("user already exsists")
-                    res.json({loggedIn: false})
+                    res.json({
+                        loggedIn: false,
+                        error: "username already exsists"
+                    })
                 }
                 else{
                     db.users
