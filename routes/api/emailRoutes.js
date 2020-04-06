@@ -16,7 +16,6 @@ router.post('/sendEmail', function(req, res){
     const title = req.body.title;
     const message = req.body.emailText;
     const email = req.body.email;
-
     nodemailer.createTestAccount((err, account)=>{
         
         

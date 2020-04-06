@@ -1,29 +1,32 @@
 const cors = require("cors")
-
 const express = require("express");
 const router = require("express").Router()
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
-const uuid = require("uuid/v4")
-const bodyParser = require('body-parser')
-
-
 
 router.use(express.json())
 router.use(cors());
-router.use(bodyParser)
-router.post('/sendPayment', function(req, res){
+router.post('/sendPayment', async(req, res) => {
+    const{id, amount} = req.body;
 
-    console.log(req.body)
- stripe.customers.create({
-     email: req.body.token.email,
-     source: req.body.token.id
- }).then(
- stripe.charges.create({
-    amount: req.body.product.price,
-    currency: 'usd'
- }))
- .catch(error => console.log(error))
-})
+     try {
+        console.log(req.body) 
+        stripe.paymentIntents.create({
+            amount,
+            currency: 'USD',
+            description: 'Good Stuff',
+            payment_method: id, 
+            confirm: true
+        })
 
+        console.log(payment);
+    
+        return res.status(200).json({
+            confirm: "123"
+        })
+    } catch(error){}
+    }
+
+
+)
 
 module.exports = router;
