@@ -54,15 +54,15 @@ export default function SubmitEmail() {
             
              
                 <Form>
-                <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Label>Example select</Form.Label>
+                <Form.Group controlId="emailSelect">
+                    <Form.Label>Select Email</Form.Label>
                     <Form.Control as="select">
-                    {users.map(item => <option>First Name:  {item.firstName}  Last Name: {item.lastName} Email: {item.email}</option>)}
+                    {users.map(item => <option>{item.firstName}&nbsp;{item.lastName}&nbsp;&nbsp;{item.email}</option>)}
                     </Form.Control>
                 </Form.Group>
                     <Form.Group controlId="email">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control placeholder="Title" value={email} onChange={event => setEmail(event.target.value)} />
+                        <Form.Control placeholder="Email" value={email} onChange={event => setEmail(event.target.value)} />
                     </Form.Group>
                     <Form.Group controlId="forumTitle">
                         <Form.Label>Title</Form.Label>

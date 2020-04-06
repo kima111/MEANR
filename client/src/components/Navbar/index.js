@@ -101,7 +101,6 @@ export default function MainNavbar() {
             email
         }).then(
             function (response) {
-                console.log(response.data.error)
                 if (response.data.registered === true) {
                     setLoggedIn(true)
                     setUserInfo(response.data)
