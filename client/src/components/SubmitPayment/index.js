@@ -2,7 +2,8 @@
 import React from 'react'
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
-import axios from "axios";
+import API from '../../utils/API'
+
 
 const CheckoutForm = () => {
     const stripe = useStripe();
@@ -18,8 +19,7 @@ const CheckoutForm = () => {
         if(!error){
             const { id } = paymentMethod
         try{
-            const { data } = await axios.post("/api/payment/sendPayment", {id, amount: 1099});
-
+            const { data } = await API.sendPayment({id, amount: 1099})
             console.log(data);
         } catch(error){
             console.log(error);
