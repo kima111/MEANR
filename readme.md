@@ -1,4 +1,4 @@
-<h1><img src ="img/MEANR_ICON.png">  MEANR (Mongo Express Axios Node React)</h1>
+<h1><img src ="img/MEANR_ICON.png">&nbsp;&nbsp;&nbsp;&nbsp;MEANR (Mongo Express Axios Node React)</h1>
 
 ## Overview
 
