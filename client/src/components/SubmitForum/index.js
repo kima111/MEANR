@@ -1,9 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import API from "../../utils/API"
 import { Container, Form, Button, Jumbotron } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import '../SubmitForum/index.css'
 
 export default function SubmitForm() {
     const [title, setTitle] = useState('');
@@ -52,7 +53,7 @@ export default function SubmitForm() {
                         <Form.Label>Title</Form.Label>
                         <Form.Control placeholder="Title" value={title} onChange={event => setTitle(event.target.value)} />
                     </Form.Group>
-                    <ReactQuill theme="snow" style={{backgroundColor:'#FFFFFF'}} modules={modules} value={forumText} onChange={setForumText}/>
+                    <ReactQuill theme="snow"className='ql-container' style={{backgroundColor:'#FFFFFF'}}  modules={modules} value={forumText} onChange={setForumText}/>
                     <br />
 
                     <Button to="/Forum" variant="primary" type="submit" onClick={submitForum}>

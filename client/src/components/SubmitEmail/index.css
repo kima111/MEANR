@@ -1,0 +1,9 @@
+.ql-container {
+    height: auto !important;
+    min-height: 18em;
+  }
+
+  .ql-editor {
+    height: auto !important;
+    min-height: 18em;
+  }
