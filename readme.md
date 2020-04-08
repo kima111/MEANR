@@ -4,6 +4,16 @@
 
 This will be a full stack boiler template for Mongo, Express, Axios, Node, and React. There will be other packages included. 
 
+## Features
+
+* Supports local authentication and registration
+* User and Administrator protected routes
+* Forum
+* Text Messaging
+* Emailing
+* Payments
+* Rich Text Editor
+
 ## Installation
 
 Clone this repository then run the command npm i. This will install all the dependencies. Then sign up for the features that you would like to use such as Stripe for payments, or Twilio for text messaging, and fill out the necessary environment variables. 
@@ -31,15 +41,6 @@ You will need to create a .env file for the Server side as well as the Client si
 
 * REACT_APP_STRIPE_PUBLISHABLE_KEY
 
-## Features
-
-* Supports local authentication and registration
-* User and Administrator protected routes
-* Forum
-* Text Messaging
-* Emailing
-* Payments
-
 ## Dependencies
 
 * ~~Redux~~ (Removed in favor of using Context Providers and useContext)
@@ -62,3 +63,5 @@ You will need to create a .env file for the Server side as well as the Client si
 * Stripe (Server)
 * React Stripe Checkout (Client)
 * UUID (Server)
+* react-quill (Client)
+* html-react-parser (Client)
