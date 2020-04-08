@@ -1,12 +1,25 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API"
 import { Container, Form, Jumbotron, Button } from 'react-bootstrap'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 export default function SubmitEmail() {
     const [title, setTitle] = useState('');
     const [emailText, setEmailText] = useState('');
     const [email, setEmail] = useState('');
     const [users, setUsers] = useState([]);
+ 
+    const modules = { toolbar: [
+        [{ 'header': [1, 2, false] }],
+        ['bold', 'italic', 'underline','strike', 'blockquote', 'code-block', 'size', 'script'],
+        [{'color': []}],
+        [{'font': []}],
+        [{'align': []}],
+        [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+        ['link'],
+        ['clean', 'formula', 'video']
+      ],};
 
     const submitEmail = event => {
         event.preventDefault();
@@ -68,11 +81,7 @@ export default function SubmitEmail() {
                         <Form.Label>Title</Form.Label>
                         <Form.Control placeholder="Title" value={title} onChange={event => setTitle(event.target.value)} />
                     </Form.Group>
-                    
-                    <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Example textarea</Form.Label>
-                        <Form.Control as="textarea" placeholder="Description of forum." rows="3" value={emailText} onChange={event => setEmailText(event.target.value)}/>
-                    </Form.Group>
+                    <ReactQuill theme="snow" style={{backgroundColor:'#FFFFFF'}} modules={modules} value={emailText} onChange={setEmailText}/>
                     <Button to="/Forum" variant="primary" type="submit" onClick={submitEmail}>
                         Submit
                     </Button>
