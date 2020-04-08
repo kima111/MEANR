@@ -13,7 +13,10 @@ export default function SubmitForm() {
     
     const modules = { toolbar: [
         [{ 'header': [1, 2, false] }],
-        ['bold', 'italic', 'underline','strike', 'blockquote', 'code-block'],
+        ['bold', 'italic', 'underline','strike', 'blockquote', 'code-block', 'size', 'script'],
+        [{'color': []}],
+        [{'font': []}],
+        [{'align': []}],
         [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
         ['link'],
         ['clean', 'formula', 'video']
