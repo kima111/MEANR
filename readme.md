@@ -1,4 +1,4 @@
-# MEANR (Mongo Express Axios Node React)
+![MEANR ICON](%PUBLIC_URL%/favicon.ico) # MEANR (Mongo Express Axios Node React)
 
 ## Overview
 
