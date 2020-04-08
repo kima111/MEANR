@@ -9,9 +9,15 @@ export default function SubmitForm() {
     const [title, setTitle] = useState('');
     const [forumText, setForumText] = useState('');
     const history = useHistory();
-    
-    const [value, setValue] = useState('');
 
+    
+    const modules = { toolbar: [
+        [{ 'header': [1, 2, false] }],
+        ['bold', 'italic', 'underline','strike', 'blockquote'],
+        [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+        ['link'],
+        ['clean']
+      ],};
 
     const submitForum = event => {
         event.preventDefault();
@@ -21,7 +27,7 @@ export default function SubmitForm() {
 
         API.submitForum({
             title: title,
-            forumText: value,
+            forumText: forumText,
             date: currentDate
         }).then(
             history.push('/Forum'),
@@ -43,11 +49,7 @@ export default function SubmitForm() {
                         <Form.Label>Title</Form.Label>
                         <Form.Control placeholder="Title" value={title} onChange={event => setTitle(event.target.value)} />
                     </Form.Group>
-                    {/* <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Example textarea</Form.Label>
-                        <Form.Control as="textarea" placeholder="Description of forum." rows="3" value={forumText} onChange={event => setForumText(event.target.value)}/>
-                    </Form.Group> */}
-                    <ReactQuill theme="snow" value={value} onChange={setValue}/>
+                    <ReactQuill theme="snow" style={{backgroundColor:'#FFFFFF'}} modules={modules} value={forumText} onChange={setForumText}/>
                     <br />
 
                     <Button to="/Forum" variant="primary" type="submit" onClick={submitForum}>
