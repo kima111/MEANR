@@ -1,8 +1,8 @@
 
 import React from 'react'
 import { loadStripe } from "@stripe/stripe-js";
-import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
-import { Button, Form, Container, Jumbotron } from 'react-bootstrap'
+import { Elements, CardElement, useStripe, useElements, BillingDetailsFields } from "@stripe/react-stripe-js"
+import { Button, Form, Container, Jumbotron, Card } from 'react-bootstrap'
 import API from '../../utils/API'
 
 
@@ -19,7 +19,7 @@ const CheckoutForm = () => {
 
         if (!error) {
             const { id } = paymentMethod
-            API.sendPayment({id, amount: 51})
+            API.sendPayment({ id, amount: 51 })
         }
 
     }
@@ -28,10 +28,23 @@ const CheckoutForm = () => {
         <Jumbotron fluid>
             <Container>
                 <Form onSubmit={handleSubmit}>
-                    <Form.Text>
-                    <CardElement />
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Text className="text-muted">
+                            We'll never share your email with anyone else.
                     </Form.Text>
+                    </Form.Group>
                    
+                    
+                    <hr />
+
+                    <div class="form-group">
+                        <label for="card-element">Payment Information</label>
+                        <div id="card-element" class="form-control" style={{ height: "2.4em", paddingTop: "0.7em" }}>
+                            <CardElement />
+                        </div>
+                    </div>
                     <br />
                     <Button type="submit" disabled={!stripe}>
                         Pay

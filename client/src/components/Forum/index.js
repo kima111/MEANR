@@ -4,11 +4,14 @@ import { Container, Button, Jumbotron } from 'react-bootstrap'
 import { UserContext } from '../../UserContext';
 import SubmitForm from '../../components/SubmitForum'
 import { Link, useHistory } from 'react-router-dom';
+import parse from 'html-react-parser';
+
 
 
 export default function () {
     const { isAdmin, setIsAdmin } = useContext(UserContext);
     const [forumInfo, setForumInfo] = useState([])
+    
     var loaded = false;
     const deleteForum = (id) => {
         API.deleteForum(id)
@@ -48,7 +51,7 @@ export default function () {
                 }</h2>
                 <p style={{fontSize: "0.85em", color: "#aaaaaa"}}>posted: {item.date}</p> 
                 <hr/>
-                <p>{item.forumText}</p>
+                <p><div>{parse(item.forumText)}</div></p>
                 <hr/>
                 <br/>
                 <br/>
