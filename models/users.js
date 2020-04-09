@@ -26,6 +26,11 @@ const userSchema = new Schema({
         unique: true,
         required: true
     },
+    phoneNumber: {
+      type: String,
+      unique: true,
+      required: true
+    },
     role: {
         type: String,
         required: true,

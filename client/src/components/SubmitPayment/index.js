@@ -1,12 +1,13 @@
 
 import React, { useState } from 'react'
 import { loadStripe } from "@stripe/stripe-js";
-import { Elements, CardElement, useStripe, useElements, BillingDetailsFields } from "@stripe/react-stripe-js"
+import { Elements, CardElement, useStripe, useElements} from "@stripe/react-stripe-js"
 import { Button, Form, Container, Jumbotron, Col} from 'react-bootstrap'
 import API from '../../utils/API'
 
 
 const CheckoutForm = () => {
+
     const stripe = useStripe();
     const elements = useElements();
 
@@ -18,9 +19,6 @@ const CheckoutForm = () => {
     const [state, setState] = useState('');
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
-
-
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -53,7 +51,7 @@ const CheckoutForm = () => {
             <Container>
                 <Form onSubmit={handleSubmit}>
                     <Form.Row>
-                    <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="name" placeholder="Full Name" onChange={event => setName(event.target.value)} />
                         </Form.Group>
@@ -61,8 +59,6 @@ const CheckoutForm = () => {
                             <Form.Label>Email</Form.Label>
                             <Form.Control value={email} type="email" placeholder="Enter email" onChange={event => setEmail(event.target.value)}   />
                         </Form.Group>
-
-                      
                     </Form.Row>
 
                     <Form.Group controlId="formGridAddress1">
@@ -113,9 +109,6 @@ const CheckoutForm = () => {
 }
 
 export default function index() {
-
-
-
 
     const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
     return (

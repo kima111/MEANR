@@ -86,6 +86,7 @@ export default function MainNavbar() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
     const [showRegister, setShowRegister] = useState(false);
     const handleCloseRegister = () => setShowRegister(false);
@@ -98,7 +99,8 @@ export default function MainNavbar() {
             lastName,
             username,
             password,
-            email
+            email,
+            phoneNumber: phone
         }).then(
             function (response) {
                 if (response.data.registered === true) {
@@ -206,6 +208,10 @@ export default function MainNavbar() {
                 <Form.Group controlId="email">
                     <Form.Label>Email</Form.Label>
                     <Form.Control className="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" value={email} onChange={event => setEmail(event.target.value)}  />
+                </Form.Group>
+                <Form.Group controlId="phone">
+                    <Form.Label>Phone Number</Form.Label>
+                    <Form.Control className="form-control mr-sm-2" type="phone" placeholder="Phone Number" aria-label="Phone Number" value={phone} onChange={event => setPhone(event.target.value)}  />
                 </Form.Group>
                 <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
