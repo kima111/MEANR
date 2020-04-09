@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 // Define securities with helmet
 
 // hide what app is powered by
@@ -28,15 +32,12 @@ app.use(helmet.hsts({maxAge: ninetyDaysInSeconds, force: true}))
 app.use(helmet.dnsPrefetchControl())
 //conent source approved providers
 app.use(helmet.contentSecurityPolicy({directives:{defaultSrc:["'self'"], scriptSrc:["'self'", "trusted-cdn.com"]}}));
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+
 // Add routes, both API and view
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/" + process.env.MONGO_DB_NAME);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://user:password1@ds021434.mlab.com:21434/heroku_tvcf55j4");
 
 // Start the API server
 app.listen(PORT, function() {
