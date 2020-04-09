@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAKE,yBACE,qBAAuB,CACvB,eACF","file":"main.5827ca6e.chunk.css","sourcesContent":[".ql-container {\r\n    height: auto !important;\r\n    min-height: 18em;\r\n  }\r\n\r\n  .ql-editor {\r\n    height: auto !important;\r\n    min-height: 18em;\r\n  }"]}
