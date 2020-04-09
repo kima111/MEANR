@@ -1,20 +1,44 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, CardElement, useStripe, useElements, BillingDetailsFields } from "@stripe/react-stripe-js"
-import { Button, Form, Container, Jumbotron, Card } from 'react-bootstrap'
+import { Button, Form, Container, Jumbotron, Col} from 'react-bootstrap'
 import API from '../../utils/API'
 
 
 const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
+
+    //billing details
+    const [city, setCity] = useState('');
+    const [line1, setLine1] = useState('');
+    const [line2, setLine2] = useState('');
+    const [postal_code, setPostalCode] = useState('');
+    const [state, setState] = useState('');
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+
+
+
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
-            card: elements.getElement(CardElement)
+            card: elements.getElement(CardElement),
+            billing_details: {
+                address: {
+                    city: city,
+                    line1: line1,
+                    line2: line2,
+                    postal_code: postal_code,
+                    state: state
+                },
+                email: email,
+                name: name
+            }
         });
 
         if (!error) {
@@ -28,16 +52,48 @@ const CheckoutForm = () => {
         <Jumbotron fluid>
             <Container>
                 <Form onSubmit={handleSubmit}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                    </Form.Text>
+                    <Form.Row>
+                    <Form.Group as={Col} controlId="formGridPassword">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="name" placeholder="Full Name" onChange={event => setName(event.target.value)} />
+                        </Form.Group>
+                        <Form.Group as={Col} controlId="formGridEmail">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control value={email} type="email" placeholder="Enter email" onChange={event => setEmail(event.target.value)}   />
+                        </Form.Group>
+
+                      
+                    </Form.Row>
+
+                    <Form.Group controlId="formGridAddress1">
+                        <Form.Label>Address</Form.Label>
+                        <Form.Control placeholder="1234 Main St" onChange={event => setLine1(event.target.value)} />
                     </Form.Group>
-                   
-                    
-                    <hr />
+
+                    <Form.Group controlId="formGridAddress2">
+                        <Form.Label>Address 2</Form.Label>
+                        <Form.Control placeholder="Apartment, studio, or floor" onChange={event => setLine2(event.target.value)} />
+                    </Form.Group>
+
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="formGridCity">
+                            <Form.Label>City</Form.Label>
+                            <Form.Control onChange={event => setCity(event.target.value)} />
+                        </Form.Group>
+
+                        <Form.Group as={Col} controlId="formGridState">
+                            <Form.Label>State</Form.Label>
+                            <Form.Control as="select" value="Choose..." onChange={event => setState(event.target.value)} >
+                                <option>Choose...</option>
+                                <option>...</option>
+                            </Form.Control>
+                        </Form.Group>
+
+                        <Form.Group as={Col} controlId="formGridZip">
+                            <Form.Label>Zip</Form.Label>
+                            <Form.Control onChange={event => setPostalCode(event.target.value)}  />
+                        </Form.Group>
+                    </Form.Row>
 
                     <div class="form-group">
                         <label for="card-element">Payment Information</label>
@@ -47,7 +103,7 @@ const CheckoutForm = () => {
                     </div>
                     <br />
                     <Button type="submit" disabled={!stripe}>
-                        Pay
+                        Sumbit Payment
                     </Button>
                 </Form>
             </Container>
