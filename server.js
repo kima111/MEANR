@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/" + process.env.MONGO_DB_NAME);
+mongoose.connect("mongodb://user:password1@ds021434.mlab.com:21434/heroku_tvcf55j4");
 
 // // Define securities with helmet
 
