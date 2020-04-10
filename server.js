@@ -14,14 +14,7 @@ app.use(express.json());
 //   app.use(express.static("client/build"));
 // }
 
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
-}
 
-
-app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
 // // Add routes, both API and view
 // app.use(routes);
 app.use(require("./routes/index"));
@@ -48,6 +41,14 @@ mongoose.connect("mongodb://user:password1@ds239206.mlab.com:39206/heroku_hd01s5
 // //conent source approved providers
 // app.use(helmet.contentSecurityPolicy({directives:{defaultSrc:["'self'"], scriptSrc:["'self'", "trusted-cdn.com"]}}));
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+
+
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 // Start the API server
 app.listen(PORT, function() {
