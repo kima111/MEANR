@@ -1,7 +1,7 @@
 const express = require("express");
 require('dotenv/config');
 const mongoose = require("mongoose");
-const routes = require("./routes");
+// const routes = require("./routes");
 const app = express();
 const helmet = require("helmet");
 const PORT = process.env.PORT || 3001;
@@ -21,9 +21,9 @@ if (process.env.NODE_ENV == "production") {
     res.sendFile(path.join(__dirname, "build", "index.html"));
   });
 }
-// Add routes, both API and view
-app.use(routes);
-
+// // Add routes, both API and view
+// app.use(routes);
+app.use(require("./routes/index"));
 // Connect to the Mongo DB
 mongoose.connect("mongodb://user:password1@ds021434.mlab.com:21434/heroku_tvcf55j4");
 
