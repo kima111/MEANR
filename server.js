@@ -30,23 +30,23 @@ mongoose.connect("mongodb://user:password1@ds239206.mlab.com:39206/heroku_hd01s5
 
 // // Define securities with helmet
 
-// // hide what app is powered by
-// app.use(helmet.hidePoweredBy());
-// // frameguard for not allowing iframe to clickjack
-// app.use(helmet.frameguard({action: 'deny'}));
-// // prevent XSS cross side scripting
-// app.use(helmet.xssFilter());
-// // prevent MIME sniffing
-// app.use(helmet.noSniff());
-// // ieNoOpen
-// app.use(helmet.ieNoOpen());
-// // force https
-// const ninetyDaysInSeconds = 90*24*60*60;
-// app.use(helmet.hsts({maxAge: ninetyDaysInSeconds, force: true}))
-// // prevent prefetch DNS
-// app.use(helmet.dnsPrefetchControl())
-// //conent source approved providers
-// app.use(helmet.contentSecurityPolicy({directives:{defaultSrc:["'self'"], scriptSrc:["'self'", "trusted-cdn.com"]}}));
+// hide what app is powered by
+app.use(helmet.hidePoweredBy());
+// frameguard for not allowing iframe to clickjack
+app.use(helmet.frameguard({action: 'deny'}));
+// prevent XSS cross side scripting
+app.use(helmet.xssFilter());
+// prevent MIME sniffing
+app.use(helmet.noSniff());
+// ieNoOpen
+app.use(helmet.ieNoOpen());
+// force https
+const ninetyDaysInSeconds = 90*24*60*60;
+app.use(helmet.hsts({maxAge: ninetyDaysInSeconds, force: true}))
+// prevent prefetch DNS
+app.use(helmet.dnsPrefetchControl())
+//conent source approved providers
+app.use(helmet.contentSecurityPolicy({directives:{defaultSrc:["'self'"], scriptSrc:["'self'", "trusted-cdn.com"]}}));
 
 
 // Start the API server
