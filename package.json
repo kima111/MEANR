@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kima111/REMANR.git"
+    "url": "git+https://github.com/kima111/MEANR.git"
   },
   "author": "kima111",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kima111/REMANR/issues"
+    "url": "https://github.com/kima111/MEANR/issues"
   },
-  "homepage": "https://github.com/kima111/REMANR#readme",
+  "homepage": "https://github.com/kima111/MEANR#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
