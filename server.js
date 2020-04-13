@@ -32,7 +32,7 @@ app.get('*', (request, response) => {
 app.use(routes);
 // app.use(require("./routes/index"));
 // Connect to the Mongo DB
-mongoose.connect("mongodb://user:password1@ds239206.mlab.com:39206/heroku_hd01s5rq");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/" + process.env.MONGO_DB_NAME);
 
 // // Define securities with helmet
 
