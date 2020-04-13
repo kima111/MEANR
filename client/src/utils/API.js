@@ -2,7 +2,6 @@ import axios from "axios";
 
 export default {
 //authenticate user route
-
     authenticateUser: function(userData) {
         return new Promise((resolve, reject) =>{
             axios.post("/api/user/login", userData)
@@ -110,6 +109,7 @@ getUsers: function() {
         })
     })
     },
+//send payment
 sendPayment: function(paymentData){
     return new Promise((resolve, reject) => {
         axios.post("/api/payment/sendPayment/", paymentData)
