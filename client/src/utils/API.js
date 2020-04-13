@@ -122,18 +122,5 @@ sendPayment: function(paymentData){
             reject(Error(error))
         })
     })
-    },
-testAPI: function(){
-    return new Promise((resolve, reject) => {
-        axios.get("/test")
-        .then(response=>{
-            console.log(response)
-            resolve(response)
-        })
-        .catch(error=>{
-            console.log(error)
-            reject(Error(error))
-        })
-    })
-}
+    }
 };

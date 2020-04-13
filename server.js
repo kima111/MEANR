@@ -9,27 +9,20 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
 
-// app.use(express.static('client/build'))
-
-app.get("/test", function(req, res){
-	res.send("YOYO")
-    console.log("HEHEHEHE");
-})
+//for production deployment
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
 }
 
+//fall back for any route
 app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
-// // Add routes, both API and view
+
+// Add routes, both API and view
 app.use(routes);
-// app.use(require("./routes/index"));
+
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/" + process.env.MONGO_DB_NAME);
 
