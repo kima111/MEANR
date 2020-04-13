@@ -16,6 +16,10 @@ app.use(express.json());
 
 // app.use(express.static('client/build'))
 
+app.get("/test", function(req, res){
+	res.send("YOYO")
+    console.log("HEHEHEHE");
+})
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
 }
