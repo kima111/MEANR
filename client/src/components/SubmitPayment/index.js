@@ -99,7 +99,7 @@ const CheckoutForm = () => {
                     </div>
                     <br />
                     <Button type="submit" disabled={!stripe}>
-                        Sumbit Payment
+                        Submit Payment
                     </Button>
                 </Form>
             </Container>
