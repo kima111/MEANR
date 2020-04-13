@@ -2,10 +2,6 @@
   "name": "remanr",
   "version": "1.0.0",
   "description": "A full stack boiler plate",
-  "engines": {
-    "node": "12.15.0",
-    "npm": "6.13.7"
-  },
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
