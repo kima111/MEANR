@@ -47,7 +47,7 @@ You will need to create a .env file for the Server side as well as the Client si
 
 * REACT_APP_STRIPE_PUBLISHABLE_KEY
 
-## Dependencies
+## Dependencies (Please reference package.json for the most up to date dependencies)
 
 * ~~Redux~~ (Removed in favor of using Context Providers and useContext)
 * Express (Server)
