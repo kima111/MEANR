@@ -2,7 +2,16 @@
 
 ## Overview
 
- :honey_pot: This will be a full stack boiler template for Mongo, Express, Axios, Node, and React. There will be other packages included. 
+ :honey_pot: This will be a full stack boiler template for Mongo, Express, Axios, Node, and React. There will be other packages included.
+
+## Demo
+
+Here you can find a demonstration of MEANR: <a href = "https://meanr.herokuapp.com/">https://meanr.herokuapp.com/</a><br />
+
+To test out the admin capabilities, use the following credentials:
+
+<b>Username:</b> <b><i>TestAdmin</i></b> <br />
+<b>Password:</b> <b><i>password</i></b>
 
 ## Features
 
