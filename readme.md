@@ -27,15 +27,21 @@ Clone this repository then run the command npm i. This will install all the depe
 
 You will need to create a .env file for the Server side as well as the Client side. Some of these features will need accounts setup such as STRIPE (Payments), or TWILIO (Text Messaging). 
 
+### API Services Required for sign up
+
+* TWILIO
+* STRIPE
+* SENDGRID
+
 <b>Server Side</b>
 
 * TWILIO_ACCOUNT_SID
 * TWILIO_AUTH_TOKEN
 * TWILIO_PHONE_NUMBER
-* NODEMAILER_SENDER_EMAIL_ACCOUNT
-* NODEMAILER_SENDER_EMAIL_PASS
 * STRIPE_SECRET_KEY
 * MONGO_DB_NAME
+* SENDGRID_API_KEY
+* SENDGRID_SENDER
 
 <b>Client Side</b>
 
