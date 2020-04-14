@@ -29,9 +29,9 @@ You will need to create a .env file for the Server side as well as the Client si
 
 ### API Services Required 
 
-:iphone: TWILIO (Text Messaging) - <a href = "https://www.twilio.com/">https://www.twilio.com/</a><br />
-:credit_card: STRIPE (Payments)  - <a href = "https://stripe.com/">https://stripe.com/</a><br />
-:email: SENDGRID (Email) - <a href = "https://sendgrid.com/">https://sendgrid.com/</a><br />
+:iphone: TWILIO (Text Messaging) - <a href = "https://www.twilio.com/">https://www.twilio.com/</a><br /><br />
+:credit_card: STRIPE (Payments)  - <a href = "https://stripe.com/">https://stripe.com/</a><br /><br />
+:email: SENDGRID (Email) - <a href = "https://sendgrid.com/">https://sendgrid.com/</a><br /><br />
 
 <b>Server Side</b>
 
