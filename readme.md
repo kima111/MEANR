@@ -6,7 +6,7 @@
 
 ## Demo
 
-Here you can find a demonstration of MEANR: <a href = "https://meanr.herokuapp.com/">https://meanr.herokuapp.com/</a><br />
+Here you can find a demonstration of MEANR: <a target="_blank" href = "https://meanr.herokuapp.com/">https://meanr.herokuapp.com/</a><br />
 
 To test out the admin capabilities, use the following credentials:
 
@@ -29,8 +29,8 @@ Clone this repository then run the command npm i. This will install all the depe
 
 ## Requirements
 <br />
-:computer: NPM (Node Package Manager) - <a href ="https://www.npmjs.com/">https://www.npmjs.com/</a><br /><br />
-:floppy_disk: Mongo DB (Mongo DB) - <a href ="https://www.mongodb.com/">https://www.mongodb.com/</a> <br /><br />
+:computer: NPM (Node Package Manager) - <a target="_blank"  href ="https://www.npmjs.com/">https://www.npmjs.com/</a><br /><br />
+:floppy_disk: Mongo DB (Mongo DB) - <a target="_blank" href ="https://www.mongodb.com/">https://www.mongodb.com/</a> <br /><br />
 
 ## Enviornment Variables
 
@@ -38,9 +38,9 @@ You will need to create a .env file for the Server side as well as the Client si
 
 ### API Services Required 
 <br />
-:iphone: TWILIO (Text Messaging) - <a href = "https://www.twilio.com/">https://www.twilio.com/</a><br /><br />
-:credit_card: STRIPE (Payments)  - <a href = "https://stripe.com/">https://stripe.com/</a><br /><br />
-:email: SENDGRID (Email) - <a href = "https://sendgrid.com/">https://sendgrid.com/</a><br /><br />
+:iphone: TWILIO (Text Messaging) - <a target="_blank" href = "https://www.twilio.com/">https://www.twilio.com/</a><br /><br />
+:credit_card: STRIPE (Payments)  - <a target="_blank" href = "https://stripe.com/">https://stripe.com/</a><br /><br />
+:email: SENDGRID (Email) - <a target="_blank" href = "https://sendgrid.com/">https://sendgrid.com/</a><br /><br />
 
 <b>Server Side</b>
 
