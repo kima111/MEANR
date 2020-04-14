@@ -27,11 +27,11 @@ Clone this repository then run the command npm i. This will install all the depe
 
 You will need to create a .env file for the Server side as well as the Client side. Some of these features will need accounts setup such as STRIPE (Payments), or TWILIO (Text Messaging). 
 
-### API Services Required for sign up
+### API Services Required 
 
-* TWILIO
-* STRIPE
-* SENDGRID
+* TWILIO (Text Messaging) - <a href = "https://www.twilio.com/">https://www.twilio.com/</a>
+* STRIPE (Payments) - <a href = "https://stripe.com/">https://stripe.com/</a>
+* SENDGRID (Email) - <a href = "https://sendgrid.com/">https://sendgrid.com/</a>
 
 <b>Server Side</b>
 
