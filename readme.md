@@ -20,8 +20,8 @@ Clone this repository then run the command npm i. This will install all the depe
 
 ## Requirements
 <br />
-:computer: NPM <br /><br />
-:floppy_disk: Mongo DB<br /><br />
+:computer: NPM (Node Package Manager) - <a href ="https://www.npmjs.com/">https://www.npmjs.com/</a><br /><br />
+:floppy_disk: Mongo DB (Mongo DB) - <a href ="https://www.mongodb.com/">https://www.mongodb.com/</a> <br /><br />
 
 ## Enviornment Variables
 
