@@ -11,10 +11,9 @@ export default function SubmitForm() {
     const [forumText, setForumText] = useState('');
     const history = useHistory();
 
-    
     const modules = { toolbar: [
         [{ 'header': [1, 2, false] }],
-        ['bold', 'italic', 'underline','strike', 'blockquote', 'code-block', 'size', 'script'],
+        ['bold', 'italic', 'underline','strike', 'blockquote', 'code-block', 'script'],
         [{'color': []}],
         [{'font': []}],
         [{'align': []}],

@@ -1,11 +1,8 @@
-import React, { useState, useContext, useEffect, useCallback } from 'react'
+import React, { useState, useContext, useEffect} from 'react'
 import API from '../../utils/API'
 import { Container, Button, Jumbotron } from 'react-bootstrap'
 import { UserContext } from '../../UserContext';
-import SubmitForm from '../../components/SubmitForum'
-import { Link, useHistory } from 'react-router-dom';
 import parse from 'html-react-parser';
-
 
 
 export default function () {
