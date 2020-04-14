@@ -2,7 +2,7 @@
 
 ## Overview
 
-This will be a full stack :honey_pot: boiler template for Mongo, Express, Axios, Node, and React. There will be other packages included. 
+ :honey_pot: This will be a full stack boiler template for Mongo, Express, Axios, Node, and React. There will be other packages included. 
 
 ## Features
 
