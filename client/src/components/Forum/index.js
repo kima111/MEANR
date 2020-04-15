@@ -6,10 +6,9 @@ import parse from 'html-react-parser';
 
 
 export default function () {
-    const { isAdmin, setIsAdmin } = useContext(UserContext);
+    const { isAdmin } = useContext(UserContext);
     const [forumInfo, setForumInfo] = useState([])
     
-    var loaded = false;
     const deleteForum = (id) => {
         API.deleteForum(id)
         .then(response => console.log(response))

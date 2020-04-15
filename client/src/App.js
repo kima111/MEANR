@@ -14,7 +14,7 @@ import { UserContext } from './UserContext'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import UserProtectedRoute from '../src/components/UserProtectedRoutes'
 import AdminProtectedRoute from '../src/components/AdminProtectedRoutes'
-
+import NoMatch from '../src/components/NoMatch'
 
 export default function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -38,6 +38,7 @@ export default function App() {
           <AdminProtectedRoute exact path="/UserDirectory" component={UserDirectory} />
           <UserProtectedRoute exact path="/Forum" component={Forum} />
           <UserProtectedRoute exact path="/SubmitPayment" component={SubmitPayment} />
+          <Route component={NoMatch} />
           
         </Switch>
     
