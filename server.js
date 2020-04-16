@@ -16,9 +16,6 @@ const MongoStore = require('connect-mongo')(session)
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-
-
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/" + process.env.MONGO_DB_NAME);
 
