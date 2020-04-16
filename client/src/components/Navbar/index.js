@@ -77,9 +77,11 @@ export default function MainNavbar() {
     //Logout
     const logout = event => {
         event.preventDefault();
-        history.push('/SignOut')
         setLoggedIn(false);
         setIsAdmin(false);
+        history.push('/SignOut')
+
+        
     }
 
     //Registration
