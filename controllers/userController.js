@@ -64,6 +64,11 @@ module.exports = {
     findAllUsers: function(req, res){
         console.log(req.body)
     if(req.isAuthenticated()){
+        console.log("authenticated")
+    }
+    else{
+        res.redirect("/")
+    }
         db.users
         .find(req.query)
         .then(dbModel => { 
@@ -82,7 +87,7 @@ module.exports = {
             res.send(arr)
         })
         .catch(error => res.status(422).json(error))
-    }},
+    },
     
     authenticateUser: function(req, res, next) {
         passport.authenticate('local', function(err, user, info) {
