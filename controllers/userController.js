@@ -32,9 +32,7 @@ module.exports = {
     },
 
 
-  findUser: 
-  
-  function(req, res){
+  findUser: function(req, res){
     const username = req.body.username;
     const password = req.body.password;
     db.users

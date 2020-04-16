@@ -16,18 +16,11 @@ const MongoStore = require('connect-mongo')(session)
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//for production deployment
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
-}
+
+
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/" + process.env.MONGO_DB_NAME);
-
-//fall back for any route
-app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
 
 //passport local strategy
 app.use(
@@ -39,18 +32,27 @@ app.use(
 	})
 );
 
+
 app.use( (req, res, next) => {
 //   console.log('req.session', req.session);
   return next();
 });
 
 
+
 // Initialize Passport and restore authentication state, if any, from the session.
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+//for production deployment
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+
 // Add routes, both API and view
 app.use(routes);
+
 
 // Define securities with helmet
 
@@ -71,6 +73,13 @@ app.use(helmet.hsts({maxAge: ninetyDaysInSeconds, force: true}))
 app.use(helmet.dnsPrefetchControl())
 //conent source approved providers
 app.use(helmet.contentSecurityPolicy({directives:{defaultSrc:["'self'"], scriptSrc:["'self'", "trusted-cdn.com"]}}));
+
+//fall back for any route
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
+
 
 // Start the API server
 app.listen(PORT, function() {

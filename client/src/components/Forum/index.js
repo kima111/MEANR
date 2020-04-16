@@ -15,7 +15,6 @@ export default function () {
         .catch(error => console.log(error))
      
     }
-  
     useEffect(() => {
       
        API.getForums().then(
@@ -23,8 +22,6 @@ export default function () {
             setForumInfo(response.data)  
         }
         )
-     
-        
         return () => {
             
         }
@@ -51,6 +48,7 @@ export default function () {
                 <hr/>
                 <br/>
                 <br/>
+           
                 </div>
                 )
                 )
