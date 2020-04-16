@@ -1,9 +1,5 @@
 const db = require("../models");
-// const bcrypt = require('bcryptjs');
-// const localStrategy = require("passport-local").Strategy;
 const passport = require('../passport')
-
-
 
 module.exports = {
 
@@ -65,7 +61,7 @@ module.exports = {
             loggedIn: true
         }))
         .catch(error => res.status(422).json(error))
-},
+    },
 
     findAllUsers: function(req, res){
         console.log(req.body)
@@ -90,11 +86,19 @@ module.exports = {
         .catch(error => res.status(422).json(error))
     },
     
-    authenticateUser: function(req, res){
-      passport.authenticate("local"),
-      (req, res)=>{
-          console.log("logged in!")
+    authenticateUser: function(req, res, next) {
+        passport.authenticate('local', function(err, user, info) {
+          if (err) { return next(err); }
+          if (!user) { return res.json({loggedIn: false}); }
+          req.logIn(user, function(err) {
+            if (err) { return next(err); }
+            return res.json({
+                username: user.username,
+                role: user.role,
+                loggedIn: true
+            });
+          });
+        })(req, res, next);
       }
-    },
     
 }

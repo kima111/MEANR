@@ -4,7 +4,7 @@ export default {
 //authenticate user route
     authenticateUser: function(userData) {
         return new Promise((resolve, reject) =>{
-            axios.post("/api/loggingIn", userData)
+            axios.post("/api/user/login", userData)
             .then(response => {
                 resolve(response)
             })
