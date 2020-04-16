@@ -77,6 +77,7 @@ export default function MainNavbar() {
     //Logout
     const logout = event => {
         event.preventDefault();
+        API.logoutUser();
         setLoggedIn(false);
         setIsAdmin(false);
         history.push('/SignOut')

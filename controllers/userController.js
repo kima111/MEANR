@@ -102,6 +102,14 @@ module.exports = {
             });
           });
         })(req, res, next);
+      },
+      logoutUser: function(req, res) {
+        if (req.user) {
+            req.logout();
+            res.json({ message: "Logging out" });
+        } else {
+            res.json({ message: "No user to log out" });
+        }
       }
     
 }

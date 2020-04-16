@@ -14,6 +14,19 @@ export default {
         })
     
     },
+//logout user
+logoutUser: function(userData) {
+    return new Promise((resolve, reject) =>{
+        axios.post("/api/user/logout", userData)
+        .then(response => {
+            resolve(response)
+        })
+        .catch(error => {
+            reject(Error("failed to login error: " + error))
+        })
+    })
+
+},
 //register user route
     registerUser: function(regData) {
         return new Promise((resolve, reject) => {
