@@ -5,6 +5,14 @@ const routes = require("./routes");
 const app = express();
 const helmet = require("helmet");
 const PORT = process.env.PORT || 3001;
+
+const passport = require('./passport');
+// const Strategy = require('passport-local').Strategy;
+// const db = require('./models')
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session)
+
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -18,13 +26,54 @@ if (process.env.NODE_ENV === 'production') {
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/" + process.env.MONGO_DB_NAME);
 
-// Add routes, both API and view
-app.use(routes);
+
 
 //fall back for any route
 app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
+
+//passport local strategy
+app.use(
+	session({
+		secret: 'uncanny-Paladin', // Pick a random string to make the hash that is generated secure
+		store: new MongoStore({ mongooseConnection: mongoose.connection }),
+		resave: false, // Required
+		saveUninitialized: false // Required
+	})
+);
+
+app.use( (req, res, next) => {
+  console.log('req.session', req.session);
+  return next();
+});
+
+
+
+// Initialize Passport and restore authentication state, if any, from the
+// session.
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.post('/api/loggingIn', function(req, res, next) {
+	passport.authenticate('local', function(err, user, info) {
+	  if (err) { return next(err); }
+	  if (!user) { return res.json({loggedIn: false}); }
+	  req.logIn(user, function(err) {
+		if (err) { return next(err); }
+		return res.json({
+			username: user.username,
+			role: user.role,
+			loggedIn: true
+		});
+	  });
+	})(req, res, next);
+  });
+
+
+// Add routes, both API and view
+app.use(routes);
+
 
 // // Define securities with helmet
 

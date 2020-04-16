@@ -1,10 +1,12 @@
 const db = require("../models");
 // const bcrypt = require('bcryptjs');
 // const localStrategy = require("passport-local").Strategy;
-const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy;
-// Defining methods for the userController
+const passport = require('../passport')
+
+
+
 module.exports = {
+
     createUser: function(req, res){
 
         db.users
@@ -34,11 +36,13 @@ module.exports = {
     },
 
 
-  findUser: function(req, res){
-
+  findUser: 
+  
+  function(req, res){
+    const username = req.body.username;
     const password = req.body.password;
     db.users
-        .findOne({username: req.body.username}, (error, user) => {
+        .findOne({username}, (error, user) => {
             if(error){
                 return (error);
             }
@@ -61,10 +65,11 @@ module.exports = {
             loggedIn: true
         }))
         .catch(error => res.status(422).json(error))
-
-    },
+},
 
     findAllUsers: function(req, res){
+        console.log(req.body)
+       
         db.users
         .find(req.query)
         .then(dbModel => { 
@@ -83,5 +88,13 @@ module.exports = {
             res.send(arr)
         })
         .catch(error => res.status(422).json(error))
-    }
+    },
+    
+    authenticateUser: function(req, res){
+      passport.authenticate("local"),
+      (req, res)=>{
+          console.log("logged in!")
+      }
+    },
+    
 }
