@@ -2,7 +2,7 @@
 
 ## Overview
 
- :honey_pot: MEANR is a full stack boiler template for Mongo, Express, Axios, Node, and React intended to aide developers looking to get their app off the ground in a hurry with an easy to use framework for accomplishing common tasks, such as Authentication, Payment, Emailing, etc... There will be other packages included. in later versions.
+ :honey_pot: MEANR is a full stack boiler template for Mongo, Express, Axios, Node, and React intended to aide developers looking to get their app off the ground in a hurry with an easy to use framework for accomplishing common tasks, such as Authentication, Payment, Emailing, etc... There will be other packages included in later versions.
 
 ## Demo
 
