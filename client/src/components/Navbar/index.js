@@ -149,7 +149,7 @@ export default function MainNavbar() {
                 </Nav>
                 <br/>
                 <Form inline>
-                    {isLoggedIn ? <Button variant="outline-primary" onClick={logout}><FontAwesomeIcon icon='user-cog' /> &nbsp; Profile Settings</Button>: ''}
+                    {isLoggedIn ? <Button variant="outline-primary" as={Link} to="/Profile"><FontAwesomeIcon icon='user-cog' /> &nbsp; Profile Settings</Button>: ''}
                     &nbsp;&nbsp;
                     {isLoggedIn ? '' : <Button type="button" variant="outline-primary" onClick={handleShowLogin}>Login</Button>}
                     &nbsp;&nbsp;

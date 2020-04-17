@@ -10,6 +10,7 @@ import SubmitTextMessage from '../src/components/SubmitTextMessage'
 import SubmitEmail from '../src/components/SubmitEmail'
 import SubmitPayment from '../src/components/SubmitPayment'
 import UserDirectory from '../src/components/UserDirectory'
+import Profile   from '../src/components/Profile'
 import { UserContext } from './UserContext'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import UserProtectedRoute from '../src/components/UserProtectedRoutes'
@@ -43,6 +44,7 @@ export default function App() {
           <AdminProtectedRoute exact path="/UserDirectory" component={UserDirectory} />
           <UserProtectedRoute exact path="/Forum" component={Forum} />
           <UserProtectedRoute exact path="/SubmitPayment" component={SubmitPayment} />
+          <UserProtectedRoute exact path="/Profile" component={Profile} />
           <Route component={NoMatch} />
           
         </Switch>
