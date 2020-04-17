@@ -15,6 +15,11 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import UserProtectedRoute from '../src/components/UserProtectedRoutes'
 import AdminProtectedRoute from '../src/components/AdminProtectedRoutes'
 import NoMatch from '../src/components/NoMatch'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUser as farUser } from '@fortawesome/free-regular-svg-icons'
+import { faCoffee, faUserCog } from '@fortawesome/free-solid-svg-icons'
+
+library.add(farUser, faUserCog)
 
 export default function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);

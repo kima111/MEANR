@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import API from '../../utils/API'
 import { Modal, Button, Form, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { UserContext } from '../../UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function MainNavbar() {
 
@@ -148,11 +149,14 @@ export default function MainNavbar() {
                 </Nav>
                 <br/>
                 <Form inline>
+                    {isLoggedIn ? <Button variant="outline-primary" onClick={logout}><FontAwesomeIcon icon='user-cog' /> &nbsp; Profile Settings</Button>: ''}
+                    &nbsp;&nbsp;
                     {isLoggedIn ? '' : <Button type="button" variant="outline-primary" onClick={handleShowLogin}>Login</Button>}
                     &nbsp;&nbsp;
                     {isLoggedIn ? <Button variant="outline-primary" onClick={logout}>Logout</Button>: ''}
                     &nbsp;&nbsp;
                     {isLoggedIn ? '' : <Button variant="outline-primary" onClick={handleShowRegister}>Register</Button>}
+                    
                 </Form>
                 </Navbar.Collapse>
             </Navbar>
