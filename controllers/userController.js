@@ -53,6 +53,8 @@ module.exports = {
       .then(dbModel => res.json({
         role: dbModel.role,
         username: dbModel.username,
+        firstName: dbModel.firstName,
+        lastName: dbModel.lastName,
         loggedIn: true
       }))
       .catch(error => res.status(422).json(error));
@@ -100,6 +102,8 @@ module.exports = {
         return res.json({
           username: user.username,
           role: user.role,
+          firstName: user.firstName,
+          lastName: user.lastName,
           loggedIn: true
         });
       });
