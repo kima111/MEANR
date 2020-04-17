@@ -42,5 +42,9 @@
     "stripe": "^8.37.0",
     "twilio": "^3.41.1",
     "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0"
   }
 }

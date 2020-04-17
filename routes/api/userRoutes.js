@@ -1,17 +1,16 @@
-const passport = require("passport");
-const router = require("express").Router();
-const userController = require("../../controllers/userController")
+const router = require('express').Router();
+const userController = require('../../controllers/userController');
 
-router.route("/login")
-    .post(userController.authenticateUser)
+router.route('/login')
+  .post(userController.authenticateUser);
 
-router.route("/logout")
-    .post(userController.logoutUser)
+router.route('/logout')
+  .post(userController.logoutUser);
 
-router.route("/register")
-    .post(userController.createUser);
+router.route('/register')
+  .post(userController.createUser);
 
-router.route("/findAll")
-    .get(userController.findAllUsers);
+router.route('/findAll')
+  .get(userController.findAllUsers);
 
 module.exports = router;
