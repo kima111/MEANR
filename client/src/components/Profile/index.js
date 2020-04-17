@@ -12,11 +12,11 @@ export default function Profile() {
                     <h1><FontAwesomeIcon icon='user-cog' /> Profile Settings</h1>
                     <hr />
                     <br/>
-                    <h3>Username: {userInfo.username}</h3>
+                    <p>Username: {userInfo.username}</p>
                     <br/>
-                    <h3>First Name: {userInfo.firstName}{console.log(userInfo)}</h3>
+                    <p>First Name: {userInfo.firstName}{console.log(userInfo)}</p>
                     <br/>
-                    <h3>Last Name: {userInfo.lastName}{console.log(userInfo)}</h3>
+                    <p>Last Name: {userInfo.lastName}{console.log(userInfo)}</p>
                 </Container>
             </Jumbotron>
         </div>

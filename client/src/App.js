@@ -12,13 +12,14 @@ import SubmitPayment from '../src/components/SubmitPayment'
 import UserDirectory from '../src/components/UserDirectory'
 import Profile   from '../src/components/Profile'
 import { UserContext } from './UserContext'
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import { Router, Route, Switch} from "react-router-dom"
+import history from "../src/components/History"
 import UserProtectedRoute from '../src/components/UserProtectedRoutes'
 import AdminProtectedRoute from '../src/components/AdminProtectedRoutes'
 import NoMatch from '../src/components/NoMatch'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUser as farUser } from '@fortawesome/free-regular-svg-icons'
-import { faCoffee, faUserCog } from '@fortawesome/free-solid-svg-icons'
+import { faUserCog } from '@fortawesome/free-solid-svg-icons'
 
 library.add(farUser, faUserCog)
 
@@ -28,12 +29,12 @@ export default function App() {
   const [userInfo, setUserInfo] = useState({});
 
   return (
-    <Router>
+    <Router history={history}>
     <UserContext.Provider value={{isLoggedIn, setLoggedIn, isAdmin, setIsAdmin, userInfo, setUserInfo}}>      
     
-
-     <Layout></Layout>
-        <Switch>
+    <Layout></Layout>
+    <Switch>
+      
           <Route exact path="/" component={Main} />
           <Route exact path="/About" component={About} />
           <Route exact path="/SignOut" component={SignOut} />
@@ -47,9 +48,10 @@ export default function App() {
           <UserProtectedRoute exact path="/Profile" component={Profile} />
           <Route component={NoMatch} />
           
-        </Switch>
+    </Switch>
     
     
+        
       
     </UserContext.Provider>
     </Router>
