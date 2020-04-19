@@ -71,10 +71,10 @@ export default function MainNavbar() {
     const checkPasswordMatch = event => {
         event.preventDefault()
         if(checkPassword !== password){
-            setCheckPasswordValid("Passwords do not match")
+            setCheckPasswordValid("✖ Passwords do not match")
         }
         else{
-            setCheckPasswordValid("Passwords match")
+            setCheckPasswordValid("✔ Passwords match")
         }
     }
     const passwordCheck = event => {
@@ -240,7 +240,7 @@ export default function MainNavbar() {
                 <Modal.Body>
                         <Form.Group controlId="formBasicUsername">
                             <Form.Label>Username</Form.Label>
-                            <Form.Control className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)}  />
+                            <Form.Control required className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)}  />
                             <Form.Text className="text-muted">
                                 {errorMessage}
                             </Form.Text>
@@ -248,7 +248,7 @@ export default function MainNavbar() {
 
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
+                            <Form.Control required className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
                             <Form.Text className="text-muted">
                                 {errorMessage}
                             </Form.Text>
@@ -270,27 +270,27 @@ export default function MainNavbar() {
                 <Modal.Body>
                 <Form.Group controlId="firstName">
                     <Form.Label>First Name</Form.Label>
-                    <Form.Control className="form-control mr-sm-2" type="firstname" placeholder="First Name" aria-label="First Name" value={firstName} onChange={event => setFirstName(event.target.value)} />
+                    <Form.Control required="true" className="form-control mr-sm-2" type="firstname" placeholder="First Name" aria-label="First Name" value={firstName} onChange={event => setFirstName(event.target.value)} />
                 </Form.Group>
                 <Form.Group controlId="lastName">
                     <Form.Label>Last Name</Form.Label>
-                    <Form.Control className="form-control mr-sm-2" type="lastname" placeholder="Last Name" aria-label="Last Name" value={lastName} onChange={event => setLastName(event.target.value)} />
+                    <Form.Control required="true" className="form-control mr-sm-2" type="lastname" placeholder="Last Name" aria-label="Last Name" value={lastName} onChange={event => setLastName(event.target.value)} />
                 </Form.Group>
                 <Form.Group controlId="userName">
                     <Form.Label>User Name</Form.Label>
-                    <Form.Control className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)} />
+                    <Form.Control required="true" className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)} />
                 </Form.Group>
                 <Form.Group controlId="email">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control className="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" value={email} onChange={event => setEmail(event.target.value)}  />
+                    <Form.Control required="true" className="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" value={email} onChange={event => setEmail(event.target.value)}  />
                 </Form.Group>
                 <Form.Group controlId="phone">
                     <Form.Label>Phone Number</Form.Label>
-                    <Form.Control className="form-control mr-sm-2" type="phone" placeholder="Phone Number" aria-label="Phone Number" value={phone} onChange={event => setPhone(event.target.value)}  />
+                    <Form.Control required="true" className="form-control mr-sm-2" type="phone" placeholder="Phone Number" aria-label="Phone Number" value={phone} onChange={event => setPhone(event.target.value)}  />
                 </Form.Group>
                 <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control className="form-control mr-sm-2" onFocus={event => setPasswordMessage('Password must contain the following:')} type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
+                    <Form.Control required="true" className="form-control mr-sm-2" onFocus={event => setPasswordMessage('Password must contain the following:')} type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
                     <p>{passwordMessage}</p>
                     <p>{letters}</p>
                     <p>{capital}</p>
@@ -299,7 +299,7 @@ export default function MainNavbar() {
                 </Form.Group>
                 <Form.Group controlId="checkPassword">
                     <Form.Label>Check Password</Form.Label>
-                    <Form.Control className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={checkPassword} onChange={event => setCheckPassword(event.target.value)}  onFocus={event => setCheckPasswordMessage('Password must match:')} />
+                    <Form.Control required="true" className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={checkPassword} onChange={event => setCheckPassword(event.target.value)}  onFocus={event => setCheckPasswordMessage('Password must match:')} />
                     <p>{checkPasswordValid}</p>
                 </Form.Group>
                 <p style={{fontSize: "0.85", color: "#FA8072"}}>{errorMessage}</p>
