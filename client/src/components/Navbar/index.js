@@ -13,6 +13,7 @@ export default function MainNavbar() {
     const { setUserInfo } = useContext(UserContext)
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [checkPassword, setCheckPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
     //Used for password validation
@@ -22,6 +23,8 @@ export default function MainNavbar() {
     const [number, setNumber] = useState('');
     const [length, setLength] = useState('');
     const [passwordMessage, setPasswordMessage] = useState('');
+    const [checkPasswordMessage, setCheckPasswordMessage] = useState('');
+    const [checkPasswordValid, setCheckPasswordValid] = useState('')
 
     //Login
 
@@ -65,41 +68,51 @@ export default function MainNavbar() {
         )
 
     }
+    const checkPasswordMatch = event => {
+        event.preventDefault()
+        if(checkPassword !== password){
+            setCheckPasswordValid("Passwords do not match")
+        }
+        else{
+            setCheckPasswordValid("Passwords match")
+        }
+    }
     const passwordCheck = event => {
         event.preventDefault();
         console.log("event")
           // Validate lowercase letters
         var lowerCaseLetters = /[a-z]/g;
         if(password.match(lowerCaseLetters)) {  
-            setLetters("valid");
+            setLetters("✔ lower case letters");
         } else {
-            setLetters("invalid");
+            setLetters("✖ lower case letters");
         }
         
         // Validate capital letters
         var upperCaseLetters = /[A-Z]/g;
         if(password.match(upperCaseLetters)) {  
-            setCapital("valid");
+            setCapital("✔ upper case letters");
         } else {
-            setCapital("invalid");
+            setCapital("✖ upper case letters");
         }
 
         // Validate numbers
         var numbers = /[0-9]/g;
         if(password.match(numbers)) {  
           
-            setNumber("valid");
+            setNumber("✔ contains numbers");
         } else {
-            setNumber("invalid");
+            setNumber("✖ contains numbers");
         }
         
         // Validate length
         if(password.length >= 8) {
-            setLength("valid");
+            setLength("✔ at least 8 characters");
         } else {
-            setLength("invalid");
+            setLength("✖ at least 8 characters");
         }
     }
+
     // const enterFunction = useCallback((event) => {
     //     if (event.keyCode === 13) {
 
@@ -108,14 +121,26 @@ export default function MainNavbar() {
 
     useEffect(() => {
 
-        document.addEventListener("keyup", passwordCheck, false);
+        document.addEventListener("keyup", (event)=>{
+            checkPasswordMatch(event)
+            passwordCheck(event);
+           
+        }, false);
+      
 
         return () => {
 
-            document.removeEventListener("keyup", passwordCheck, false);
+        document.removeEventListener("keyup", (event) => {
+            checkPasswordMatch(event);
+            passwordCheck(event);
+            
+        }, false);
+
+        
+        
 
         };
-    }, [password]);
+    }, [password, checkPassword]);
 
 
     //Logout
@@ -266,12 +291,16 @@ export default function MainNavbar() {
                 <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control className="form-control mr-sm-2" onFocus={event => setPasswordMessage('Password must contain the following:')} type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
-                    <br />
                     <p>{passwordMessage}</p>
                     <p>{letters}</p>
                     <p>{capital}</p>
                     <p>{number}</p>
                     <p>{length}</p>
+                </Form.Group>
+                <Form.Group controlId="checkPassword">
+                    <Form.Label>Check Password</Form.Label>
+                    <Form.Control className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={checkPassword} onChange={event => setCheckPassword(event.target.value)}  onFocus={event => setCheckPasswordMessage('Password must match:')} />
+                    <p>{checkPasswordValid}</p>
                 </Form.Group>
                 <p style={{fontSize: "0.85", color: "#FA8072"}}>{errorMessage}</p>
                 </Modal.Body>
