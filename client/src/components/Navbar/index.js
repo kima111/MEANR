@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import API from '../../utils/API'
 import { Modal, Button, Form, Navbar, Nav, NavDropdown } from 'react-bootstrap';
@@ -14,6 +14,14 @@ export default function MainNavbar() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+
+    //Used for password validation
+
+    const [letters, setLetters] = useState('');
+    const [capital, setCapital] = useState('');
+    const [number, setNumber] = useState('');
+    const [length, setLength] = useState('');
+    const [passwordMessage, setPasswordMessage] = useState('');
 
     //Login
 
@@ -57,22 +65,57 @@ export default function MainNavbar() {
         )
 
     }
+    const passwordCheck = event => {
+        event.preventDefault();
+        console.log("event")
+          // Validate lowercase letters
+        var lowerCaseLetters = /[a-z]/g;
+        if(password.match(lowerCaseLetters)) {  
+            setLetters("valid");
+        } else {
+            setLetters("invalid");
+        }
+        
+        // Validate capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if(password.match(upperCaseLetters)) {  
+            setCapital("valid");
+        } else {
+            setCapital("invalid");
+        }
+
+        // Validate numbers
+        var numbers = /[0-9]/g;
+        if(password.match(numbers)) {  
+          
+            setNumber("valid");
+        } else {
+            setNumber("invalid");
+        }
+        
+        // Validate length
+        if(password.length >= 8) {
+            setLength("valid");
+        } else {
+            setLength("invalid");
+        }
+    }
     // const enterFunction = useCallback((event) => {
     //     if (event.keyCode === 13) {
 
     //     }
     // }, []);
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     document.addEventListener("keydown", enterFunction, false);
+        document.addEventListener("keyup", passwordCheck, false);
 
-    //     return () => {
+        return () => {
 
-    //         document.removeEventListener("keydown", enterFunction, false);
+            document.removeEventListener("keyup", passwordCheck, false);
 
-    //     };
-    // }, [showLogin]);
+        };
+    }, [password]);
 
 
     //Logout
@@ -222,7 +265,13 @@ export default function MainNavbar() {
                 </Form.Group>
                 <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
+                    <Form.Control className="form-control mr-sm-2" onFocus={event => setPasswordMessage('Password must contain the following:')} type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
+                    <br />
+                    <p>{passwordMessage}</p>
+                    <p>{letters}</p>
+                    <p>{capital}</p>
+                    <p>{number}</p>
+                    <p>{length}</p>
                 </Form.Group>
                 <p style={{fontSize: "0.85", color: "#FA8072"}}>{errorMessage}</p>
                 </Modal.Body>
