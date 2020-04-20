@@ -173,28 +173,65 @@ export default function MainNavbar() {
 
     const register = event => {
         event.preventDefault();
+        var usernameCheck = false;
+        var passwordCheck = false;
+        var checkPasswordCheck = false;
+        var firstNameCheck = false;
+        var lastNameCheck = false;
+        var emailCheck = false;
+        var phoneCheck = false;
+
         if(username===''){
             setUsernameErrorMessage('username required')
         }
-        else if(password === ''){
+        else{
+            setUsernameErrorMessage('')
+            usernameCheck = true;
+        }
+        if(password === ''){
             setPasswordErrorMessage('password required')
         }
-        else if(checkPassword===''){
+        else{
+            setPasswordErrorMessage('')
+            passwordCheck = true;
+        }
+        if(checkPassword===''){
             setCheckPasswordErrorMessage('password check required')
         }
-        else if(firstName===''){
+        else{
+            setCheckPasswordErrorMessage('')
+            checkPasswordCheck = true; 
+        }
+        if(firstName===''){
             setFirstNameErrorMessage('first name required')
         }
-        else if(lastName===''){
+        else{
+            setFirstNameErrorMessage('')
+            firstNameCheck = true;
+        }
+        if(lastName===''){
             setLastNameErrorMessage('last name required')
         }
-        else if(email === ''){
+        else{
+            setLastNameErrorMessage('')
+            lastNameCheck = true;
+        }
+        if(email === ''){
             setEmailErrorMessage('email required')
         }
-        else if(phone === ''){
+        else{
+            setEmailErrorMessage('')
+            emailCheck = true;
+        }
+        if(phone === ''){
             setPhoneErrorMessage('phone number required')
         }
         else{
+            setPhoneErrorMessage('')
+            phoneCheck = true;
+        }
+        if(usernameCheck && passwordCheck && checkPasswordCheck && firstNameCheck && lastNameCheck && emailCheck && phoneCheck === true ){
+
         API.registerUser({
             firstName,
             lastName,
