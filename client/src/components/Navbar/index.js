@@ -118,13 +118,12 @@ export default function MainNavbar() {
 
     useEffect(() => {
 
-        document.addEventListener("keyup", (event)=>{
-            checkPasswordMatch(event)
+        document.addEventListener("keyup", (event)=>{  
             passwordCheck(event);
-           
+        checkPasswordMatch(event)
         }, false);
       
-
+         
         return () => {
 
         document.removeEventListener("keyup", (event) => {
@@ -133,9 +132,7 @@ export default function MainNavbar() {
             
         }, false);
 
-        
-        
-
+  
         };
     }, [password, checkPassword]);
 
@@ -157,7 +154,7 @@ export default function MainNavbar() {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
 
-    //Empty field error messages
+    //Validation error messages
 
     const[usernameErrorMessage, setUsernameErrorMessage] = useState('')
     const[passwordErrorMessage, setPasswordErrorMessage] = useState('')
@@ -170,6 +167,12 @@ export default function MainNavbar() {
     const [showRegister, setShowRegister] = useState(false);
     const handleCloseRegister = () => setShowRegister(false);
     const handleShowRegister = () => setShowRegister(true);
+
+    const [passwordOnFocus, setPasswordOnFocus] = useState(false)
+
+
+        
+
 
     const register = event => {
         event.preventDefault();
@@ -336,38 +339,46 @@ export default function MainNavbar() {
                 </Modal.Header>
                 <Modal.Body>
                 <Form.Group controlId="firstName">
-                    <Form.Label>First Name {firstNameErrorMessage}</Form.Label>
+                    <Form.Label>First Name</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="firstname" placeholder="First Name" aria-label="First Name" value={firstName} onChange={event => setFirstName(event.target.value)} />
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{firstNameErrorMessage}</p>
                 </Form.Group>
                 <Form.Group controlId="lastName">
-                    <Form.Label>Last Name {lastNameErrorMessage}</Form.Label>
+                    <Form.Label>Last Name</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="lastname" placeholder="Last Name" aria-label="Last Name" value={lastName} onChange={event => setLastName(event.target.value)} />
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{lastNameErrorMessage}</p>
                 </Form.Group>
                 <Form.Group controlId="userName">
-                    <Form.Label>User Name  {usernameErrorMessage}</Form.Label>
+                    <Form.Label>User Name</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)} />
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{usernameErrorMessage}</p>
                 </Form.Group>
                 
                 <Form.Group controlId="email">
-                    <Form.Label>Email {emailErrorMessage}</Form.Label>
+                    <Form.Label>Email </Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" value={email} onChange={event => setEmail(event.target.value)}  />
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{emailErrorMessage}</p>
                 </Form.Group>
+         
                 <Form.Group controlId="phone">
-                    <Form.Label>Phone Number {phoneErrorMessage}</Form.Label>
+                    <Form.Label>Phone Number *</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="phone" placeholder="Phone Number" aria-label="Phone Number" value={phone} onChange={event => setPhone(event.target.value)}  />
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{phoneErrorMessage}</p>
                 </Form.Group>
                 <Form.Group controlId="password">
-                    <Form.Label>Password {passwordErrorMessage}</Form.Label>
+                    <Form.Label>Password</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" onFocus={event => setPasswordMessage('Password must contain the following:')} type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
                     <p>{passwordMessage}</p>
-                    <p>{letters}</p>
-                    <p>{capital}</p>
-                    <p>{number}</p>
-                    <p>{length}</p>
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{passwordErrorMessage}</p>
+                    <p style={{ color: "#FF0000" }}>{letters}</p>
+                    <p style={{ color: "#FF0000" }}>{capital}</p>
+                    <p style={{ color: "#FF0000" }}>{number}</p>
+                    <p style={{ color: "#FF0000" }}>{length}</p>
                 </Form.Group>
                 <Form.Group controlId="checkPassword">
-                    <Form.Label>Check Password {checkPasswordErrorMessage}</Form.Label>
+                    <Form.Label>Check Password</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={checkPassword} onChange={event => setCheckPassword(event.target.value)}  onFocus={event => setCheckPasswordMessage('Password must match:')} />
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{checkPasswordErrorMessage}</p>
                     <p>{checkPasswordValid}</p>
                 </Form.Group>
                
