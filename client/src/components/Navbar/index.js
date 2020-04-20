@@ -25,6 +25,7 @@ export default function MainNavbar() {
     const [passwordMessage, setPasswordMessage] = useState('');
     const [checkPasswordMessage, setCheckPasswordMessage] = useState('');
     const [checkPasswordValid, setCheckPasswordValid] = useState('')
+    const [checkPasswordCondition, setCheckPasswordCondition] = useState(false)
 
     //Login
 
@@ -71,9 +72,11 @@ export default function MainNavbar() {
     const checkPasswordMatch = event => {
         event.preventDefault()
         if(checkPassword !== password){
+            setCheckPasswordCondition(false)
             setCheckPasswordValid("✖ Passwords do not match")
         }
         else{
+            setCheckPasswordCondition(true)
             setCheckPasswordValid("✔ Passwords match")
         }
     }
@@ -112,12 +115,6 @@ export default function MainNavbar() {
             setLength("✖ at least 8 characters");
         }
     }
-
-    // const enterFunction = useCallback((event) => {
-    //     if (event.keyCode === 13) {
-
-    //     }
-    // }, []);
 
     useEffect(() => {
 
@@ -160,12 +157,44 @@ export default function MainNavbar() {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
 
+    //Empty field error messages
+
+    const[usernameErrorMessage, setUsernameErrorMessage] = useState('')
+    const[passwordErrorMessage, setPasswordErrorMessage] = useState('')
+    const[checkPasswordErrorMessage, setCheckPasswordErrorMessage] = useState('')
+    const[firstNameErrorMessage, setFirstNameErrorMessage] = useState('')
+    const[lastNameErrorMessage, setLastNameErrorMessage] = useState('')
+    const[emailErrorMessage, setEmailErrorMessage] = useState('')
+    const[phoneErrorMessage, setPhoneErrorMessage] = useState('')
+
     const [showRegister, setShowRegister] = useState(false);
     const handleCloseRegister = () => setShowRegister(false);
     const handleShowRegister = () => setShowRegister(true);
 
     const register = event => {
         event.preventDefault();
+        if(username===''){
+            setUsernameErrorMessage('username required')
+        }
+        else if(password === ''){
+            setPasswordErrorMessage('password required')
+        }
+        else if(checkPassword===''){
+            setCheckPasswordErrorMessage('password check required')
+        }
+        else if(firstName===''){
+            setFirstNameErrorMessage('first name required')
+        }
+        else if(lastName===''){
+            setLastNameErrorMessage('last name required')
+        }
+        else if(email === ''){
+            setEmailErrorMessage('email required')
+        }
+        else if(phone === ''){
+            setPhoneErrorMessage('phone number required')
+        }
+        else{
         API.registerUser({
             firstName,
             lastName,
@@ -191,6 +220,7 @@ export default function MainNavbar() {
                 }
             }
         )
+        }
 
     }
 
@@ -269,27 +299,28 @@ export default function MainNavbar() {
                 </Modal.Header>
                 <Modal.Body>
                 <Form.Group controlId="firstName">
-                    <Form.Label>First Name</Form.Label>
+                    <Form.Label>First Name {firstNameErrorMessage}</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="firstname" placeholder="First Name" aria-label="First Name" value={firstName} onChange={event => setFirstName(event.target.value)} />
                 </Form.Group>
                 <Form.Group controlId="lastName">
-                    <Form.Label>Last Name</Form.Label>
+                    <Form.Label>Last Name {lastNameErrorMessage}</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="lastname" placeholder="Last Name" aria-label="Last Name" value={lastName} onChange={event => setLastName(event.target.value)} />
                 </Form.Group>
                 <Form.Group controlId="userName">
-                    <Form.Label>User Name</Form.Label>
+                    <Form.Label>User Name  {usernameErrorMessage}</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)} />
                 </Form.Group>
+                
                 <Form.Group controlId="email">
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label>Email {emailErrorMessage}</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" value={email} onChange={event => setEmail(event.target.value)}  />
                 </Form.Group>
                 <Form.Group controlId="phone">
-                    <Form.Label>Phone Number</Form.Label>
+                    <Form.Label>Phone Number {phoneErrorMessage}</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="phone" placeholder="Phone Number" aria-label="Phone Number" value={phone} onChange={event => setPhone(event.target.value)}  />
                 </Form.Group>
                 <Form.Group controlId="password">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Password {passwordErrorMessage}</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" onFocus={event => setPasswordMessage('Password must contain the following:')} type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
                     <p>{passwordMessage}</p>
                     <p>{letters}</p>
@@ -298,16 +329,18 @@ export default function MainNavbar() {
                     <p>{length}</p>
                 </Form.Group>
                 <Form.Group controlId="checkPassword">
-                    <Form.Label>Check Password</Form.Label>
+                    <Form.Label>Check Password {checkPasswordErrorMessage}</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={checkPassword} onChange={event => setCheckPassword(event.target.value)}  onFocus={event => setCheckPasswordMessage('Password must match:')} />
                     <p>{checkPasswordValid}</p>
                 </Form.Group>
+               
+                
                 <p style={{fontSize: "0.85", color: "#FA8072"}}>{errorMessage}</p>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" type="submit" onClick={register}>
+                <Button variant="primary" type="submit" onClick={register}>
                         Register
-                    </Button>
+                </Button>
                 </Modal.Footer>
                 </Form>
             </Modal>
