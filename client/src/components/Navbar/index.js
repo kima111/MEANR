@@ -170,10 +170,6 @@ export default function MainNavbar() {
 
     const [passwordOnFocus, setPasswordOnFocus] = useState(false)
 
-
-        
-
-
     const register = event => {
         event.preventDefault();
         var usernameCheck = false;
@@ -183,6 +179,8 @@ export default function MainNavbar() {
         var lastNameCheck = false;
         var emailCheck = false;
         var phoneCheck = false;
+
+        const namePattern = /^([a-zA-Z ]){1,30}$/g
 
         if(username===''){
             setUsernameErrorMessage('username required')
@@ -208,12 +206,18 @@ export default function MainNavbar() {
         if(firstName===''){
             setFirstNameErrorMessage('first name required')
         }
+        else if(!firstName.match(namePattern)){
+            setFirstNameErrorMessage('please use valid characters')
+        }
         else{
             setFirstNameErrorMessage('')
             firstNameCheck = true;
         }
         if(lastName===''){
             setLastNameErrorMessage('last name required')
+        }
+        else if(!lastName.match(namePattern)){
+            setLastNameErrorMessage('please use valid characters')
         }
         else{
             setLastNameErrorMessage('')
@@ -379,8 +383,8 @@ export default function MainNavbar() {
                 <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control required="true" className="form-control mr-sm-2" onFocus={event => setPasswordMessage('Password must contain the following:')} type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
-                    <p>{passwordMessage}</p>
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{passwordErrorMessage}</p>
+                    <p>{passwordMessage}</p>
                     <p style={{ color: "#FF0000" }}>{letters}</p>
                     <p style={{ color: "#FF0000" }}>{capital}</p>
                     <p style={{ color: "#FF0000" }}>{number}</p>
