@@ -234,6 +234,7 @@ export default function MainNavbar() {
             phoneCheck = true;
         }
         if(usernameCheck && passwordCheck && checkPasswordCheck && firstNameCheck && lastNameCheck && emailCheck && phoneCheck === true ){
+            
 
         API.registerUser({
             firstName,
@@ -248,6 +249,16 @@ export default function MainNavbar() {
                     setLoggedIn(true)
                     setUserInfo(response.data)
                     history.push('/Welcome')
+                    
+                    //reset registration page
+                    setUsername('')
+                    setPasswordOnFocus('')
+                    setCheckPassword('')
+                    setFirstName('')
+                    setLastName('')
+                    setEmail('')
+                    setPhone('')
+                    
                     setShowRegister(false)
 
                 }
