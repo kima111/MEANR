@@ -4,30 +4,17 @@ import API from '../../utils/API'
 import { Modal, Button, Form, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { UserContext } from '../../UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import Input from 'react-phone-number-input/input'
-
 
 export default function MainNavbar() {
 
-    //Used for both Login and Registration
+    //Used for Login
     const { isLoggedIn, setLoggedIn } = useContext(UserContext);
     const { isAdmin, setIsAdmin } = useContext(UserContext);
     const { setUserInfo } = useContext(UserContext)
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    // const [checkPassword, setCheckPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    // //Used for password validation
-
-    // const [letters, setLetters] = useState('');
-    // const [capital, setCapital] = useState('');
-    // const [number, setNumber] = useState('');
-    // const [length, setLength] = useState('');
-    // const [passwordMessage, setPasswordMessage] = useState('');
-    // const [checkPasswordMessage, setCheckPasswordMessage] = useState('');
-    // const [checkPasswordValid, setCheckPasswordValid] = useState('')
-    // const [checkPasswordCondition, setCheckPasswordCondition] = useState(false)
 
     //Login
 
@@ -71,75 +58,7 @@ export default function MainNavbar() {
         )
 
     }
-    // const checkPasswordMatch = event => {
-    //     event.preventDefault()
-    //     if(checkPassword !== password){
-    //         setCheckPasswordCondition(false)
-    //         setCheckPasswordValid("✖ Passwords do not match")
-    //     }
-    //     else{
-    //         setCheckPasswordCondition(true)
-    //         setCheckPasswordValid("✔ Passwords match")
-    //     }
-    // }
-    // const passwordCheck = event => {
-    //     event.preventDefault();
-    //     console.log("event")
-    //       // Validate lowercase letters
-    //     var lowerCaseLetters = /[a-z]/g;
-    //     if(password.match(lowerCaseLetters)) {  
-    //         setLetters("✔ lower case letters");
-    //     } else {
-    //         setLetters("✖ lower case letters");
-    //     }
-        
-    //     // Validate capital letters
-    //     var upperCaseLetters = /[A-Z]/g;
-    //     if(password.match(upperCaseLetters)) {  
-    //         setCapital("✔ upper case letters");
-    //     } else {
-    //         setCapital("✖ upper case letters");
-    //     }
 
-    //     // Validate numbers
-    //     var numbers = /[0-9]/g;
-    //     if(password.match(numbers)) {  
-          
-    //         setNumber("✔ contains numbers");
-    //     } else {
-    //         setNumber("✖ contains numbers");
-    //     }
-        
-    //     // Validate length
-    //     if(password.length >= 8) {
-    //         setLength("✔ at least 8 characters");
-    //     } else {
-    //         setLength("✖ at least 8 characters");
-    //     }
-    // }
-
-    // useEffect(() => {
-
-    //     document.addEventListener("keyup", (event)=>{  
-    //         passwordCheck(event);
-    //     checkPasswordMatch(event)
-    //     }, false);
-      
-         
-    //     return () => {
-
-    //     document.removeEventListener("keyup", (event) => {
-    //         checkPasswordMatch(event);
-    //         passwordCheck(event);
-            
-    //     }, false);
-
-  
-    //     };
-    // }, [password, checkPassword]);
-
-
-    //Logout
     const logout = event => {
         event.preventDefault();
         API.logoutUser();
@@ -149,150 +68,6 @@ export default function MainNavbar() {
 
         
     }
-
-    // //Registration
-    // const [firstName, setFirstName] = useState('');
-    // const [lastName, setLastName] = useState('');
-    // const [email, setEmail] = useState('');
-    // const [phone, setPhone] = useState('');
-
-    //Validation error messages
-
-    // const[usernameErrorMessage, setUsernameErrorMessage] = useState('')
-    // const[passwordErrorMessage, setPasswordErrorMessage] = useState('')
-    // const[checkPasswordErrorMessage, setCheckPasswordErrorMessage] = useState('')
-    // const[firstNameErrorMessage, setFirstNameErrorMessage] = useState('')
-    // const[lastNameErrorMessage, setLastNameErrorMessage] = useState('')
-    // const[emailErrorMessage, setEmailErrorMessage] = useState('')
-    // const[phoneErrorMessage, setPhoneErrorMessage] = useState('')
-
-    const [showRegister, setShowRegister] = useState(false);
-    // const handleCloseRegister = () => setShowRegister(false);
-    // const handleShowRegister = () => setShowRegister(true);
-
-    // const [passwordOnFocus, setPasswordOnFocus] = useState(false)
-
-    // const register = event => {
-    //     event.preventDefault();
-    //     var usernameCheck = false;
-    //     var passwordCheck = false;
-    //     var checkPasswordCheck = false;
-    //     var firstNameCheck = false;
-    //     var lastNameCheck = false;
-    //     var emailCheck = false;
-    //     var phoneCheck = false;
-
-    //     const namePattern = /^([a-zA-Z ]){1,30}$/g
-    //     const usernamePattern = /^[a-z0-9_-]{6,16}$/g
-    //     const emailPattern = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/g
-    //     const phonePattern = /^\+?[0-9_-]{11}$/g;
-
-    //     if(username===''){
-    //         setUsernameErrorMessage('username required')
-    //     }
-    //     else if(!username.match(usernamePattern)){
-    //         setUsernameErrorMessage('username must be at least 6 characters long and use valid characters')
-    //     }
-    //     else{
-    //         setUsernameErrorMessage('')
-    //         usernameCheck = true;
-    //     }
-    //     if(password === ''){
-    //         setPasswordErrorMessage('password required')
-    //     }
-    //     else{
-    //         setPasswordErrorMessage('')
-    //         passwordCheck = true;
-    //     }
-    //     if(checkPassword===''){
-    //         setCheckPasswordErrorMessage('password check required')
-    //     }
-    //     else{
-    //         setCheckPasswordErrorMessage('')
-    //         checkPasswordCheck = true; 
-    //     }
-    //     if(firstName===''){
-    //         setFirstNameErrorMessage('first name required')
-    //     }
-    //     else if(!firstName.match(namePattern)){
-    //         setFirstNameErrorMessage('please use valid characters')
-    //     }
-    //     else{
-    //         setFirstNameErrorMessage('')
-    //         firstNameCheck = true;
-    //     }
-    //     if(lastName===''){
-    //         setLastNameErrorMessage('last name required')
-    //     }
-    //     else if(!lastName.match(namePattern)){
-    //         setLastNameErrorMessage('please use valid characters')
-    //     }
-    //     else{
-    //         setLastNameErrorMessage('')
-    //         lastNameCheck = true;
-    //     }
-    //     if(email === ''){
-    //         setEmailErrorMessage('email required')
-    //     }
-    //     else if(!email.match(emailPattern)){
-    //         setEmailErrorMessage('please use a valid email address')
-    //     }
-    //     else{
-    //         setEmailErrorMessage('')
-    //         emailCheck = true;
-    //     }
-    //     if(phone === ''){
-    //         setPhoneErrorMessage('phone number required')
-    //     }
-    //     else if(!phone.match(phonePattern)){
-    //         console.log(phone)
-    //         setPhoneErrorMessage('please use valid phone number')
-    //     }
-    //     else{
-    //         setPhoneErrorMessage('')
-    //         phoneCheck = true;
-    //     }
-    //     if(usernameCheck && passwordCheck && checkPasswordCheck && firstNameCheck && lastNameCheck && emailCheck && phoneCheck === true ){
-            
-
-    //     API.registerUser({
-    //         firstName,
-    //         lastName,
-    //         username,
-    //         password,
-    //         email,
-    //         phoneNumber: phone
-    //     }).then(
-    //         function (response) {
-    //             if (response.data.registered === true) {
-    //                 setLoggedIn(true)
-    //                 setUserInfo(response.data)
-    //                 history.push('/Welcome')
-                    
-    //                 //reset registration page
-    //                 setUsername('')
-    //                 setPasswordOnFocus('')
-    //                 setCheckPassword('')
-    //                 setFirstName('')
-    //                 setLastName('')
-    //                 setEmail('')
-    //                 setPhone('')
-                    
-    //                 setShowRegister(false)
-
-    //             }
-    //             else if (response === null) {
-    //                 setShowRegister(true);
-    //             }
-    //             else {
-    //                 setErrorMessage(response.data.error)
-    //                 setShowRegister(true);
-    //             }
-    //         }
-    //     )
-    //     }
-
-    // }
 
     return (
 
@@ -304,7 +79,6 @@ export default function MainNavbar() {
                 <Nav className="mr-auto">
                     <Nav.Link as={Link} to="/">Home</Nav.Link>
                     <Nav.Link as={Link} to="/About">About</Nav.Link>
-                    <Nav.Link as={Link} to="/Registration">Register</Nav.Link>
                     {isLoggedIn ? <NavDropdown bg="dark" title="Tools" id="collapsible-nav-dropdown">
                         {isLoggedIn ? <NavDropdown.Item style={{ color: "#000000" }} as={Link} to="/Forum">Forum</NavDropdown.Item> : ''}
                         {isLoggedIn ? <NavDropdown.Item style={{ color: "#000000" }} as={Link} to="/SubmitPayment">Submit Payment</NavDropdown.Item> : ''}
@@ -363,66 +137,6 @@ export default function MainNavbar() {
                 </Form>
            
             </Modal>
-            {/* <Modal show={showRegister} onHide={handleCloseRegister}>
-            <Form>
-                <Modal.Header closeButton>
-                <Modal.Title>Register</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                <Form.Group controlId="firstName">
-                    <Form.Label>First Name</Form.Label>
-                    <Form.Control required={true} className="form-control mr-sm-2" type="firstname" placeholder="First Name" aria-label="First Name" value={firstName} onChange={event => setFirstName(event.target.value)} />
-                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{firstNameErrorMessage}</p>
-                </Form.Group>
-                <Form.Group controlId="lastName">
-                    <Form.Label>Last Name</Form.Label>
-                    <Form.Control required={true} className="form-control mr-sm-2" type="lastname" placeholder="Last Name" aria-label="Last Name" value={lastName} onChange={event => setLastName(event.target.value)} />
-                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{lastNameErrorMessage}</p>
-                </Form.Group>
-                <Form.Group controlId="userName">
-                    <Form.Label>User Name</Form.Label>
-                    <Form.Control required={true} className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)} />
-                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{usernameErrorMessage}</p>
-                </Form.Group>
-                
-                <Form.Group controlId="email">
-                    <Form.Label>Email </Form.Label>
-                    <Form.Control required={true} className="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" value={email} onChange={event => setEmail(event.target.value)}  />
-                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{emailErrorMessage}</p>
-                </Form.Group>
-         
-                <Form.Group controlId="phone">
-                    <Form.Label>Phone Number *</Form.Label>
-                    <Input required={true} type="phone" placeholder="phone number" aria-label="Phone Number" class="form-control mr-sm-2" defaultCountry="US" value={phone} onChange={setPhone}/>
-                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{phoneErrorMessage}</p>
-                </Form.Group>
-                <Form.Group controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control required={true} className="form-control mr-sm-2" onFocus={event => setPasswordMessage('Password must contain the following:')} type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
-                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{passwordErrorMessage}</p>
-                    <p>{passwordMessage}</p>
-                    <p style={{ color: "#FF0000" }}>{letters}</p>
-                    <p style={{ color: "#FF0000" }}>{capital}</p>
-                    <p style={{ color: "#FF0000" }}>{number}</p>
-                    <p style={{ color: "#FF0000" }}>{length}</p>
-                </Form.Group>
-                <Form.Group controlId="checkPassword">
-                    <Form.Label>Check Password</Form.Label>
-                    <Form.Control required={true} className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={checkPassword} onChange={event => setCheckPassword(event.target.value)}  onFocus={event => setCheckPasswordMessage('Password must match:')} />
-                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{checkPasswordErrorMessage}</p>
-                    <p>{checkPasswordValid}</p>
-                </Form.Group>
-               
-                
-                <p style={{fontSize: "0.85", color: "#FA8072"}}>{errorMessage}</p>
-                </Modal.Body>
-                <Modal.Footer>
-                <Button variant="primary" type="submit" onClick={register}>
-                        Register
-                </Button>
-                </Modal.Footer>
-                </Form>
-            </Modal> */}
             
         </div>
     )

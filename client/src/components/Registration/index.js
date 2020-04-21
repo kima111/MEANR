@@ -255,27 +255,28 @@ export default function Registration() {
         <div>
             <Jumbotron fluid>
                 <Container>
-                <h1>Registration</h1>
+                <h2>Registration</h2>
+                <hr />
                 <Form>
 
                 <Form.Group controlId="firstName">
-                    <Form.Label>First Name</Form.Label>
+                    <Form.Label>First Name *</Form.Label>
                     <Form.Control required={true} className="form-control mr-sm-2" type="firstname" placeholder="First Name" aria-label="First Name" value={firstName} onChange={event => setFirstName(event.target.value)} />
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{firstNameErrorMessage}</p>
                 </Form.Group>
                 <Form.Group controlId="lastName">
-                    <Form.Label>Last Name</Form.Label>
+                    <Form.Label>Last Name *</Form.Label>
                     <Form.Control required={true} className="form-control mr-sm-2" type="lastname" placeholder="Last Name" aria-label="Last Name" value={lastName} onChange={event => setLastName(event.target.value)} />
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{lastNameErrorMessage}</p>
                 </Form.Group>
                 <Form.Group controlId="userName">
-                    <Form.Label>User Name</Form.Label>
+                    <Form.Label>User Name *</Form.Label>
                     <Form.Control required={true} className="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username" value={username} onChange={event => setUsername(event.target.value)} />
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{usernameErrorMessage}</p>
                 </Form.Group>
                 
                 <Form.Group controlId="email">
-                    <Form.Label>Email </Form.Label>
+                    <Form.Label>Email *</Form.Label>
                     <Form.Control required={true} className="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email" value={email} onChange={event => setEmail(event.target.value)}  />
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{emailErrorMessage}</p>
                 </Form.Group>
@@ -286,7 +287,7 @@ export default function Registration() {
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{phoneErrorMessage}</p>
                 </Form.Group>
                 <Form.Group controlId="password">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Password *</Form.Label>
                     <Form.Control required={true} className="form-control mr-sm-2" onFocus={event => setPasswordMessage('Password must contain the following:')} type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{passwordErrorMessage}</p>
                     <p>{passwordMessage}</p>
@@ -296,7 +297,7 @@ export default function Registration() {
                     <p style={{ color: "#FF0000" }}>{length}</p>
                 </Form.Group>
                 <Form.Group controlId="checkPassword">
-                    <Form.Label>Check Password</Form.Label>
+                    <Form.Label>Check Password *</Form.Label>
                     <Form.Control required={true} className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={checkPassword} onChange={event => setCheckPassword(event.target.value)}  onFocus={event => setCheckPasswordMessage('Password must match:')} />
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{checkPasswordErrorMessage}</p>
                     <p>{checkPasswordValid}</p>
