@@ -4,6 +4,7 @@ import API from '../../utils/API'
 import { Modal, Button, Form, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { UserContext } from '../../UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Input from 'react-phone-number-input/input'
 
 export default function MainNavbar() {
 
@@ -181,9 +182,15 @@ export default function MainNavbar() {
         var phoneCheck = false;
 
         const namePattern = /^([a-zA-Z ]){1,30}$/g
+        const usernamePattern = /^[a-z0-9_-]{6,16}$/g
+        const emailPattern = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/g
+        const phonePattern = /^\+?[0-9_-]{11}$/g;
 
         if(username===''){
             setUsernameErrorMessage('username required')
+        }
+        else if(!username.match(usernamePattern)){
+            setUsernameErrorMessage('username must be at least 6 characters long and use valid characters')
         }
         else{
             setUsernameErrorMessage('')
@@ -226,12 +233,19 @@ export default function MainNavbar() {
         if(email === ''){
             setEmailErrorMessage('email required')
         }
+        else if(!email.match(emailPattern)){
+            setEmailErrorMessage('please use a valid email address')
+        }
         else{
             setEmailErrorMessage('')
             emailCheck = true;
         }
         if(phone === ''){
             setPhoneErrorMessage('phone number required')
+        }
+        else if(!phone.match(phonePattern)){
+            console.log(phone)
+            setPhoneErrorMessage('please use valid phone number')
         }
         else{
             setPhoneErrorMessage('')
@@ -377,7 +391,7 @@ export default function MainNavbar() {
          
                 <Form.Group controlId="phone">
                     <Form.Label>Phone Number *</Form.Label>
-                    <Form.Control required="true" className="form-control mr-sm-2" type="phone" placeholder="Phone Number" aria-label="Phone Number" value={phone} onChange={event => setPhone(event.target.value)}  />
+                    <Input required="true" type="phone" placeholder="phone number" aria-label="Phone Number" class="form-control mr-sm-2" defaultCountry="US" value={phone} onChange={setPhone}/>
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{phoneErrorMessage}</p>
                 </Form.Group>
                 <Form.Group controlId="password">
