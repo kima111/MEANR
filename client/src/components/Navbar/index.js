@@ -4,7 +4,7 @@ import API from '../../utils/API'
 import { Modal, Button, Form, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { UserContext } from '../../UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import iconImage from '../../assets/images/MEANR_ICON.png'
+
 
 export default function MainNavbar() {
 

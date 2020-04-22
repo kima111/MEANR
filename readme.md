@@ -51,6 +51,7 @@ You will need to create a .env file for the Server side as well as the Client si
 * MONGO_DB_NAME
 * SENDGRID_API_KEY
 * SENDGRID_SENDER
+* PASSPORT_SESSION_SECRET
 
 <b>Client Side</b>
 

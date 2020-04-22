@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/' + process.env
 //passport local strategy
 app.use(
   session({
-    secret: 'pachycephalosaurus', // Pick a random string to make the hash that is generated secure
+    secret: process.env.PASSPORT_SESSION_SECRET, // Pick a random string to make the hash that is generated secure
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
     resave: false, // Required
     saveUninitialized: false // Required

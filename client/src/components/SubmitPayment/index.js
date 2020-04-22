@@ -5,10 +5,10 @@ import { Elements, CardElement, useStripe, useElements} from "@stripe/react-stri
 import { Button, Form, Container, Jumbotron, Col} from 'react-bootstrap'
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API'
-
+import history from '../History';
 
 const CheckoutForm = () => {
-    const history = useHistory();
+    // const history = useHistory();
     const stripe = useStripe();
     const elements = useElements();
 
@@ -43,6 +43,12 @@ const CheckoutForm = () => {
         if (!error) {
             const { id } = paymentMethod
             API.sendPayment({ id, amount: 51 })
+            API.sendEmail({
+                email: email,
+                title: "Thank you for your payment",
+                emailText: "Thank you for your purchase of 0.50"
+
+            })
             history.push('/Welcome')
         }
 
