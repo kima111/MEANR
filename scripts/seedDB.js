@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
-const db = require("../models");
-const bcrypt = require("bcryptjs");
+const mongoose = require('mongoose');
+const db = require('../models');
 
-mongoose.connect("mongodb://user:password1@ds239206.mlab.com:39206/heroku_hd01s5rq");
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/' + process.env.MONGO_DB_NAME);
 
 
 db.users
-.remove({})
+  .remove({});
