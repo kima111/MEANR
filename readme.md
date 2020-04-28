@@ -25,7 +25,7 @@ To test out the admin capabilities, use the following credentials:
 
 ## Installation
 
-Clone this repository then run the command npm i. This will install all the dependencies. Then proceed to create the environment varialbes with those stated below, for both the client side, and server side. You will need to sign up for the services to obtain most of the environment variables.  Afterwards, run the command "npm run seed", this will install the necessary DB.
+Clone this repository then run the command npm i. This will install all the dependencies. Then proceed to create the environment variables with those stated below, for both the client side, and server side. You will need to sign up for the services to obtain most of the environment variables.  Afterwards, run the command "npm run seed", this will install the necessary DB.
 
 ## Requirements
 <br />
