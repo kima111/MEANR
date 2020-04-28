@@ -28,6 +28,10 @@ export default function Registration() {
     const [checkPasswordValid, setCheckPasswordValid] = useState('')
     const [checkPasswordCondition, setCheckPasswordCondition] = useState(false)
 
+    //to validate passwords before registering
+    const [validPassword, setValidPassword] = useState(false);
+    const [validCheckPassword, setValidCheckPassword] = useState(false);
+
     //Login
 
     var [showLogin, setShowLogin] = useState(false);
@@ -40,10 +44,12 @@ export default function Registration() {
     const checkPasswordMatch = event => {
         event.preventDefault()
         if(checkPassword !== password){
+            setValidCheckPassword(false)
             setCheckPasswordCondition(false)
             setCheckPasswordValid("✖ Passwords do not match")
         }
         else{
+            setValidCheckPassword(true)
             setCheckPasswordCondition(true)
             setCheckPasswordValid("✔ Passwords match")
         }
@@ -81,6 +87,13 @@ export default function Registration() {
             setLength("✔ at least 8 characters");
         } else {
             setLength("✖ at least 8 characters");
+        }
+
+        if(password.match(lowerCaseLetters) && password.match(upperCaseLetters) && password.match(numbers) && password.length >= 8){
+            setValidPassword(true)
+        }
+        else{
+            setValidPassword(false)
         }
     }
 
@@ -208,7 +221,8 @@ export default function Registration() {
             setPhoneErrorMessage('')
             phoneCheck = true;
         }
-        if(usernameCheck && passwordCheck && checkPasswordCheck && firstNameCheck && lastNameCheck && emailCheck && phoneCheck === true ){
+        // final check before registering
+        if(usernameCheck && passwordCheck && checkPasswordCheck && firstNameCheck && lastNameCheck && emailCheck && phoneCheck && validPassword && validCheckPassword === true ){
             
 
         API.registerUser({
