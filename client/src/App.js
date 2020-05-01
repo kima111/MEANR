@@ -3,6 +3,7 @@ import Layout from '../src/components/Layout'
 import Main from '../src/components/Main'
 import About from '../src/components/About'
 import Welcome from '../src/components/Welcome'
+import ThankYou from '../src/components/ThankYou'
 import SignOut from '../src/components/SignOut'
 import Forum from '../src/components/Forum'
 import SubmitForum from '../src/components/SubmitForum'
@@ -41,6 +42,7 @@ export default function App() {
           <Route exact path="/Registration" component={Registration}/>
           <Route exact path="/SignOut" component={SignOut} />
           <UserProtectedRoute exact path="/Welcome" component={Welcome} />
+          <UserProtectedRoute exact path="/ThankYou" component={ThankYou} />
           <AdminProtectedRoute exact path="/SubmitForum" component={SubmitForum} />
           <AdminProtectedRoute exact path="/SubmitTextMessage" component={SubmitTextMessage} />
           <AdminProtectedRoute exact path="/SubmitEmail" component={SubmitEmail} />

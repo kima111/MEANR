@@ -49,7 +49,7 @@ const CheckoutForm = () => {
                 emailText: "Thank you for your purchase of 0.50"
 
             })
-            history.push('/Welcome')
+            history.push('/ThankYou')
         }
 
     }
