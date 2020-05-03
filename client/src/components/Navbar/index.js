@@ -73,7 +73,7 @@ export default function MainNavbar() {
     return (
 
         <div>
-            <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg">
+            <Navbar style={{minHeight: "5vh"}}bg="dark" variant="dark" collapseOnSelect expand="lg">
                 <Navbar.Brand as={Link} to="/">MEANR</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse>

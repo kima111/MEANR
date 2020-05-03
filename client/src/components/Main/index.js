@@ -8,7 +8,7 @@ export default function Main() {
   
     return (
         <div>
-            <Jumbotron style={{background: `url(${seattleSkyline}) fixed center center`, backgroundSize: 'cover', height: "85vh"}} fluid>
+            <Jumbotron style={{background: `url(${seattleSkyline}) fixed center center`, backgroundSize: 'cover', height: "95vh", margin: "0 auto"}} fluid>
                 <Container style={{backgroundColor: 'rgba(0, 0, 0, 0.2)', borderRadius: '15px', padding: '50px'}}>
                 <h1 style={{fontSize: "2.5em", fontWeight: "400", color: "#ffffff"}} className="display-4"><img style={{marginRight: "15px", marginBottom: "10px"}}src={iconImage} alt="logo" />MEANR </h1>
                 <p className="lead" style={{color: "#ffffff"}}>(Mongo, Express, Axios, Node, React) This is a full stack boiler plate.</p>

@@ -13,6 +13,7 @@ import SubmitPayment from '../src/components/SubmitPayment'
 import UserDirectory from '../src/components/UserDirectory'
 import Registration from '../src/components/Registration'
 import Profile   from '../src/components/Profile'
+
 import { UserContext } from './UserContext'
 import { Router, Route, Switch} from "react-router-dom"
 import history from "../src/components/History"
@@ -54,8 +55,7 @@ export default function App() {
           
     </Switch>
     
-    
-        
+ 
       
     </UserContext.Provider>
     </Router>

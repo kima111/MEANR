@@ -5,7 +5,7 @@ import aboutImage from '../../assets/images/About.jpg'
 export default function index() {
     return (
         <div>
-            <Jumbotron style={{background: `url(${aboutImage}) fixed center center`, backgroundSize: 'cover', height: "85vh"}} fluid>
+            <Jumbotron style={{background: `url(${aboutImage}) fixed center center`, backgroundSize: 'cover', height: "95vh", margin: "0 auto"}} fluid>
                 <Container style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', borderRadius: '15px', padding: '50px'}}>
                     <h2 style = {{color: "#ffffff"}}>MEANR</h2> 
                     <p style={{fontSize: "1.2em", color: "#ffffff"}}>(Mongo Express Axios Node React)</p>
