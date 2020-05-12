@@ -18,7 +18,17 @@ export default function () {
     const ENDPOINT = "http://127.0.0.1:3001";
 
     const [responseData, setResponseData] = useState("");
-  
+    function getInfo(){
+        API.getForums().then(  
+            function(response){
+             
+            setForumInfo(response.data)  
+              
+          })
+      
+
+    }
+
     // useEffect(() => {
     //   const socket = socketIOClient(ENDPOINT);
     //   socket.on("FromAPI", data => {
@@ -26,14 +36,10 @@ export default function () {
     //   });
     // }, []);
     useEffect(() => {
-        API.getForums().then(  
-            function(response){
-             
-            setForumInfo(response.data)  
-              
-          })
+        getInfo()
       const socket = socketIOClient(ENDPOINT);
-      socket.on("FromAPI", data => {
+      socket.on("FromAPI", (data) => {
+
           setResponseData(data)
       }
         );
