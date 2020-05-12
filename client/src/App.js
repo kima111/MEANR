@@ -24,12 +24,16 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUser as farUser } from '@fortawesome/free-regular-svg-icons'
 import { faUserCog } from '@fortawesome/free-solid-svg-icons'
 
+
+
 library.add(farUser, faUserCog)
 
 export default function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [userInfo, setUserInfo] = useState({});
+
+
 
   return (
     <Router history={history}>

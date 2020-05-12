@@ -14,6 +14,14 @@ const io = socketIO(server);
 
 let interval;
 
+const getApiAndEmit = socket => {
+  const response = new Date();
+  // Emitting a new message. Will be consumed by the client
+  socket.emit('FromAPI', response);
+  socket.broadcast.emit();
+};
+
+
 io.on('connection', (socket) => {
   console.log('New client connected');
   if (interval) {
@@ -26,11 +34,7 @@ io.on('connection', (socket) => {
   });
 });
 
-const getApiAndEmit = socket => {
-  const response = new Date();
-  // Emitting a new message. Will be consumed by the client
-  socket.emit('FromAPI', response);
-};
+
 
 
 // io.on('connection', (client) => {

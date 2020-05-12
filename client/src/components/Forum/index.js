@@ -3,7 +3,7 @@ import API from '../../utils/API'
 import { Container, Button, Jumbotron } from 'react-bootstrap'
 import { UserContext } from '../../UserContext';
 import parse from 'html-react-parser';
-
+import socketIOClient from 'socket.io-client'
 
 export default function () {
     const { isAdmin } = useContext(UserContext);
@@ -15,23 +15,45 @@ export default function () {
         .catch(error => console.log(error))
      
     }
+    const ENDPOINT = "http://127.0.0.1:3001";
+
+    const [responseData, setResponseData] = useState("");
+  
+    // useEffect(() => {
+    //   const socket = socketIOClient(ENDPOINT);
+    //   socket.on("FromAPI", data => {
+    //     setResponse(data);
+    //   });
+    // }, []);
     useEffect(() => {
-      
-       API.getForums().then(
-        function (response) {
+        API.getForums().then(  
+            function(response){
+             
             setForumInfo(response.data)  
-        }
-        )
-        return () => {
+              
+          })
+      const socket = socketIOClient(ENDPOINT);
+      socket.on("FromAPI", data => {
+          setResponseData(data)
+      }
+        );
+    }, []);
+
+    //    API.getForums().then(
+    //     function (response) {
+    //         setForumInfo(response.data)  
+    //     }
+    //     )
+    //     return () => {
             
-        }
-    }, [])
+    //     }
+    // }, [])
 
     return (
     <div>
     <Jumbotron fluid>
        <Container>
-           <h1>Forum</h1>
+           <h1>Forum</h1>{responseData}
            <br />
            <hr />
            {forumInfo.map(item => (
@@ -49,7 +71,7 @@ export default function () {
                 <hr/>
                 <br/>
                 <br/>
-           
+                
                 </div>
                 )
                 )
