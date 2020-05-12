@@ -16,50 +16,36 @@ export default function () {
      
     }
     const ENDPOINT = "http://127.0.0.1:3001";
-
-    const [responseData, setResponseData] = useState("");
+    
+    
+    
+    const [proxyMessage, setProxyMessage] = useState("");
     function getInfo(){
         API.getForums().then(  
             function(response){
-             
             setForumInfo(response.data)  
-              
           })
-      
-
     }
 
-    // useEffect(() => {
-    //   const socket = socketIOClient(ENDPOINT);
-    //   socket.on("FromAPI", data => {
-    //     setResponse(data);
-    //   });
-    // }, []);
+ 
     useEffect(() => {
         getInfo()
-      const socket = socketIOClient(ENDPOINT);
-      socket.on("FromAPI", (data) => {
-
-          setResponseData(data)
-      }
-        );
+        const socket = socketIOClient(ENDPOINT);
+        socket.on('message', function(message){
+            console.log(message + "received");
+            setProxyMessage(message)
+        })
+    //   socket.on("FromAPI", (data) => {
+    //       setResponseData(data)
+    //   }
+    //     );
     }, []);
-
-    //    API.getForums().then(
-    //     function (response) {
-    //         setForumInfo(response.data)  
-    //     }
-    //     )
-    //     return () => {
-            
-    //     }
-    // }, [])
 
     return (
     <div>
     <Jumbotron fluid>
        <Container>
-           <h1>Forum</h1>{responseData}
+           <h1>Forum</h1>{proxyMessage}
            <br />
            <hr />
            {forumInfo.map(item => (

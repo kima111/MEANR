@@ -6,10 +6,14 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import '../SubmitForum/index.css'
 import history from '../History';
+import socketIOClient from 'socket.io-client'
 
 export default function SubmitForm() {
     const [title, setTitle] = useState('');
     const [forumText, setForumText] = useState('');
+
+    const ENDPOINT = "http://localhost:3001";
+    const socket = socketIOClient(ENDPOINT);
    
 
     const modules = { toolbar: [
@@ -26,7 +30,7 @@ export default function SubmitForm() {
     const submitForum = event => {
         event.preventDefault();
   
-
+        socket.emit('message', 'hello from client')
         const currentDate = Date(Date.now()).toString()
 
         API.submitForum({

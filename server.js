@@ -13,17 +13,19 @@ const events = require('./events');
 
 const io = socketIO(server);
 
-let interval;
 
 io.on('connection', (socket) => {
   console.log('New client connected');
-  if (interval) {
-    clearInterval(interval);
-  }
-  interval = setInterval(() => events.testMessage(socket), 1000);
+  events.testMessage(socket);
+  // if(interval) {
+  //   clearInterval(interval);
+  // }
+  // interval = setInterval(() => events.sendMessage(socket), 1000);
+  socket.on('message', function(message) {
+    io.emit('message', message);
+  });
   socket.on('disconnect', () => {
     console.log('Client disconnected');
-    clearInterval(interval);
   });
 });
 
@@ -35,6 +37,7 @@ const MongoStore = require('connect-mongo')(session);
 
 
 // Define middleware here
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -71,7 +74,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // Add routes, both API and view
 app.use(routes);
-
+app.set('socketio', io);
 
 // Define securities with helmet
 
