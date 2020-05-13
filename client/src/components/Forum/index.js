@@ -25,16 +25,16 @@ export default function () {
             setForumInfo(response.data)  
           })
     }
-
+    const socket = socketIOClient(ENDPOINT);
+    socket.on('message', function(message){
+        console.log(message + "received");
+        getInfo()
+        setProxyMessage(message)
+    })
  
     useEffect(() => {
         getInfo()
-        const socket = socketIOClient(ENDPOINT);
-        socket.on('message', function(message){
-            console.log(message + "received");
-            getInfo()
-            setProxyMessage(message)
-        })
+       
     }, []);
 
     return (
