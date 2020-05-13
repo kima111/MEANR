@@ -29,22 +29,18 @@ export default function SubmitForm() {
 
     const submitForum = event => {
         event.preventDefault();
-  
-        socket.emit('message', 'hello from client')
         const currentDate = Date(Date.now()).toString()
-
-        API.submitForum({
-            title: title,
-            forumText: forumText,
-            date: currentDate
-        }).then(
-            history.push('/Forum'),
-            setTitle(''),
-            setForumText('')
-        )
-
+        socket.emit('message','message')       
+    API.submitForum({
+        title: title,
+        forumText: forumText,
+        date: currentDate
+    }).then(
+        history.push('/Forum'),
+        setTitle(''),
+        setForumText('')
+    )
     }
-    
     return (
         <div>
             <Jumbotron fluid>

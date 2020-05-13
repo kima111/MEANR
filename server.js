@@ -44,6 +44,20 @@ app.use(express.json());
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/' + process.env.MONGO_DB_NAME);
 
+
+const db = require('./models');
+
+
+const collection = db.forums;
+const didChangeStream = collection.watch();
+
+didChangeStream.on('change', function(){
+  console.log('YOYOYOYOYOYOYOYOYOYOYOYOYOYOY!!!!');
+});
+
+
+
+
 //passport local strategy
 app.use(
   session({
