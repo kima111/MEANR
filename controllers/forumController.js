@@ -3,13 +3,6 @@ const db = require('../models');
 // Defining methods for the userController
 module.exports = {
   createForum: function(req, res){
-    const io = req.app.get('socketio');
-    io.on('connection', socket =>{
-      socket.emit('FromAPI', console.log('yo')
-      );
-      socket.broadcast.emit();
-      console.log('created');
-    });
     db.forums
       .create(req.body)
       .then(dbModel => res.json({dbModel}))

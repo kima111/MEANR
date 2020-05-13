@@ -11,23 +11,19 @@ const http = require('http');
 const server = http.createServer(app);
 const events = require('./events');
 
+
 const io = socketIO(server);
 
-
-io.on('connection', (socket) => {
-  console.log('New client connected');
-  events.testMessage(socket);
-  // if(interval) {
-  //   clearInterval(interval);
-  // }
-  // interval = setInterval(() => events.sendMessage(socket), 1000);
-  socket.on('message', function(message) {
-    io.emit('message', message);
-  });
-  socket.on('disconnect', () => {
-    console.log('Client disconnected');
-  });
-});
+// io.on('connection', (socket) => {
+//   console.log('New client connected');
+//   events.testMessage(socket);
+//   socket.on('message', function(message) {
+//     io.emit('message', message);
+//   });
+//   socket.on('disconnect', () => {
+//     console.log('Client disconnected');
+//   });
+// });
 
 
 // constants for passport
@@ -51,8 +47,8 @@ const db = require('./models');
 const collection = db.forums;
 const didChangeStream = collection.watch();
 
-didChangeStream.on('change', function(){
-  console.log('YOYOYOYOYOYOYOYOYOYOYOYOYOYOY!!!!');
+didChangeStream.on('change', function() {
+  events.sendMessage(io, 'hey');
 });
 
 

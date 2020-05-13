@@ -35,10 +35,6 @@ export default function () {
             console.log(message + "received");
             setProxyMessage(message)
         })
-    //   socket.on("FromAPI", (data) => {
-    //       setResponseData(data)
-    //   }
-    //     );
     }, []);
 
     return (

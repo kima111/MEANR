@@ -30,7 +30,7 @@ export default function SubmitForm() {
     const submitForum = event => {
         event.preventDefault();
         const currentDate = Date(Date.now()).toString()
-        socket.emit('message','message')       
+        // socket.emit('message','message')       
     API.submitForum({
         title: title,
         forumText: forumText,
