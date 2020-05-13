@@ -10,8 +10,8 @@ Here you can find a demonstration of MEANR: <a href = "https://meanr.herokuapp.c
 
 To test out the admin capabilities, use the following credentials:
 
-<b>Username:</b> <b><i>TestAdmin</i></b> <br />
-<b>Password:</b> <b><i>password</i></b>
+<b>Username:</b> <b><i>testadmin</i></b> <br />
+<b>Password:</b> <b><i>Meanr2020!</i></b>
 
 ## Features
 
