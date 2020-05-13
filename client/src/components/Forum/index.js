@@ -41,7 +41,7 @@ export default function () {
     <div>
     <Jumbotron fluid>
        <Container>
-           <h1>Forum</h1>{proxyMessage}
+           <h1>Forum</h1>
            <br />
            <hr />
            {forumInfo.map(item => (

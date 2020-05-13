@@ -13,6 +13,8 @@ To test out the admin capabilities, use the following credentials:
 <b>Username:</b> <b><i>testadmin</i></b> <br />
 <b>Password:</b> <b><i>Meanr2020!</i></b>
 
+To test out the user capabilities, use the following credentials:
+
 ## Features
 
 * Supports local authentication and registration
