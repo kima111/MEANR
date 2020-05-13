@@ -17,9 +17,8 @@ export default function () {
     }
     const ENDPOINT = "http://127.0.0.1:3001";
     
-    
-    
     const [proxyMessage, setProxyMessage] = useState("");
+
     function getInfo(){
         API.getForums().then(  
             function(response){
@@ -33,6 +32,7 @@ export default function () {
         const socket = socketIOClient(ENDPOINT);
         socket.on('message', function(message){
             console.log(message + "received");
+            getInfo()
             setProxyMessage(message)
         })
     }, []);
