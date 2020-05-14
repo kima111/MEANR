@@ -3,7 +3,9 @@ import API from '../../utils/API'
 import { Container, Button, Jumbotron } from 'react-bootstrap'
 import { UserContext } from '../../UserContext';
 import parse from 'html-react-parser';
-import socketIOClient from 'socket.io-client'
+import socketIOClient from 'socket.io-client';
+import PageCreator from '../../components/PageCreator';
+import forumImage from '../../assets/images/forum.jpg';
 
 export default function () {
 
@@ -36,12 +38,10 @@ export default function () {
     }, []);
 
     return (
-    <div>
-    <Jumbotron fluid>
-       <Container>
+    <PageCreator imageName={forumImage} opacityLevel="1">
            <h1>Forum</h1>
            <br />
-           <hr />
+           <hr/>
            {forumInfo.map(item => (
                <div key = {item._id} id={item._id}>
                     
@@ -50,7 +50,7 @@ export default function () {
                     <Button id={item._id} onClick={()=> deleteForum(item._id)} variant="outline-danger">delete forum</Button>
                     : ''
                 }</h2>
-                <p style={{fontSize: "0.85em", color: "#aaaaaa"}}>posted: {item.date}</p> 
+                <p style={{fontSize: "0.85em"}}>posted: {item.date}</p> 
                 <p>posted by: {item.username}</p>
                 <hr/>
                 {parse(item.forumText)}
@@ -61,9 +61,6 @@ export default function () {
                 )
                 )
             }
-        
-       </Container>
-    </Jumbotron>
-    </div>
+    </PageCreator>
     )
 }
