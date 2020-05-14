@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import API from "../../utils/API"
 import { Container, Form, Button, Jumbotron } from 'react-bootstrap'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import '../SubmitForum/index.css'
 import history from '../History';
+import { UserContext } from '../../UserContext';
 
 export default function SubmitForm() {
     const [title, setTitle] = useState('');
     const [forumText, setForumText] = useState('');
+    const {userInfo} = useContext(UserContext);
     const modules = { toolbar: [
         [{ 'header': [1, 2, false] }],
         ['bold', 'italic', 'underline','strike', 'blockquote', 'code-block', 'script'],
@@ -19,7 +21,7 @@ export default function SubmitForm() {
         ['link'],
         ['clean', 'formula', 'video']
       ],};
-      
+
     const submitForum = event => {
         event.preventDefault();
         const currentDate = Date(Date.now()).toString()
@@ -27,7 +29,8 @@ export default function SubmitForm() {
     API.submitForum({
         title: title,
         forumText: forumText,
-        date: currentDate
+        date: currentDate,
+        username: userInfo.username
     }).then(
         history.push('/Forum'),
         setTitle(''),
