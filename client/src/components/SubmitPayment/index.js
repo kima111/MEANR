@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, CardElement, useStripe, useElements} from "@stripe/react-stripe-js"
 import { Button, Form, Container, Jumbotron, Col} from 'react-bootstrap'
-import { useHistory } from 'react-router-dom';
 import API from '../../utils/API'
 import history from '../History';
 
