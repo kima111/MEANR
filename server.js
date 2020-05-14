@@ -25,7 +25,6 @@ const io = socketIO(server);
 //   });
 // });
 
-
 // constants for passport
 const passport = require('./passport');
 const session = require('express-session');
@@ -64,10 +63,8 @@ app.use(
 
 
 app.use( (req, res, next) => {
-//   console.log('req.session', req.session);
   return next();
 });
-
 
 
 // Initialize Passport and restore authentication state, if any, from the session.
@@ -108,8 +105,6 @@ app.use(helmet.contentSecurityPolicy({directives:{defaultSrc:['\'self\''], scrip
 app.get('*', (request, response) => {
   response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
-
-
 
 // Start the API server
 server.listen(PORT, function() {
