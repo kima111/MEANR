@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import API from '../../utils/API'
 import { Button, Form, Container, Jumbotron, Col } from 'react-bootstrap';
 import { UserContext } from '../../UserContext';
@@ -9,7 +9,8 @@ import mountainsImage from '../../assets/images/registration.jpg'
 
 export default function Registration() {
   
-        //Used for both Login and Registration
+    //Used for both Login and Registration
+    
     const { isLoggedIn, setLoggedIn } = useContext(UserContext);
  
     const { setUserInfo } = useContext(UserContext)
@@ -37,10 +38,6 @@ export default function Registration() {
 
     var [showLogin, setShowLogin] = useState(false);
     const history = useHistory();
-    const handleCloseLogin = () => setShowLogin(false);
-    const handleShowLogin = () => setShowLogin(true);
-
-
 
     const checkPasswordMatch = event => {
         event.preventDefault()
@@ -117,9 +114,6 @@ export default function Registration() {
   
         };
     }, [password, checkPassword]);
-
-
-
 
     //Registration
     const [firstName, setFirstName] = useState('');
@@ -308,23 +302,22 @@ export default function Registration() {
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{phoneErrorMessage}</p>
                 </Form.Group>
         
-        
                 <Form.Group controlId="password">
                     <Form.Label style={{color: "#ffffff"}}>Password *</Form.Label>
                     <Form.Control required={true} className="form-control mr-sm-2" onFocus={event => setPasswordMessage('Password must contain the following:')} type="password" placeholder="Password" aria-label="Password" value={password} onChange={event => setPassword(event.target.value)} />
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{passwordErrorMessage}</p>
-                    <p>{passwordMessage}</p>
-                    <p style={{ color: "#FF0000" }}>{letters}</p>
-                    <p style={{ color: "#FF0000" }}>{capital}</p>
-                    <p style={{ color: "#FF0000" }}>{number}</p>
-                    <p style={{ color: "#FF0000" }}>{length}</p>
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}>{passwordMessage}</p>
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}>{letters}</p>
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}>{capital}</p>
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}>{number}</p>
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}>{length}</p>
                 </Form.Group>
             
                 <Form.Group controlId="checkPassword">
                     <Form.Label style={{color: "#ffffff"}}>Confirm Password *</Form.Label>
                     <Form.Control required={true} className="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" value={checkPassword} onChange={event => setCheckPassword(event.target.value)}  onFocus={event => setCheckPasswordMessage('Password must match:')} />
                     <p style={{ color: "#FF0000", fontSize: "0.7em" }}> &nbsp;&nbsp;{checkPasswordErrorMessage}</p>
-                    <p>{checkPasswordValid}</p>
+                    <p style={{ color: "#FF0000", fontSize: "0.7em" }}>{checkPasswordValid}</p>
                 </Form.Group>
          
                 

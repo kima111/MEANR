@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext} from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import API from '../../utils/API'
 import { Modal, Button, Form, Navbar, Nav, NavDropdown } from 'react-bootstrap';

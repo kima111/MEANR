@@ -43,16 +43,14 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/' + process.env
 
 const db = require('./models');
 
+//watch any changes on forums collection if so, trigger event and pass in io connection
 
 const collection = db.forums;
-const didChangeStream = collection.watch();
+const forumChangeStream = collection.watch();
 
-didChangeStream.on('change', function() {
-  events.sendMessage(io, 'hey');
+forumChangeStream.on('change', function() {
+  events.forumChangeEvent(io);
 });
-
-
-
 
 //passport local strategy
 app.use(

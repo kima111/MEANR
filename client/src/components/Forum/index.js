@@ -6,8 +6,11 @@ import parse from 'html-react-parser';
 import socketIOClient from 'socket.io-client'
 
 export default function () {
+
     const { isAdmin } = useContext(UserContext);
-    const [forumInfo, setForumInfo] = useState([])
+    const [forumInfo, setForumInfo] = useState([]);
+    const endpoint = "http://127.0.0.1:3001";
+    const socket = socketIOClient(endpoint);
     
     const deleteForum = (id) => {
         API.deleteForum(id)
@@ -15,26 +18,21 @@ export default function () {
         .catch(error => console.log(error))
      
     }
-    const ENDPOINT = "http://127.0.0.1:3001";
     
-    const [proxyMessage, setProxyMessage] = useState("");
-
     function getInfo(){
         API.getForums().then(  
             function(response){
             setForumInfo(response.data)  
           })
     }
-    const socket = socketIOClient(ENDPOINT);
-    socket.on('message', function(message){
-        console.log(message + "received");
+
+    //watches for change event on forum and triggers getInfo
+    socket.on('forumChangeEvent', function(){
         getInfo()
-        setProxyMessage(message)
     })
  
     useEffect(() => {
         getInfo()
-       
     }, []);
 
     return (
