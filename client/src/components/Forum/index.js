@@ -57,7 +57,6 @@ export default function () {
                 <hr/>
                 <br/>
                 <br/>
-                
                 </div>
                 )
                 )

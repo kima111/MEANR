@@ -36,7 +36,7 @@ export default function Registration() {
 
     //Login
 
-    var [showLogin, setShowLogin] = useState(false);
+    // var [showLogin, setShowLogin] = useState(false);
     const history = useHistory();
 
     const checkPasswordMatch = event => {
@@ -54,7 +54,6 @@ export default function Registration() {
     }
     const passwordCheck = event => {
         event.preventDefault();
-        console.log("event")
           // Validate lowercase letters
         var lowerCaseLetters = /[a-z]/g;
         if(password.match(lowerCaseLetters)) {  
@@ -209,7 +208,6 @@ export default function Registration() {
             setPhoneErrorMessage('phone number required')
         }
         else if(!phone.match(phonePattern)){
-            console.log(phone)
             setPhoneErrorMessage('please use valid phone number')
         }
         else{
