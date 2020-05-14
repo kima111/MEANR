@@ -99,7 +99,7 @@ export default function Registration() {
 
         document.addEventListener("keyup", (event)=>{  
             passwordCheck(event);
-        checkPasswordMatch(event)
+            checkPasswordMatch(event)
         }, false);
       
          

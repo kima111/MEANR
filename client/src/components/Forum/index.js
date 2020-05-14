@@ -53,7 +53,7 @@ export default function () {
                 <p style={{fontSize: "0.85em", color: "#aaaaaa"}}>posted: {item.date}</p> 
                 <p>posted by: {item.username}</p>
                 <hr/>
-                <p><div>{parse(item.forumText)}</div></p>
+                {parse(item.forumText)}
                 <hr/>
                 <br/>
                 <br/>
