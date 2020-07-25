@@ -5,13 +5,13 @@ const routes = require('./routes');
 const app = express();
 const helmet = require('helmet');
 const PORT = process.env.PORT || 3001;
-const socketIO = require('socket.io');
 
+
+//constants for socket
+const socketIO = require('socket.io');
 const http = require('http');
 const server = http.createServer(app);
 const events = require('./events');
-
-
 const io = socketIO(server);
 
 // io.on('connection', (socket) => {
