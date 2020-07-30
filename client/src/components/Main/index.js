@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button, Container, Jumbotron } from 'react-bootstrap'
 import iconImage from '../../assets/images/MEANR_ICON.png'
 import seattleSkyline from '../../assets/images/Seattle_Skyline.jpg'
+import Frost from '../../components/Frost'
 
 export default function Main() {
   
@@ -17,6 +18,7 @@ export default function Main() {
                 <Button variant="outline-light" as={ Link } to="/About">Learn more</Button>
                 </Container>
             </Jumbotron>
+
         </div>
     )
 }
