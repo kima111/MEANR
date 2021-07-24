@@ -14,7 +14,7 @@ export default function Main() {
                 <h1 style={{fontSize: "2.5em", fontWeight: "400", color: "#ffffff"}} className="display-4"><img style={{marginRight: "15px", marginBottom: "10px"}}src={iconImage} alt="logo" />MEANR </h1>
                 <p className="lead" style={{color: "#ffffff"}}>(Mongo, Express, Axios, Node, React) This is a full stack boiler plate.</p>
                 <hr style={{backgroundColor: "#ffffff"}} className="my-4" />
-                <p style={{color: "#ffffff"}}>You can use this boiler plate to create full stack applications quickly</p>
+                <p style={{color: "#ffffff"}}>You can use this boiler plate to create full stack MEANR applications quickly</p>
                 <Button variant="outline-light" as={ Link } to="/About">Learn more</Button>
                 </Container>
             </Jumbotron>
